@@ -270,11 +270,17 @@ def today_plan():
     today = now().strftime("%Y-%m-%d")
     sch = load(SCHEDULE, {})
     if sch.get("date") != today:
+        # 지난 날짜의 예정·올린 개수는 history에 남김 (매일 아침 점검 작업이 달력에 씀)
+        hist = sch.get("history", {})
+        if sch.get("date"):
+            hist[sch["date"]] = {"target": len(sch.get("slots", [])), "done": sch.get("done", 0)}
+        hist = dict(sorted(hist.items())[-60:])
         n = random.randint(*PER_DAY)
         mins = sorted(random.sample(range(24 * 60), n))
         slots = [f"{m // 60:02d}:{m % 60:02d}" for m in mins]
         # 하루 중간에 처음 만들면 이미 지난 시각은 건너뜀 (한꺼번에 몰려 올라가지 않게)
-        sch = {"date": today, "slots": slots, "done": sum(1 for t in slots if t < now().strftime("%H:%M"))}
+        sch = {"date": today, "slots": slots, "done": sum(1 for t in slots if t < now().strftime("%H:%M")),
+               "history": hist}
         save(SCHEDULE, sch)
     return sch
 
