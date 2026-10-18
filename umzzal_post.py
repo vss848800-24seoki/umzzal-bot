@@ -35,14 +35,15 @@ MAX_PER_RUN = 4
 
 SITE = "https://www.kgirls.net"
 KKZZ = "https://kkzz.kr"
-SOURCES = ["mgall", "issue", "kkzz", "kgif", "stars", "ggor"]   # 앞에서부터 우선 (kkzz = kkzz.kr 움짤 공작소)
+ISSUYA = "https://www.issuya.com"
+# 앞에서부터 우선 (kkzz = kkzz.kr 움짤 공작소, issuya = 이슈야 연예 갤러리)
+SOURCES = ["mgall", "issue", "issuya", "kkzz", "kgif", "stars", "ggor"]
 MAX_PAGE = 15
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120 Safari/537.36"
 
-# 신체 부위를 집는 제목은 건너뜀
-BAD_WORDS = ["가슴", "슴골", "언더붑", "엉밑", "엉벅지", "엉덩이", "골반", "팬티", "브라", "내전근", "겨드랑",
-             "노출", "야벅지", "Y존", "y존", "젖", "속옷", "란제리", "ㅗㅜㅑ", "묵직", "출렁", "쩍벌", "비치는",
-             "뒤태", "탄력", "파인", "찰진", "망사", "방심", "검스"]
+# 신체 부위를 콕 집어 노출을 강조하는 제목만 건너뜀 (옷차림·스타일 단어는 통과, 2026-10-18 제프: 느슨하게)
+BAD_WORDS = ["가슴", "슴골", "언더붑", "엉밑", "엉덩이", "골반", "팬티", "브라", "내전근", "겨드랑",
+             "노출", "Y존", "y존", "젖", "속옷", "ㅗㅜㅑ", "출렁", "쩍벌", "빼꼼"]
 # 미성년(2008년 이후 출생) 멤버가 있는 그룹·멤버, 촬영 당시 미성년이었을 수 있는 멤버 → 건너뜀
 MINOR = ["키키", "KiiiKiii", "아일릿", "ILLIT", "베이비몬스터", "베몬", "BABYMONSTER", "하츠투하츠", "Hearts2Hearts",
          "이즈나", "izna", "트리플에스", "tripleS", "미야오", "MEOVV", "유니스", "UNIS", "영파씨", "YOUNG POSSE",
@@ -56,7 +57,12 @@ ADULT = ["블랙핑크", "로제", "지수", "제니", "리사", "트와이스",
          "프로미스나인", "백지헌", "이채영", "이나경", "송하영", "박지원", "노지선", "케플러", "다연", "김채현",
          "최유진", "샤오팅", "히카루", "빌리", "츠키", "시윤", "문수아", "키스오브라이프", "키오프", "쥴리", "나띠",
          "스테이씨", "세은", "아이사", "재이", "우주소녀", "권은비", "전소미", "청하", "아이유", "태연", "윤아",
-         "소녀시대", "마마무", "화사", "솔라", "문별", "휘인", "에이핑크", "비비", "이주은", "안지현", "설현", "AOA", "윤보미", "하이키", "브브걸", "브레이브걸스"]
+         "소녀시대", "마마무", "화사", "솔라", "문별", "휘인", "에이핑크", "비비", "이주은", "안지현", "설현", "AOA", "윤보미", "하이키", "브브걸", "브레이브걸스",
+         # 성인 확인된 이름 추가 (2026-10-18)
+         "라잇썸", "히나", "김민주", "남규리", "이세희", "김소현", "이나경", "아이칠린", "이다혜", "김한나",
+         "수지", "한소희", "김유정", "고윤정", "김지원", "신세경", "박보영", "선미", "현아", "효린", "씨스타",
+         "티아라", "에일리", "EXID", "솔지", "혜린", "걸스데이", "혜리", "설리", "크리스탈", "드림캐쳐",
+         "위키미키", "최유정", "김도연", "이달의소녀", "츄", "희진", "하슬", "로켓펀치", "체리블렛"]
 
 
 def now():
@@ -106,6 +112,14 @@ def list_page(board, page):
             if t:
                 out[int(no)] = t
         return sorted(out.items(), reverse=True)
+    if board == "issuya":
+        s = get(f"{ISSUYA}/bbs/board.php?bo_table=gallery&page={page}")
+        out = {}
+        for no, t in re.findall(r'bo_table=gallery&(?:amp;)?wr_id=(\d+)[^"]*"[^>]*>(.*?)</a>', s, re.S):
+            t = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", t))).strip()
+            if t and int(no) not in out:
+                out[int(no)] = t
+        return sorted(out.items(), reverse=True)
     s = get(f"{SITE}/{board}?page={page}")
     return [(n, None) for n in sorted({int(n) for n in re.findall(rf'/{board}/(\d+)["?#]', s)}, reverse=True)]
 
@@ -115,6 +129,10 @@ def read_post(board, no, title=None):
         s = get(f"{KKZZ}/?vid={no}")
         base = KKZZ
         img_pat = r'[^"]*wp-content/uploads/[^"]+'
+    elif board == "issuya":
+        s = get(f"{ISSUYA}/bbs/board.php?bo_table=gallery&wr_id={no}")
+        base = ISSUYA
+        img_pat = r'[^"]*/data/(?:file/gallery|editor)/(?!.*thumb-)[^"]+'
     else:
         s = get(f"{SITE}/{board}/{no}")
         m = re.search(r"<title>([^<]*)</title>", s)
@@ -122,7 +140,7 @@ def read_post(board, no, title=None):
         base = SITE
         img_pat = r'[^"]*/files/attach/images/\d+/\d+/\d+/[^"]+\.(?:gif|jpe?g|png|webp)'
     media = []
-    for m in re.finditer(rf'<video[^>]*?\ssrc="([^"]+)"|<img[^>]*?\ssrc="({img_pat})"', s):
+    for m in re.finditer(rf'<(?:video|source)[^>]*?\ssrc=["\']([^"\']+\.mp4[^"\']*)["\']|<img[^>]*?\ssrc="({img_pat})"', s):
         u = html.unescape(m.group(1) or m.group(2))
         if u.startswith("/"):
             u = base + re.sub(r"^/\./", "/", u)
