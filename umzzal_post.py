@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 아이돌 움짤 자동 게시 (kgirls.net → 누드티비 유머게시판, 2026-10-18 제프)
-- 원본: kgirls 마이너갤·볼거리(새 글 많음) → 그냥 움짤·입덕짤·그냥 은꼴(지난 글 재고)
+- 원본: kgirls 마이너갤·볼거리(새 글 많음) → kkzz.kr 움짤 공작소 → kgirls 그냥 움짤·입덕짤·그냥 은꼴(지난 글 재고)
 - 움짤(mp4)·사진은 원본 주소 그대로 링크 걸기(<video>/<img>). 누드티비 업로드는 GIF를 멈춘 사진으로 바꿔서 안 씀
 - 어드민 API로 작성(로그인 영상특파원 구미호), 글쓴이는 nicknames.json 100개 중 랜덤
 - 제목은 원글 제목 그대로
@@ -34,17 +34,19 @@ PER_DAY = (20, 30)
 MAX_PER_RUN = 4
 
 SITE = "https://www.kgirls.net"
-SOURCES = ["mgall", "issue", "kgif", "stars", "ggor"]   # 앞에서부터 우선
+KKZZ = "https://kkzz.kr"
+SOURCES = ["mgall", "issue", "kkzz", "kgif", "stars", "ggor"]   # 앞에서부터 우선 (kkzz = kkzz.kr 움짤 공작소)
 MAX_PAGE = 15
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120 Safari/537.36"
 
 # 신체 부위를 집는 제목은 건너뜀
 BAD_WORDS = ["가슴", "슴골", "언더붑", "엉밑", "엉벅지", "엉덩이", "골반", "팬티", "브라", "내전근", "겨드랑",
-             "노출", "야벅지", "Y존", "y존", "젖", "속옷", "란제리", "ㅗㅜㅑ", "묵직", "출렁", "쩍벌", "비치는"]
+             "노출", "야벅지", "Y존", "y존", "젖", "속옷", "란제리", "ㅗㅜㅑ", "묵직", "출렁", "쩍벌", "비치는",
+             "뒤태", "탄력", "파인", "찰진", "망사", "방심", "검스"]
 # 미성년(2008년 이후 출생) 멤버가 있는 그룹·멤버, 촬영 당시 미성년이었을 수 있는 멤버 → 건너뜀
 MINOR = ["키키", "KiiiKiii", "아일릿", "ILLIT", "베이비몬스터", "베몬", "BABYMONSTER", "하츠투하츠", "Hearts2Hearts",
          "이즈나", "izna", "트리플에스", "tripleS", "미야오", "MEOVV", "유니스", "UNIS", "영파씨", "YOUNG POSSE",
-         "이서", "혜인", "키비츠"]
+         "이서", "혜인", "키비츠", "앳하트", "AtHeart", "오드유스", "ODD YOUTH"]
 # 성인 멤버만 있는 그룹·멤버 (제목에 하나는 있어야 올림)
 ADULT = ["블랙핑크", "로제", "지수", "제니", "리사", "트와이스", "나연", "정연", "모모", "사나", "지효", "미나", "다현",
          "채영", "쯔위", "레드벨벳", "아이린", "슬기", "웬디", "조이", "예리", "아이브", "안유진", "장원영", "리즈",
@@ -54,7 +56,7 @@ ADULT = ["블랙핑크", "로제", "지수", "제니", "리사", "트와이스",
          "프로미스나인", "백지헌", "이채영", "이나경", "송하영", "박지원", "노지선", "케플러", "다연", "김채현",
          "최유진", "샤오팅", "히카루", "빌리", "츠키", "시윤", "문수아", "키스오브라이프", "키오프", "쥴리", "나띠",
          "스테이씨", "세은", "아이사", "재이", "우주소녀", "권은비", "전소미", "청하", "아이유", "태연", "윤아",
-         "소녀시대", "마마무", "화사", "솔라", "문별", "휘인", "에이핑크", "비비", "이주은", "안지현", "설현", "AOA"]
+         "소녀시대", "마마무", "화사", "솔라", "문별", "휘인", "에이핑크", "비비", "이주은", "안지현", "설현", "AOA", "윤보미", "하이키", "브브걸", "브레이브걸스"]
 
 
 def now():
@@ -80,26 +82,50 @@ def get(url):
 
 def judge(title):
     """올려도 되면 None, 아니면 건너뛰는 이유"""
+    t = title.replace("키스오브라이프", "키오프")   # '오브라이프' 속 '브라'가 걸리지 않게
     for w in BAD_WORDS:
-        if w in title:
+        if w in t:
             return f"신체 부위 단어 '{w}'"
     for w in MINOR:
-        if w in title:
+        # '이서'는 '가까이서'처럼 다른 말 속에 들어가므로 따로 쓰였을 때만
+        hit = re.search(r"(^|[\s\[(])이서($|[\s\])])", t) if w == "이서" else (w in t)
+        if hit:
             return f"미성년 멤버 가능 '{w}'"
     if not any(w in title for w in ADULT):
         return "누군지 확실하지 않음"
     return None
 
 
-def read_post(board, no):
-    s = get(f"{SITE}/{board}/{no}")
-    m = re.search(r"<title>([^<]*)</title>", s)
-    title = html.unescape(m.group(1)).split(" - ")[0].strip() if m else ""
+def list_page(board, page):
+    """목록 한 쪽의 [(글 번호, 목록 제목 또는 None)] (최신순)"""
+    if board == "kkzz":
+        s = get(f"{KKZZ}/?mode=list&board_page={page}")
+        out = {}
+        for no, t in re.findall(r'href="https://kkzz\.kr/\?vid=(\d+)"[^>]*>(.*?)</a>', s, re.S):
+            t = html.unescape(re.sub(r"<[^>]+>", "", t)).strip()
+            if t:
+                out[int(no)] = t
+        return sorted(out.items(), reverse=True)
+    s = get(f"{SITE}/{board}?page={page}")
+    return [(n, None) for n in sorted({int(n) for n in re.findall(rf'/{board}/(\d+)["?#]', s)}, reverse=True)]
+
+
+def read_post(board, no, title=None):
+    if board == "kkzz":
+        s = get(f"{KKZZ}/?vid={no}")
+        base = KKZZ
+        img_pat = r'[^"]*wp-content/uploads/[^"]+'
+    else:
+        s = get(f"{SITE}/{board}/{no}")
+        m = re.search(r"<title>([^<]*)</title>", s)
+        title = html.unescape(m.group(1)).split(" - ")[0].strip() if m else ""
+        base = SITE
+        img_pat = r'[^"]*/files/attach/images/\d+/\d+/\d+/[^"]+\.(?:gif|jpe?g|png|webp)'
     media = []
-    for m in re.finditer(r'<video[^>]*?\ssrc="([^"]+)"|<img[^>]*?\ssrc="([^"]*/files/attach/images/\d+/\d+/\d+/[^"]+\.(?:gif|jpe?g|png|webp))"', s):
+    for m in re.finditer(rf'<video[^>]*?\ssrc="([^"]+)"|<img[^>]*?\ssrc="({img_pat})"', s):
         u = html.unescape(m.group(1) or m.group(2))
         if u.startswith("/"):
-            u = SITE + re.sub(r"^/\./", "/", u)
+            u = base + re.sub(r"^/\./", "/", u)
         kind = "video" if m.group(1) else "img"
         if (kind, u) not in media:
             media.append((kind, u))
@@ -125,19 +151,22 @@ def candidates(need):
     for board in SOURCES:
         for page in range(1, MAX_PAGE + 1):
             try:
-                s = get(f"{SITE}/{board}?page={page}")
+                rows = list_page(board, page)
             except Exception as e:
                 print(f"  [목록 실패] {board} {page}쪽: {e}")
                 break
-            nos = sorted({int(n) for n in re.findall(rf'/{board}/(\d+)["?#]', s)}, reverse=True)
-            if not nos:
+            if not rows:
                 break
-            for no in nos:
+            for no, list_title in rows:
                 key = f"{board}/{no}"
                 if key in rec["posted"] or key in rec["skipped"]:
                     continue
+                if list_title and judge(list_title):   # 목록 제목으로 먼저 거르면 글을 안 열어도 됨
+                    rec["skipped"][key] = {"title": list_title, "why": judge(list_title)}
+                    save(POSTED, rec)
+                    continue
                 try:
-                    title, media = read_post(board, no)
+                    title, media = read_post(board, no, list_title)
                 except Exception as e:
                     print(f"  [글 읽기 실패] {key}: {e}")
                     continue
