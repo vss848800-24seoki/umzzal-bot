@@ -90,6 +90,7 @@ def get(url):
 def judge(title):
     """올려도 되면 None, 아니면 건너뛰는 이유"""
     t = title.replace("키스오브라이프", "키오프")   # '오브라이프' 속 '브라'가 걸리지 않게
+    t = t.replace("브라톱", "톱")   # 브라톱은 옷차림이라 통과
     for w in BAD_WORDS:
         if w in t:
             return f"신체 부위 단어 '{w}'"
