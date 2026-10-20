@@ -277,21 +277,24 @@ def today_plan():
         if sch.get("date"):
             hist[sch["date"]] = {"target": len(sch.get("slots", [])), "done": sch.get("done", 0)}
         hist = dict(sorted(hist.items())[-60:])
+        # 어제 못 올린 개수는 오늘로 넘겨서 먼저 올림 (자정 넘어 서버가 늦게 깨어나도 누락 없게, 2026-10-20 제프)
+        carry = max(0, len(sch.get("slots", [])) - sch.get("done", 0)) if sch.get("date") else 0
         n = random.randint(*PER_DAY)
         mins = sorted(random.sample(range(24 * 60), n))
         slots = [f"{m // 60:02d}:{m % 60:02d}" for m in mins]
-        # 하루 중간에 처음 만들면 이미 지난 시각은 건너뜀 (한꺼번에 몰려 올라가지 않게)
-        sch = {"date": today, "slots": slots, "done": sum(1 for t in slots if t < now().strftime("%H:%M")),
-               "history": hist}
+        # 맨 처음 시작한 날만 이미 지난 시각을 건너뜀 (날짜가 바뀔 때는 건너뛰지 않음)
+        first = not sch.get("date")
+        done = sum(1 for t in slots if t < now().strftime("%H:%M")) if first else 0
+        sch = {"date": today, "slots": slots, "done": done, "carry": carry, "history": hist}
         save(SCHEDULE, sch)
     return sch
 
 
 def auto():
     sch = today_plan()
-    due = sum(1 for t in sch["slots"] if t <= now().strftime("%H:%M"))
+    due = sch.get("carry", 0) + sum(1 for t in sch["slots"] if t <= now().strftime("%H:%M"))
     need = min(due - sch["done"], MAX_PER_RUN)
-    print(f"[{now():%Y-%m-%d %H:%M}] 오늘 {len(sch['slots'])}개 예정 · 지금까지 예정 {due} · 올림 {sch['done']}")
+    print(f"[{now():%Y-%m-%d %H:%M}] 오늘 {len(sch['slots'])}개 예정(+어제 넘어온 {sch.get('carry', 0)}) · 지금까지 예정 {due} · 올림 {sch['done']}")
     if need <= 0:
         return
     got = submit(need)
