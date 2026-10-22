@@ -126,15 +126,33 @@ def list_page(board, page):
     return [(n, None) for n in sorted({int(n) for n in re.findall(rf'/{board}/(\d+)["?#]', s)}, reverse=True)]
 
 
+def div_block(s, marker):
+    """marker가 들어 있는 <div>부터 그 div가 닫히는 곳까지 (본문 칸만 잘라내기). 못 찾으면 빈 문자열"""
+    a = s.find(marker)
+    if a < 0:
+        return ""
+    i = s.rfind("<div", 0, a)
+    depth = 0
+    for m in re.finditer(r"<div\b|</div>", s[i:]):
+        depth += 1 if m.group(0).startswith("<div") else -1
+        if depth == 0:
+            return s[i:i + m.end()]
+    return s[i:]
+
+
 def read_post(board, no, title=None):
     if board == "kkzz":
         s = get(f"{KKZZ}/?vid={no}")
         base = KKZZ
         img_pat = r'[^"]*wp-content/uploads/[^"]+'
     elif board == "issuya":
-        s = get(f"{ISSUYA}/bbs/board.php?bo_table=gallery&wr_id={no}")
+        page = get(f"{ISSUYA}/bbs/board.php?bo_table=gallery&wr_id={no}")
+        # 본문 칸(view-content)만 봄 — 페이지 아래 '최근 갤러리' 칸의 다른 글 사진이 섞이지 않게 (2026-10-22 제프: 1443·1445번 중복 사진)
+        s = div_block(page, 'class="view-content')
+        # 본문 사진은 줄인 파일(thumb-…_1000x…)로 보이고 원본 주소는 content 속성에 있음 → 원본으로 바꿔 읽음
+        s = re.sub(r'<img([^>]*?)\scontent="([^"]+)"([^>]*?)\ssrc="[^"]+"', r'<img\1\3 src="\2"', s)
         base = ISSUYA
-        img_pat = r'[^"]*/data/(?:file/gallery|editor)/(?!.*thumb-)[^"]+'
+        img_pat = r'[^"]*/data/(?:file/gallery|editor)/[^"]+'
     else:
         s = get(f"{SITE}/{board}/{no}")
         m = re.search(r"<title>([^<]*)</title>", s)
