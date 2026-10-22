@@ -37,7 +37,7 @@ SITE = "https://www.kgirls.net"
 KKZZ = "https://kkzz.kr"
 ISSUYA = "https://www.issuya.com"
 # 앞에서부터 우선 (kkzz = kkzz.kr 움짤 공작소, issuya = 이슈야 연예 갤러리)
-SOURCES = ["mgall", "issue", "issuya", "kkzz", "kgif", "stars", "ggor"]
+SOURCES = ["issuya", "kkzz", "mgall", "issue", "kgif", "stars", "ggor"]   # 2026-10-22: kgirls 영상 차단으로 이슈야·kkzz 먼저
 MAX_PAGE = 15
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120 Safari/537.36"
 
@@ -244,6 +244,10 @@ def localize(media, h):
     out = []
     for kind, u in media:
         path = u.split("?")[0].lower()
+        if kind == "video" and "://www.kgirls.net/" in u:
+            # www.kgirls.net 영상은 다른 사이트에서 링크하면 막힘(캐시돼 있을 때만 보임) → 넣지 않음 (2026-10-22, 1439번)
+            print(f"    [영상 뺌] kgirls 링크 차단: {u[-40:]}")
+            continue
         if kind != "img" or path.endswith(".gif"):
             out.append((kind, u))
             continue
