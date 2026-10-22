@@ -305,6 +305,10 @@ def submit(n):
             rec["skipped"][key] = {"title": title, "why": "게시판에 같은 제목 있음"}
             save(POSTED, rec)
             continue
+        # 다른 글에 이미 쓴 원본 사진·영상은 뺌 (사이트 구조를 잘못 읽어 같은 사진이 여러 글에 붙는 것 방지, 2026-10-22)
+        used = {x for p in rec["posted"].values() for x in p.get("urls", [])}
+        media = [(k, x) for k, x in media if x not in used]
+        src_urls = [x for _, x in media]
         media = localize(media, h)
         if not media:
             rec["skipped"][key] = {"title": title, "why": "움짤·사진 없음"}
@@ -321,7 +325,7 @@ def submit(n):
         d = r.json()
         pid = (d.get("post") or d.get("data") or d).get("id")
         rec["posted"][key] = {"id": pid, "title": title, "nick": nick, "media": len(media),
-                              "at": now().strftime("%Y-%m-%d %H:%M")}
+                              "at": now().strftime("%Y-%m-%d %H:%M"), "urls": src_urls}
         save(POSTED, rec)
         count += 1
         print(f"  [게시 완료] {pid} · {nick} · {title} (움짤·사진 {len(media)}개)")
