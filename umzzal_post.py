@@ -235,6 +235,40 @@ def pick_nick(rec):
     return random.choice(pool)
 
 
+UPLOAD_BASE = "https://nudetv-v2-admin-backend.onrender.com"
+
+
+def localize(media, h):
+    """사진(jpg·png·webp)은 받아서 누드티비에 업로드한 주소로 바꿈 — 원본 사이트가 외부 사진 표시를 막아 엑박이 나서
+    (2026-10-22 제프: 츠키-나띠 1433번 엑박). 움짤 mp4·GIF는 업로드하면 멈추므로 원본 주소 그대로. 업로드 실패한 사진은 뺌"""
+    out = []
+    for kind, u in media:
+        path = u.split("?")[0].lower()
+        if kind != "img" or path.endswith(".gif"):
+            out.append((kind, u))
+            continue
+        try:
+            img = requests.get(u, headers={"User-Agent": UA}, timeout=60)
+            ctype = img.headers.get("Content-Type", "")
+            if img.status_code != 200 or not ctype.startswith("image/"):
+                raise RuntimeError(f"받기 실패 {img.status_code} {ctype}")
+            name = os.path.basename(path) or "image.jpg"
+            url, code = None, None
+            for wait in (0, 10, 30):   # 누드티비 서버가 잠깐 502를 낼 때가 있어 3번까지 다시 시도
+                time.sleep(wait)
+                r = requests.post(f"{API}/upload", files={"image": (name, img.content, ctype)}, headers=h, timeout=120)
+                code = r.status_code
+                if code == 200:
+                    url = (r.json() or {}).get("imageUrl")
+                    break
+            if not url:
+                raise RuntimeError(f"업로드 실패 {code}")
+            out.append(("img", url if url.startswith("http") else UPLOAD_BASE + url))
+        except Exception as e:
+            print(f"    [사진 뺌] {u[-50:]}: {e}")
+    return out
+
+
 def submit(n):
     items = candidates(n)
     if not items:
@@ -248,6 +282,12 @@ def submit(n):
         if title in existing:
             rec["skipped"][key] = {"title": title, "why": "게시판에 같은 제목 있음"}
             save(POSTED, rec)
+            continue
+        media = localize(media, h)
+        if not media:
+            rec["skipped"][key] = {"title": title, "why": "움짤·사진 없음"}
+            save(POSTED, rec)
+            print(f"  [건너뜀] {title}: 쓸 수 있는 움짤·사진 없음")
             continue
         nick = pick_nick(rec)
         body = {"board_type": BOARD, "title": title, "content": to_html(media), "author_nickname": nick,
