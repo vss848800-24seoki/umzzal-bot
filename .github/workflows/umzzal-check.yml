@@ -1,0 +1,45 @@
+# 이미 올린 안구정화 글의 kgirls 영상 재생 점검 (3시간마다, 2026-10-22 제프)
+# 재생 안 되는 영상만 있는 글은 삭제, 섞인 글은 그 영상만 뺌 — check_media.py
+name: umzzal-check
+
+on:
+  schedule:
+    - cron: "40 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write   # 처리 기록(posted.json) 저장용
+
+concurrency:
+  group: umzzal   # 게시 실행과 겹치지 않게 같은 줄에 세움
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 프로그램 설치
+        run: pip install -q requests
+
+      - name: 재생 점검
+        env:
+          NUDETV_ADMIN_ID: ${{ secrets.NUDETV_ADMIN_ID }}
+          NUDETV_ADMIN_PW: ${{ secrets.NUDETV_ADMIN_PW }}
+        run: python3 check_media.py --apply
+
+      - name: 처리 기록 저장
+        if: always()
+        run: |
+          git config user.name "umzzal-bot"
+          git config user.email "umzzal-bot@users.noreply.github.com"
+          git add posted.json
+          git diff --cached --quiet && exit 0
+          git commit -q -m "재생 점검 기록 갱신"
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
