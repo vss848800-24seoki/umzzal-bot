@@ -1200,6 +1200,16 @@
       "urls": [
         "https://www.issuya.com/data/file/gallery/2106213190_nBNOG3ej_ef46340f71494bf7a5c434581b511e5996329016.mp4"
       ]
+    },
+    "issuya/45135": {
+      "id": 1523,
+      "title": "가슴 모아주는 라잇썸 초원",
+      "nick": "빨간우산",
+      "media": 1,
+      "at": "2026-10-23 16:20",
+      "urls": [
+        "https://www.issuya.com/data/file/gallery/2106213190_HufRDmd9_0e7759e2b37e74dbab3e57b08e8f8fe3193b0a55.jpg"
+      ]
     }
   },
   "skipped": {
@@ -1745,6 +1755,10 @@
     },
     "issuya/19091": {
       "title": "네이버, 구글에서 '이슈야'를 검색하세요.",
+      "why": "누군지 확실하지 않음"
+    },
+    "issuya/45136": {
+      "title": "전날 뜨밤을 보낸 호텔 손님",
       "why": "누군지 확실하지 않음"
     }
   }
