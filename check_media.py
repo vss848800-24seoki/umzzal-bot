@@ -11,6 +11,7 @@
       python3 check_media.py --apply  (실제 삭제·수정)
 """
 import json, os, re, sys, time
+from concurrent.futures import ThreadPoolExecutor
 import requests
 import umzzal_post as u
 
@@ -53,11 +54,14 @@ def main(apply):
             continue
         content = p.get("content") or ""
         vids = re.findall(r'<video[^>]*src="([^"]+)"', content)
-        bad = [s for s in vids if "://www.kgirls.net/" in s]
+        bad = vids   # 2026-10-23: kgirls뿐 아니라 모든 영상 점검 (주소 버그·다른 사이트 차단도 잡게)
         if not bad:
             continue
         checked += 1
-        broken = [s for s in bad if not video_ok(s, pid)]
+        # 영상 여러 개를 동시에 확인 (모든 영상 점검으로 늘어난 시간 줄이기, 2026-10-23)
+        with ThreadPoolExecutor(max_workers=8) as ex:
+            oks = list(ex.map(lambda s: video_ok(s, pid), bad))
+        broken = [s for s, ok in zip(bad, oks) if not ok]
         if not broken:
             continue
         others = len(vids) - len(broken) + len(re.findall(r"<img", content))
@@ -92,7 +96,7 @@ def main(apply):
                 print(f"    [수정 실패] {r.status_code} {r.text[:120]}")
         u.save(u.POSTED, rec)
         time.sleep(2)
-    print(f"[점검 끝] kgirls 영상 글 {checked}개 확인 · 삭제 {deleted} · 수정 {trimmed}" + ("" if apply else " (미리보기)"))
+    print(f"[점검 끝] 영상 글 {checked}개 확인 · 삭제 {deleted} · 수정 {trimmed}" + ("" if apply else " (미리보기)"))
 
 
 if __name__ == "__main__":
