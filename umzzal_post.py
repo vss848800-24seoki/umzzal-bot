@@ -162,8 +162,12 @@ def read_post(board, no, title=None):
     media = []
     for m in re.finditer(rf'<(?:video|source)[^>]*?\ssrc=["\']([^"\']+\.mp4[^"\']*)["\']|<img[^>]*?\ssrc="({img_pat})"', s):
         u = html.unescape(m.group(1) or m.group(2))
-        if u.startswith("/"):
+        if u.startswith("//"):          # https: 가 빠진 주소 (2026-10-23, 1533·1534번 재생 안 됨)
+            u = "https:" + u
+        elif u.startswith("/"):
             u = base + re.sub(r"^/\./", "/", u)
+        if "heye.kr/" in u:             # heye 서버 파일은 외부 링크 차단 → 안 씀
+            continue
         kind = "video" if m.group(1) else "img"
         if (kind, u) not in media:
             media.append((kind, u))
