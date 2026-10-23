@@ -1190,6 +1190,16 @@
         "https://www.issuya.com/data/file/gallery/thumb-2106213190_fxk5LKGn_4c7c93b35386113155201257ce4483af54a60b3c_1000x1386.jpg",
         "https://www.issuya.com/data/file/gallery/thumb-2106213190_wO27Tiqy_e9b850c7699e5848a029316cc8b5acd062d8a976_1000x1387.jpg"
       ]
+    },
+    "issuya/45137": {
+      "id": 1518,
+      "title": "태연의 재력을 알수있는 취미ㄷㄷ",
+      "nick": "까치발",
+      "media": 1,
+      "at": "2026-10-23 14:51",
+      "urls": [
+        "https://www.issuya.com/data/file/gallery/2106213190_nBNOG3ej_ef46340f71494bf7a5c434581b511e5996329016.mp4"
+      ]
     }
   },
   "skipped": {
@@ -1724,6 +1734,18 @@
     "mgall/1755778": {
       "title": "키키 이솔",
       "why": "미성년 멤버 가능 '키키'"
+    },
+    "issuya/45120": {
+      "title": "[나이키]보메로 프리미엄 입고 기념 특가!",
+      "why": "누군지 확실하지 않음"
+    },
+    "issuya/42809": {
+      "title": "배너 광고 받습니다.",
+      "why": "누군지 확실하지 않음"
+    },
+    "issuya/19091": {
+      "title": "네이버, 구글에서 '이슈야'를 검색하세요.",
+      "why": "누군지 확실하지 않음"
     }
   }
 }
