@@ -1584,7 +1584,11 @@
       "urls": [
         "https://www.issuya.com/data/editor/2511/17622572572327.mp4",
         "https://www.issuya.com/data/editor/2511/17622572589766.mp4"
-      ]
+      ],
+      "removed": {
+        "at": "2026-10-24 13:46",
+        "why": "원본 영상 파일 삭제됨(404)"
+      }
     }
   },
   "skipped": {
