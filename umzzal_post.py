@@ -270,7 +270,20 @@ def localize(media, h):
             # www.kgirls.net 영상은 다른 사이트에서 링크하면 막힘(캐시돼 있을 때만 보임) → 넣지 않음 (2026-10-22, 1439번)
             print(f"    [영상 뺌] kgirls 링크 차단: {u[-40:]}")
             continue
-        if kind != "img" or path.endswith(".gif"):
+        if kind == "video":
+            # 올리기 전에 영상 파일이 실제로 열리는지 확인 (2026-10-24 제프: 1607번 — 원본에서 지워진 파일이 그대로 올라감)
+            try:
+                r = requests.get(u, headers={"User-Agent": UA, "Range": "bytes=0-1023"}, timeout=30, stream=True)
+                alive = r.status_code in (200, 206) and r.headers.get("Content-Type", "").startswith("video/")
+                r.close()
+            except Exception:
+                alive = False
+            if not alive:
+                print(f"    [영상 뺌] 열리지 않음: {u[-50:]}")
+                continue
+            out.append((kind, u))
+            continue
+        if path.endswith(".gif"):
             out.append((kind, u))
             continue
         try:
