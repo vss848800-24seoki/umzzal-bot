@@ -4,7 +4,7 @@
 안구정화(움짤) 자동 게시 점검용 요약 (예약 작업 umzzal-daily-report가 이 명령 하나만 실행, 2026-10-21)
 - 저장소 최신 기록을 받고(git pull), 오늘·어제 목표·게시 개수, 서버 실행 상태를 JSON으로 출력
 - 읽기만 함 (글 등록·삭제 없음, 원본 사이트 요청 없음, 비밀값 출력 없음)
-실행: python3 ~/Downloads/움짤작업/report.py
+실행: python3 ~/Downloads/누드티비_게시판/움짤작업/report.py
 """
 import collections, datetime, json, os, subprocess
 from zoneinfo import ZoneInfo
