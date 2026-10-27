@@ -3077,6 +3077,36 @@
         "https://imgur.com/hjqtnda.mp4",
         "https://imgur.com/EH4kAMg.mp4"
       ]
+    },
+    "issue/1794525": {
+      "id": 2084,
+      "title": "이나경(나꼬) 인스타",
+      "nick": "아아한잔",
+      "media": 6,
+      "at": "2026-10-28 06:28",
+      "urls": [
+        "https://www.kgirls.net/files/attach/images/318892/525/794/001/669a0fcc3a88a563e68b28234eeb7e92.jpg",
+        "https://www.kgirls.net/files/attach/images/318892/525/794/001/159ea76ca1aee00c8c5ae12bce22c580.jpg",
+        "https://www.kgirls.net/files/attach/images/318892/525/794/001/90411b27b7b547cdad111d980f6fdc49.jpg",
+        "https://www.kgirls.net/files/attach/images/318892/525/794/001/10e2c6b871c0a2b0ebc0df84062af2f3.jpg",
+        "https://www.kgirls.net/files/attach/images/318892/525/794/001/51ebc354e5933cf062c527573b7c66d4.jpg",
+        "https://www.kgirls.net/files/attach/images/318892/525/794/001/09df6c7f56a419e77592dd07dc8118f2.jpg"
+      ]
+    },
+    "issue/1785615": {
+      "id": 2085,
+      "title": "비비지 엄지",
+      "nick": "jjm0412",
+      "media": 6,
+      "at": "2026-10-28 06:30",
+      "urls": [
+        "https://www.kgirls.net/files/attach/images/318892/615/785/001/785ca0595d9688273cf33e648cf88c80.jpg",
+        "https://www.kgirls.net/files/attach/images/318892/615/785/001/532cc861e94e0ac69b0fedf6f26ecf43.jpg",
+        "https://www.kgirls.net/files/attach/images/318892/615/785/001/9fcfa12aa82bbf51620eda1076e9fe61.jpg",
+        "https://www.kgirls.net/files/attach/images/318892/615/785/001/63fb9a081ac6889e54d0ff865c670589.jpg",
+        "https://www.kgirls.net/files/attach/images/318892/615/785/001/7a97db63ca32472e8662feec58679a83.jpg",
+        "https://www.kgirls.net/files/attach/images/318892/615/785/001/2b4f0ecaadb3608331ec127ad1e5edd7.jpg"
+      ]
     }
   },
   "skipped": {
@@ -5474,6 +5504,14 @@
     },
     "issue/1794591": {
       "title": "소주 마시는 라잇썸 나영",
+      "why": "움짤·사진 없음"
+    },
+    "issue/1794234": {
+      "title": "유나 빼꼼 밑살",
+      "why": "누군지 확실하지 않음"
+    },
+    "issue/1794243": {
+      "title": "설윤아",
       "why": "움짤·사진 없음"
     }
   }
