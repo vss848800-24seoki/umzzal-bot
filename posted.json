@@ -2704,6 +2704,19 @@
         "https://www.kgirls.net/files/attach/images/318894/118/783/001/c226db99199566c8929e1683a3ac62ea.jpg",
         "https://www.kgirls.net/files/attach/images/318894/118/783/001/a1f0e10e131ba90e0695acb3495e0641.jpg"
       ]
+    },
+    "issue/1793461": {
+      "id": 2004,
+      "title": "글래머 아이유",
+      "nick": "고등어구이",
+      "media": 4,
+      "at": "2026-10-27 11:06",
+      "urls": [
+        "https://www.kgirls.net/files/attach/images/318892/461/793/001/68f19373166f6f9c8bc894e8756c5611.jpg",
+        "https://www.kgirls.net/files/attach/images/318892/461/793/001/a90ab00214145e331b1b13f1be005455.jpg",
+        "https://www.kgirls.net/files/attach/images/318892/461/793/001/8eb1b6d3031989d42a012751d51d301d.jpg",
+        "https://www.kgirls.net/files/attach/images/318892/461/793/001/1f94ad6838b8114f5564879bdcb19d7c.jpg"
+      ]
     }
   },
   "skipped": {
@@ -4653,6 +4666,42 @@
     },
     "mgall/1782614": {
       "title": "르세라핌 카즈하 채원 윤진",
+      "why": "움짤·사진 없음"
+    },
+    "mgall/1782588": {
+      "title": "엔믹스 릴리",
+      "why": "이미 올린 제목"
+    },
+    "mgall/1782575": {
+      "title": "르세라핌 카즈하",
+      "why": "이미 올린 제목"
+    },
+    "mgall/1782538": {
+      "title": "아이브 유진",
+      "why": "이미 올린 제목"
+    },
+    "mgall/1782222": {
+      "title": "있지 유나",
+      "why": "이미 올린 제목"
+    },
+    "issue/1793468": {
+      "title": "리센느 제나 오프숄더",
+      "why": "누군지 확실하지 않음"
+    },
+    "issue/1793369": {
+      "title": "아이브 이서 연습실",
+      "why": "미성년 멤버 가능 '이서'"
+    },
+    "mgall/1782586": {
+      "title": "허윤진 흰색",
+      "why": "움짤·사진 없음"
+    },
+    "mgall/1782566": {
+      "title": "카즈하 오늘의 쿠키",
+      "why": "움짤·사진 없음"
+    },
+    "issue/1793355": {
+      "title": "이채영 밑덩이",
       "why": "움짤·사진 없음"
     }
   }
