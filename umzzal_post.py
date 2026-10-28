@@ -308,15 +308,10 @@ def localize(media, h):
     return out
 
 
-def submit(n):
-    items = candidates(n)
-    if not items:
-        print("[올릴 글 없음]")
-        return 0
-    h = login()
-    existing = public_titles()
-    rec = load(POSTED, {"posted": {}, "skipped": {}})
-    count = 0
+def post_items(items, h, existing):
+    """후보 목록을 올림. (올린 개수, 등록 실패가 있었는지)를 돌려줌"""
+    rec = load(POSTED, {"posted": {}, "skipped": {}})   # candidates()가 기록한 건너뜀을 포함해 다시 읽음
+    count, failed = 0, False
     for key, title, media in items:
         if title in existing:
             rec["skipped"][key] = {"title": title, "why": "게시판에 같은 제목 있음"}
@@ -338,6 +333,7 @@ def submit(n):
         r = requests.post(f"{API}/posts", json=body, headers=h, timeout=90)
         if r.status_code not in (200, 201):
             print(f"  [등록 실패] {title}: {r.status_code} {r.text[:200]}")
+            failed = True
             continue
         d = r.json()
         pid = (d.get("post") or d.get("data") or d).get("id")
@@ -347,6 +343,26 @@ def submit(n):
         count += 1
         print(f"  [게시 완료] {pid} · {nick} · {title} (움짤·사진 {len(media)}개)")
         time.sleep(random.randint(20, 90))
+    return count, failed
+
+
+def submit(n):
+    """n개를 올림. 후보가 건너뛰어지면(사진·영상 없음, 같은 제목 등) 다음 후보로 채움 (최대 6번, 2026-10-28 누락 방지)"""
+    h = existing = None
+    count = 0
+    for _ in range(6):
+        items = candidates(n - count)
+        if not items:
+            break
+        if h is None:
+            h = login()
+            existing = public_titles()
+        got, failed = post_items(items, h, existing)
+        count += got
+        if count >= n or failed:   # 등록이 실패한 실행은 같은 일을 반복하지 않고 다음 실행에 맡김
+            break
+    if h is None:
+        print("[올릴 글 없음]")
     return count
 
 
