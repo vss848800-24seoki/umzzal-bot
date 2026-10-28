@@ -104,6 +104,63 @@ def judge(title):
     return None
 
 
+# ── 제목 다듬기 (2026-10-28 제프: kkzz 제목이 전부 '…움짤'로 끝나 획일적 → '움짤'을 빼고 말투를 돌려 씀) ──
+# 서버에는 Claude가 없어서 '설명 + 이름' 구조를 나눠 아래 틀 중 하나로 다시 짬. 최근에 쓴 틀은 피함.
+# kind 'np' = 설명이 명사구일 때만(이름을 앞으로 보내도 말이 되는 경우), 'any' = 항상 가능
+_TITLE_TPL = [
+    ("any", "{d} {n}"),
+    ("any", "오늘자 {d} {n}"),
+    ("any", "{d} {n} 근황"),
+    ("any", "{d} {n} ㄷㄷ"),
+    ("any", "{d} {n} 레전드"),
+    ("any", "{d} {n} 보셨나요?"),
+    ("np", "{n} {d}"),
+    ("np", "{n}의 {d}"),
+    ("np", "{n}, {d}"),
+    ("np", "[{n}] {d}"),
+    ("np", "{n} {d} 레전드"),
+    ("np", "오늘자 {n} {d}"),
+]
+_FLAG_WORDS = ["오늘자", "근황", "레전드", "ㄷㄷ", "보셨나요"]
+_ADULT_SET = set(ADULT)
+
+
+def _is_name_token(tok):
+    parts = re.sub(r"[()\[\]·,.]", " ", tok).split()
+    return any(p in _ADULT_SET for p in parts)
+
+
+def _is_np(desc):
+    """설명이 '~하는/~한'처럼 이름을 꾸미는 말이 아니라 명사구로 끝나는지"""
+    ch = desc[-1]
+    if "가" <= ch <= "힣":
+        if (ord(ch) - 0xAC00) % 28 in (4, 8):   # ㄴ·ㄹ 받침(한·는·할 …)
+            return False
+        return ch not in "고며서게지데도에로를을과와의"
+    return True
+
+
+def varied_title(title, recent_tpl=()):
+    """(새 제목, 쓴 틀 번호). '움짤'로 끝나는 제목만 손봄. 이름을 못 찾거나 구조가 다르면 '움짤'만 뺌"""
+    src = title.strip()
+    t = re.sub(r"\s*움짤\s*$", "", src).strip()
+    if t == src or not t:
+        return title, None
+    toks = t.split()
+    first = next((i for i, k in enumerate(toks) if _is_name_token(k)), None)
+    if first is None or first == 0 or not all(_is_name_token(k) for k in toks[first:]):
+        return t, None
+    d, n = " ".join(toks[:first]), " ".join(toks[first:])
+    np_ok = _is_np(d)
+    options = [i for i, (kind, fmt) in enumerate(_TITLE_TPL)
+               if (kind == "any" or np_ok) and not any(w in fmt and w in t for w in _FLAG_WORDS)]
+    fresh = [i for i in options if i not in recent_tpl] or options
+    if len(fresh) > 1 and 0 in fresh and random.random() < 0.6:   # 원래 모양 그대로(0번)는 덜 쓰게
+        fresh.remove(0)
+    i = random.choice(fresh)
+    return _TITLE_TPL[i][1].format(d=d, n=n), i
+
+
 def list_page(board, page):
     """목록 한 쪽의 [(글 번호, 목록 제목 또는 None)] (최신순)"""
     if board == "kkzz":
@@ -188,7 +245,7 @@ def to_html(media):
 def candidates(need):
     """아직 안 올린 글을 우선순위대로 need개까지 찾음"""
     rec = load(POSTED, {"posted": {}, "skipped": {}})
-    done_titles = {v["title"] for v in rec["posted"].values()}
+    done_titles = {v["title"] for v in rec["posted"].values()} | {v["orig"] for v in rec["posted"].values() if v.get("orig")}
     found = []
     for board in SOURCES:
         for page in range(1, MAX_PAGE + 1):
@@ -313,7 +370,10 @@ def post_items(items, h, existing):
     rec = load(POSTED, {"posted": {}, "skipped": {}})   # candidates()가 기록한 건너뜀을 포함해 다시 읽음
     count, failed = 0, False
     for key, title, media in items:
-        if title in existing:
+        orig = title
+        recent = [p["tpl"] for p in sorted(rec["posted"].values(), key=lambda p: p.get("at", ""))[-8:] if p.get("tpl") is not None]
+        title, tpl = varied_title(orig, tuple(recent))
+        if title in existing or orig in existing:
             rec["skipped"][key] = {"title": title, "why": "게시판에 같은 제목 있음"}
             save(POSTED, rec)
             continue
@@ -338,7 +398,7 @@ def post_items(items, h, existing):
         d = r.json()
         pid = (d.get("post") or d.get("data") or d).get("id")
         rec["posted"][key] = {"id": pid, "title": title, "nick": nick, "media": len(media),
-                              "at": now().strftime("%Y-%m-%d %H:%M"), "urls": src_urls}
+                              "at": now().strftime("%Y-%m-%d %H:%M"), "urls": src_urls, "orig": orig, "tpl": tpl}
         save(POSTED, rec)
         count += 1
         print(f"  [게시 완료] {pid} · {nick} · {title} (움짤·사진 {len(media)}개)")
