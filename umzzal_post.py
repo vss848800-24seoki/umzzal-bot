@@ -48,9 +48,24 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/
 # 참고: '노출'은 10-19에 풀어 뒀던 말인데 10-28 기준을 정하며 제외로 되돌림
 BAD_WORDS = ["팬티", "Y존", "y존", "업스커트", "노출"]
 # 미성년(2008년 이후 출생) 멤버가 있는 그룹·멤버, 촬영 당시 미성년이었을 수 있는 멤버 → 건너뜀
-MINOR = ["키키", "KiiiKiii", "아일릿", "ILLIT", "베이비몬스터", "베몬", "BABYMONSTER", "하츠투하츠", "Hearts2Hearts",
-         "이즈나", "izna", "트리플에스", "tripleS", "미야오", "MEOVV", "유니스", "UNIS", "영파씨", "YOUNG POSSE",
+MINOR = ["아일릿", "ILLIT", "하츠투하츠", "Hearts2Hearts",
+         "이즈나", "izna", "미야오", "MEOVV", "유니스", "UNIS", "영파씨", "YOUNG POSSE",
          "이서", "혜인", "키비츠", "앳하트", "AtHeart", "오드유스", "ODD YOUTH"]
+# 성인·미성년이 섞인 그룹: 그룹 전체를 막지 않고 '성인 멤버 이름이 있고 미성년 멤버 이름이 없을 때만' 통과 (2026-10-28 제프가 멤버 나이 확인,
+# Claude가 출생연도 자료로 교차 확인). 성인 = 2007년생 이전(한국 청소년보호법: 만 19세가 되는 해부터). 그룹 이름만 있고 멤버를 모르면 제외.
+#   KiiiKiii: 키야(2010)만 미성년 / BABYMONSTER: 로라(2008)·치키타(2009) 미성년 / tripleS(확인한 20명): 연지(2008)·주빈(2009) 미성년
+#   피프티피프티는 아테나(2007-03)만 성인으로 확인해서 ADULT에 아테나만 추가
+PARTIAL_GROUPS = [
+    (["키키", "KiiiKiii"], ["이솔", "리솔", "지유", "수이", "하음", "Leesol", "Jiyu", "Sui", "Haum"], ["키야", "Kya"]),
+    (["베이비몬스터", "베몬", "BABYMONSTER"],
+     ["루카", "파리타", "아사", "아현", "라미", "하람", "Ruka", "Pharita", "Asa", "Ahyeon", "Rami"],
+     ["로라", "치키타", "Rora", "Chiquita"]),
+    (["트리플에스", "tripleS"],
+     ["김채연", "김유연", "윤서연", "이지우", "정혜린", "김수민", "김나경", "공유빈", "카에데", "서다현", "코토네", "박소현",
+      "신위", "마유", "정하연", "시온", "니엔", "채연", "유연", "서연", "혜린", "수민", "나경", "유빈", "다현", "소현", "하연",
+      "Lynn", "Kaede", "Kotone", "Mayu", "Shion", "Nien", "Xinyu", "Seoyeon", "Yooyeon", "Hyerin"],
+     ["연지", "주빈", "Yeonji", "Joobin"]),
+]
 # 성인 멤버만 있는 그룹·멤버 (제목에 하나는 있어야 올림)
 ADULT = ["블랙핑크", "로제", "지수", "제니", "리사", "트와이스", "나연", "정연", "모모", "사나", "지효", "미나", "다현",
          "채영", "쯔위", "레드벨벳", "아이린", "슬기", "웬디", "조이", "예리", "아이브", "안유진", "장원영", "리즈",
@@ -68,7 +83,8 @@ ADULT = ["블랙핑크", "로제", "지수", "제니", "리사", "트와이스",
          "위키미키", "최유정", "김도연", "이달의소녀", "츄", "희진", "하슬", "로켓펀치", "체리블렛",
          # 성인이 확실한 이름 추가 (2026-10-28 제프: 이름 목록 늘려). 헷갈리는 이름(피프티피프티 아테나 등 나이 불확실, 유나·가을처럼 흔한 말)은 뺌
          "ITZY", "최예나", "김연아", "김세정", "손예진", "이다희", "채수빈", "아나운서", "치어리더", "aoa", "은하신비엄지",
-         "효민", "지헌", "원영", "하지원", "조다정", "여자친구 소원", "캣츠아이 메간"]
+         "효민", "지헌", "원영", "하지원", "조다정", "여자친구 소원", "캣츠아이 메간",
+         "아테나"]   # 피프티피프티 아테나: 2007-03생(2026년 성인), 제프 확인 + 출생연도 자료 일치 (2026-10-28)
 
 
 def now():
@@ -99,12 +115,22 @@ def judge(title):
     for w in BAD_WORDS:
         if w in t:
             return f"신체 부위 단어 '{w}'"
+    known_adult = False
+    for groups, adults, minors in PARTIAL_GROUPS:
+        g = next((x for x in groups if x in t), None)
+        if g:
+            bad = next((m for m in minors if m in t), None)
+            if bad:
+                return f"미성년 멤버 '{bad}'"
+            if not any(a in t for a in adults):
+                return f"그룹만 있고 멤버를 모름 '{g}'"
+            known_adult = True
     for w in MINOR:
         # '이서'는 '가까이서'처럼 다른 말 속에 들어가므로 따로 쓰였을 때만
         hit = re.search(r"(^|[\s\[(])이서($|[\s\])])", t) if w == "이서" else (w in t)
         if hit:
             return f"미성년 멤버 가능 '{w}'"
-    if not any(w in title for w in ADULT):
+    if not known_adult and not any(w in title for w in ADULT):
         return "누군지 확실하지 않음"
     return None
 
@@ -153,7 +179,7 @@ _TITLE_TPL = [
     ("np", "오늘자 {n} {d}"),
 ]
 _FLAG_WORDS = ["오늘자", "근황", "레전드", "ㄷㄷ", "보셨나요"]
-_ADULT_SET = set(ADULT)
+_ADULT_SET = set(ADULT) | {n for g, a, m in PARTIAL_GROUPS for n in a + g}   # 제목에서 이름 자리로 보는 말(판정은 judge가 이미 함)
 
 
 def _is_name_token(tok):
@@ -294,7 +320,7 @@ def candidates(need):
                 if key in rec["skipped"]:
                     sk = rec["skipped"][key]
                     # 기준이 풀린 단어(엉밑·가슴골 등)로 건너뛰었던 글은 다시 후보로 (2026-10-28)
-                    if sk.get("why", "").startswith(("신체 부위 단어", "누군지")) and sk.get("title") and judge(sk["title"]) is None:
+                    if sk.get("why", "").startswith(("신체 부위 단어", "누군지", "미성년", "그룹만")) and sk.get("title") and judge(sk["title"]) is None:
                         del rec["skipped"][key]
                     else:
                         continue
