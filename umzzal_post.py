@@ -44,7 +44,9 @@ UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/
 # 노출을 노린 표현만 건너뜀 (옷차림·스타일 단어는 통과, 2026-10-18 제프: 느슨하게)
 # 엉덩이·골반·가슴·겨드랑이·내전근 같은 일상 부위 이름은 통과 (2026-10-19 제프: 한국어는 다 '엉덩이'라 함)
 # 노출·젖·출렁·쩍벌·빼꼼·ㅗㅜㅑ도 통과 (2026-10-19 제프: 필터가 많으면 올릴 글이 없음)
-BAD_WORDS = ["슴골", "언더붑", "엉밑", "팬티", "브라", "속옷", "Y존", "y존", "업스커트"]   # 업스커트: 2026-10-22 추가(1361번)
+# 제목에 있으면 무조건 제외 (2026-10-28 제프 확정: 엉밑·가슴골·브라·언더붑·속옷은 제목을 순하게 바꿔서 올리고, 아래 말은 계속 제외)
+# 참고: '노출'은 10-19에 풀어 뒀던 말인데 10-28 기준을 정하며 제외로 되돌림
+BAD_WORDS = ["팬티", "Y존", "y존", "업스커트", "노출"]
 # 미성년(2008년 이후 출생) 멤버가 있는 그룹·멤버, 촬영 당시 미성년이었을 수 있는 멤버 → 건너뜀
 MINOR = ["키키", "KiiiKiii", "아일릿", "ILLIT", "베이비몬스터", "베몬", "BABYMONSTER", "하츠투하츠", "Hearts2Hearts",
          "이즈나", "izna", "트리플에스", "tripleS", "미야오", "MEOVV", "유니스", "UNIS", "영파씨", "YOUNG POSSE",
@@ -102,6 +104,32 @@ def judge(title):
     if not any(w in title for w in ADULT):
         return "누군지 확실하지 않음"
     return None
+
+
+# ── 제목 순하게 바꾸기 (2026-10-28 제프 확정) ──
+# 대표 이미지를 직접 확인해 보니 이런 말이 든 글의 내용은 대부분 무대·행사 장면이라, 건너뛰지 않고 올리되
+# 그 말을 빼고 '이름 + 순한 말'로 제목을 다시 지음. 이름을 못 찾으면 건너뜀.
+_SOFT_RE = re.compile(r"엉밑|슴골|언더붑|속옷|브라")
+_NEUTRAL_TPL = ["오늘자 {n}", "{n} 근황", "{n} 레전드", "{n} 비주얼", "{n} 분위기", "{n} 오늘자 모습"]
+
+
+def _soft_norm(s):
+    return s.replace("키스오브라이프", "키오프").replace("브라톱", "톱")   # judge()와 같은 예외
+
+
+def has_soft(title):
+    return bool(_SOFT_RE.search(_soft_norm(title)))
+
+
+def soften_title(title, recent_tpl=()):
+    """(순한 제목, 틀 번호). 이름 토큰을 못 찾으면 (None, None)"""
+    names = [k for k in title.split() if _is_name_token(k) and not _SOFT_RE.search(_soft_norm(k))]
+    if not names:
+        return None, None
+    options = list(range(len(_NEUTRAL_TPL)))
+    fresh = [i for i in options if 100 + i not in recent_tpl] or options
+    i = random.choice(fresh)
+    return _NEUTRAL_TPL[i].format(n=" ".join(names)), 100 + i
 
 
 # ── 제목 다듬기 (2026-10-28 제프: kkzz 제목이 전부 '…움짤'로 끝나 획일적 → '움짤'을 빼고 말투를 돌려 씀) ──
@@ -258,8 +286,15 @@ def candidates(need):
                 break
             for no, list_title in rows:
                 key = f"{board}/{no}"
-                if key in rec["posted"] or key in rec["skipped"]:
+                if key in rec["posted"]:
                     continue
+                if key in rec["skipped"]:
+                    sk = rec["skipped"][key]
+                    # 기준이 풀린 단어(엉밑·가슴골 등)로 건너뛰었던 글은 다시 후보로 (2026-10-28)
+                    if sk.get("why", "").startswith("신체 부위 단어") and sk.get("title") and judge(sk["title"]) is None:
+                        del rec["skipped"][key]
+                    else:
+                        continue
                 if list_title and judge(list_title):   # 목록 제목으로 먼저 거르면 글을 안 열어도 됨
                     rec["skipped"][key] = {"title": list_title, "why": judge(list_title)}
                     save(POSTED, rec)
@@ -372,7 +407,15 @@ def post_items(items, h, existing):
     for key, title, media in items:
         orig = title
         recent = [p["tpl"] for p in sorted(rec["posted"].values(), key=lambda p: p.get("at", ""))[-8:] if p.get("tpl") is not None]
-        title, tpl = varied_title(orig, tuple(recent))
+        if has_soft(orig):
+            title, tpl = soften_title(orig, tuple(recent))
+            if title is None:
+                rec["skipped"][key] = {"title": orig, "why": "제목 순화 불가(이름을 못 찾음)"}
+                save(POSTED, rec)
+                print(f"  [건너뜀] {orig}: 제목을 순하게 바꿀 이름을 못 찾음")
+                continue
+        else:
+            title, tpl = varied_title(orig, tuple(recent))
         if title in existing or orig in existing:
             rec["skipped"][key] = {"title": title, "why": "게시판에 같은 제목 있음"}
             save(POSTED, rec)
