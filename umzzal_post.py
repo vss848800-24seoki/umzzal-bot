@@ -103,7 +103,12 @@ def save(path, data):
 
 
 def get(url):
-    r = requests.get(url, headers={"User-Agent": UA}, timeout=60)
+    # 서버(GitHub) IP가 간헐적으로 403 차단되므로 몇 번 쉬었다 다시 시도 (2026-10-30)
+    for wait in (5, 15, 30, 0):
+        r = requests.get(url, headers={"User-Agent": UA}, timeout=60)
+        if r.status_code not in (403, 429, 503) or not wait:
+            break
+        time.sleep(wait)
     r.raise_for_status()
     return r.text
 
