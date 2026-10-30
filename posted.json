@@ -4073,6 +4073,21 @@
       ],
       "orig": "권은비 인스타",
       "tpl": null
+    },
+    "pillsu-hip/175297725": {
+      "id": 2361,
+      "title": "프로미스나인 송하영 / 백지헌 비주얼",
+      "nick": "tmdgus",
+      "media": 4,
+      "at": "2026-10-30 16:23",
+      "urls": [
+        "https://cdn.imweb.me/upload/S20221005c12c935de37d8/96bdb7e3c1201.gif",
+        "https://cdn.imweb.me/upload/S20221005c12c935de37d8/365a63055ae4d.gif",
+        "https://cdn.imweb.me/upload/S20221005c12c935de37d8/3e309de6b4136.gif",
+        "https://cdn.imweb.me/upload/S20221005c12c935de37d8/2eccf8486d350.gif"
+      ],
+      "orig": "프로미스나인 송하영 / 백지헌 비주얼",
+      "tpl": null
     }
   },
   "skipped": {
@@ -6571,6 +6586,10 @@
     "mgall/1797672": {
       "title": "최예나",
       "why": "움짤·사진 없음"
+    },
+    "pillsu-hip/175306317": {
+      "title": "오늘자 프로미스나인 이채영",
+      "why": "이미 올린 제목"
     }
   }
 }
