@@ -39,7 +39,7 @@ ISSUYA = "https://www.issuya.com"
 HEYE = "https://heye.kr"   # 2026-10-30: idol 게시판의 [사진] 글만(사진은 받아서 누드티비에 업로드). hawk1 등 영상 게시판은 영상이 heye 서버라 못 씀
 PILLSU = "https://pillsu.co.kr"   # 2026-10-30 제프: 필터 최대한 완화해서 쓸 수 있는 건 모두. 사타구니(crotch) 게시판은 제외
 # 앞에서부터 우선 (kkzz = kkzz.kr 움짤 공작소, issuya = 이슈야 연예 갤러리)
-SOURCES = ["issuya", "kkzz", "pillsu-hip", "pillsu-thigh", "pillsu-underhip", "pillsu-armpit", "pillsu-chest", "heye-idol", "mgall", "issue", "kgif", "stars", "ggor"]   # 2026-10-22: kgirls 영상 차단으로 이슈야·kkzz 먼저
+SOURCES = ["issuya", "kkzz", "pillsu-hip", "pillsu-thigh", "pillsu-underhip", "pillsu-armpit", "pillsu-chest", "heye-idol", "heye-uesrup", "mgall", "issue", "kgif", "stars", "ggor"]   # 2026-10-22: kgirls 영상 차단으로 이슈야·kkzz 먼저
 MAX_PAGE = 15
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120 Safari/537.36"
 
@@ -243,9 +243,10 @@ def list_page(board, page):
             if t and int(no) not in out:
                 out[int(no)] = t
         return sorted(out.items(), reverse=True)
-    if board == "heye-idol":
-        s = get(f"{HEYE}/board/index.html?id=idol" + (f"&page={page}" if page > 1 else ""))   # 1쪽은 page 없이
-        return [(n, None) for n in sorted({int(n) for n in re.findall(r"id=idol&no=(\d+)", s)}, reverse=True)]   # 제목은 글을 열어 읽음
+    if board.startswith("heye-"):
+        bid = board[5:]
+        s = get(f"{HEYE}/board/index.html?id={bid}" + (f"&page={page}" if page > 1 else ""))   # 1쪽은 page 없이
+        return [(n, None) for n in sorted({int(n) for n in re.findall(rf"id={bid}&no=(\d+)", s)}, reverse=True)]   # 제목은 글을 열어 읽음
     if board.startswith("pillsu-"):
         s = get(f"{PILLSU}/{board[7:]}/?page={page}")
         out = {}
@@ -273,15 +274,17 @@ def div_block(s, marker):
 
 
 def read_post(board, no, title=None):
-    if board == "heye-idol":
-        s = get(f"{HEYE}/board/index.html?id=idol&no={no}")
+    if board.startswith("heye-"):
+        s = get(f"{HEYE}/board/index.html?id={board[5:]}&no={no}")
         m = re.search(r"<title>([^<]*)</title>", s)
         raw = re.sub(r"^\s*\[[^\]]*\]\s*", "", html.unescape(m.group(1)).split(" :: ")[0]).strip() if m else ""
         # 설명 속 신체 부위 말은 무시하고(제목을 새로 지으므로) 이름으로 성인 확인 → 이름만 살려 순한 제목으로
         why = judge(re.sub("|".join(BAD_WORDS), " ", raw)) or None
         new = None if why else soften_title(raw)[0]
-        urls = re.findall(r'<img class="media_\d+" src="([^"]+)"', s)
-        return (new if new else f"{raw} [{why or '이름 못 찾음'}]"), [("img", u) for u in dict.fromkeys(urls)]
+        media = [("img", u) for u in dict.fromkeys(re.findall(r'<img class="media_\d+" src="([^"]+)"', s))]
+        # 영상은 imgur 같은 바깥 서버 mp4만 (heye 서버 영상은 외부 링크 차단이라 못 씀)
+        media += [("video", u) for u in dict.fromkeys(re.findall(r'<source src="(https://[^"]+\.mp4)"', s)) if "heye.kr" not in u]
+        return (new if new else f"{raw} [{why or '이름 못 찾음'}]"), media
     if board.startswith("pillsu-"):
         s = get(f"{PILLSU}/{board[7:]}/?idx={no}&bmode=view")
         m = re.search(r'"headline":\s*"([^"]+)"', s)
