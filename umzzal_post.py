@@ -40,7 +40,7 @@ HEYE = "https://heye.kr"   # 2026-10-30: idol 게시판의 [사진] 글만(사�
 PILLSU = "https://pillsu.co.kr"   # 2026-10-30 제프: 필터 최대한 완화해서 쓸 수 있는 건 모두. 사타구니(crotch) 게시판은 제외
 # 앞에서부터 우선 (kkzz = kkzz.kr 움짤 공작소, issuya = 이슈야 연예 갤러리)
 SOURCES = ["issuya", "kkzz", "pillsu-hip", "pillsu-thigh", "pillsu-underhip", "pillsu-armpit", "pillsu-chest", "heye-idol", "heye-uesrup", "mgall", "issue", "kgif", "stars", "ggor"]   # 2026-10-22: kgirls 영상 차단으로 이슈야·kkzz 먼저
-MAX_PAGE = 15
+MAX_PAGE = 40   # kkzz는 653쪽까지 있음 (2026-10-30 15→40)
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120 Safari/537.36"
 
 # 노출을 노린 표현만 건너뜀 (옷차림·스타일 단어는 통과, 2026-10-18 제프: 느슨하게)
@@ -230,7 +230,7 @@ def list_page(board, page):
     if board == "kkzz":
         s = get(f"{KKZZ}/?mode=list&board_page={page}")
         out = {}
-        for no, t in re.findall(r'href="https://kkzz\.kr/\?vid=(\d+)"[^>]*>(.*?)</a>', s, re.S):
+        for no, t in re.findall(r'href="https://kkzz\.kr/\?(?:board_page=\d+&(?:#038|amp);)?vid=(\d+)"[^>]*>(.*?)</a>', s, re.S):  # 2쪽부터는 주소에 board_page가 붙음(2026-10-30, 그전엔 1쪽만 읽었음)
             t = html.unescape(re.sub(r"<[^>]+>", "", t)).strip()
             if t:
                 out[int(no)] = t
