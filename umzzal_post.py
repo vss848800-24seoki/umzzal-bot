@@ -30,7 +30,7 @@ PUBLIC = "https://nudetv-v2-backend.onrender.com/api/bulletin-board"
 CRED = os.path.expanduser("~/.config/jeff/nudetv_admin")
 ADMIN_NICK = "영상특파원 구미호"
 BOARD = "humor"
-PER_DAY = (10, 15)   # 2026-10-30 제프: 소재가 금방 떨어질까 봐 20~30 → 10~15 (내일부터)
+PER_DAY = (15, 15)   # 2026-10-30 제프: 소재가 금방 떨어질까 봐 20~30 → 하루 15개 고정 (내일부터)
 MAX_PER_RUN = 4
 
 SITE = "https://www.kgirls.net"
