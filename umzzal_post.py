@@ -30,14 +30,15 @@ PUBLIC = "https://nudetv-v2-backend.onrender.com/api/bulletin-board"
 CRED = os.path.expanduser("~/.config/jeff/nudetv_admin")
 ADMIN_NICK = "영상특파원 구미호"
 BOARD = "humor"
-PER_DAY = (20, 30)
+PER_DAY = (10, 15)   # 2026-10-30 제프: 소재가 금방 떨어질까 봐 20~30 → 10~15 (내일부터)
 MAX_PER_RUN = 4
 
 SITE = "https://www.kgirls.net"
 KKZZ = "https://kkzz.kr"
 ISSUYA = "https://www.issuya.com"
+PILLSU = "https://pillsu.co.kr"   # 2026-10-30 제프: 필터 최대한 완화해서 쓸 수 있는 건 모두. 사타구니(crotch) 게시판은 제외
 # 앞에서부터 우선 (kkzz = kkzz.kr 움짤 공작소, issuya = 이슈야 연예 갤러리)
-SOURCES = ["issuya", "kkzz", "mgall", "issue", "kgif", "stars", "ggor"]   # 2026-10-22: kgirls 영상 차단으로 이슈야·kkzz 먼저
+SOURCES = ["issuya", "kkzz", "pillsu-hip", "pillsu-thigh", "pillsu-underhip", "pillsu-armpit", "pillsu-chest", "mgall", "issue", "kgif", "stars", "ggor"]   # 2026-10-22: kgirls 영상 차단으로 이슈야·kkzz 먼저
 MAX_PAGE = 15
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120 Safari/537.36"
 
@@ -241,6 +242,14 @@ def list_page(board, page):
             if t and int(no) not in out:
                 out[int(no)] = t
         return sorted(out.items(), reverse=True)
+    if board.startswith("pillsu-"):
+        s = get(f"{PILLSU}/{board[7:]}/?page={page}")
+        out = {}
+        for no, t in re.findall(r'class="title_link[^>]*idx=(\d+)[^>]*>.*?<span style="cursor:pointer;">(.*?)</span>', s, re.S):
+            t = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", t))).strip()
+            if t:
+                out[int(no)] = t
+        return sorted(out.items(), reverse=True)
     s = get(f"{SITE}/{board}?page={page}")
     return [(n, None) for n in sorted({int(n) for n in re.findall(rf'/{board}/(\d+)["?#]', s)}, reverse=True)]
 
@@ -260,6 +269,17 @@ def div_block(s, marker):
 
 
 def read_post(board, no, title=None):
+    if board.startswith("pillsu-"):
+        s = get(f"{PILLSU}/{board[7:]}/?idx={no}&bmode=view")
+        m = re.search(r'"headline":\s*"([^"]+)"', s)
+        raw = html.unescape(json.loads('"' + m.group(1) + '"')) if m else (title or "")
+        # 제목은 [그룹 멤버] 이름만 쓰고 나머지 설명은 버림 → 이름으로 성인 확인 후 순한 제목을 새로 지음
+        nm = re.match(r"\s*\[([^\]]+)\]", raw)
+        why = judge(nm.group(1)) if nm else "이름 없음"
+        new = _NEUTRAL_TPL[random.randrange(len(_NEUTRAL_TPL))].format(n=nm.group(1).strip()) if nm else raw
+        im = re.search(r'"image":\s*\[(.*?)\]', s, re.S)
+        urls = re.findall(r'"(https://cdn\.imweb\.me/upload/[^"]+)"', im.group(1)) if im else []
+        return (new if not why else f"{raw} [{why}]"), [("img", u) for u in dict.fromkeys(urls)]
     if board == "kkzz":
         s = get(f"{KKZZ}/?vid={no}")
         base = KKZZ
