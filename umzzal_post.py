@@ -315,7 +315,8 @@ def read_post(board, no, title=None):
         base = SITE
         img_pat = r'[^"]*/files/attach/images/\d+/\d+/\d+/[^"]+\.(?:gif|jpe?g|png|webp)'
     media = []
-    for m in re.finditer(rf'<(?:video|source)[^>]*?\ssrc=["\']([^"\']+\.mp4[^"\']*)["\']|<img[^>]*?\ssrc="({img_pat})"', s):
+    # 이슈야 영상은 .webm이 많음 (2026-10-31: mp4만 찾아서 '움짤·사진 없음'으로 26건 건너뜀)
+    for m in re.finditer(rf'<(?:video|source)[^>]*?\ssrc=["\']([^"\']+\.(?:mp4|webm)[^"\']*)["\']|<img[^>]*?\ssrc="({img_pat})"', s):
         u = html.unescape(m.group(1) or m.group(2))
         if u.startswith("//"):          # https: 가 빠진 주소 (2026-10-23, 1533·1534번 재생 안 됨)
             u = "https:" + u
@@ -363,6 +364,9 @@ def candidates(need):
                     # 기준이 풀린 단어(엉밑·가슴골 등)로 건너뛰었던 글은 다시 후보로 (2026-10-28)
                     if sk.get("why", "").startswith(("신체 부위 단어", "누군지", "미성년", "그룹만")) and sk.get("title") and judge(sk["title"]) is None:
                         del rec["skipped"][key]
+                    # webm 못 읽어서 건너뛴 이슈야 글도 다시 후보로 (2026-10-31)
+                    elif board == "issuya" and sk.get("why") == "움짤·사진 없음" and not sk.get("webm"):
+                        del rec["skipped"][key]
                     else:
                         continue
                 if list_title and judge(list_title):   # 목록 제목으로 먼저 거르면 글을 안 열어도 됨
@@ -376,7 +380,7 @@ def candidates(need):
                     continue
                 why = judge(title) or (None if media else "움짤·사진 없음") or ("이미 올린 제목" if title in done_titles else None)
                 if why:
-                    rec["skipped"][key] = {"title": title, "why": why}
+                    rec["skipped"][key] = {"title": title, "why": why, "webm": True}
                     save(POSTED, rec)
                     continue
                 found.append((key, title, media))
