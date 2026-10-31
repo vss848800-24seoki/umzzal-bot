@@ -273,7 +273,11 @@ def div_block(s, marker):
     return s[i:]
 
 
+HEYE_ONLY = [False]   # 방금 읽은 글에 heye 서버 영상이 있어서 뺐는지 (2026-10-31: 점검 '움짤·사진 없음' 숫자에서 따로 셈)
+
+
 def read_post(board, no, title=None):
+    HEYE_ONLY[0] = False
     if board.startswith("heye-"):
         s = get(f"{HEYE}/board/index.html?id={board[5:]}&no={no}")
         m = re.search(r"<title>([^<]*)</title>", s)
@@ -283,7 +287,9 @@ def read_post(board, no, title=None):
         new = None if why else soften_title(raw)[0]
         media = [("img", u) for u in dict.fromkeys(re.findall(r'<img class="media_\d+" src="([^"]+)"', s))]
         # 영상은 imgur 같은 바깥 서버 mp4만 (heye 서버 영상은 외부 링크 차단이라 못 씀)
-        media += [("video", u) for u in dict.fromkeys(re.findall(r'<source src="(https://[^"]+\.mp4)"', s)) if "heye.kr" not in u]
+        vids = list(dict.fromkeys(re.findall(r'<source src="(https://[^"]+\.mp4)"', s)))
+        HEYE_ONLY[0] = any("heye.kr" in u for u in vids)
+        media += [("video", u) for u in vids if "heye.kr" not in u]
         return (new if new else f"{raw} [{why or '이름 못 찾음'}]"), media
     if board.startswith("pillsu-"):
         s = get(f"{PILLSU}/{board[7:]}/?idx={no}&bmode=view")
@@ -323,6 +329,7 @@ def read_post(board, no, title=None):
         elif u.startswith("/"):
             u = base + re.sub(r"^/\./", "/", u)
         if "heye.kr/" in u:             # heye 서버 파일은 외부 링크 차단 → 안 씀
+            HEYE_ONLY[0] = True
             continue
         kind = "video" if m.group(1) else "img"
         if (kind, u) not in media:
@@ -378,7 +385,7 @@ def candidates(need):
                 except Exception as e:
                     print(f"  [글 읽기 실패] {key}: {e}")
                     continue
-                why = judge(title) or (None if media else "움짤·사진 없음") or ("이미 올린 제목" if title in done_titles else None)
+                why = judge(title) or (None if media else "heye 영상만(못 씀)" if HEYE_ONLY[0] else "움짤·사진 없음") or ("이미 올린 제목" if title in done_titles else None)
                 if why:
                     rec["skipped"][key] = {"title": title, "why": why, "webm": True}
                     save(POSTED, rec)
