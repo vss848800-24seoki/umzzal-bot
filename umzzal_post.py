@@ -39,7 +39,7 @@ ISSUYA = "https://www.issuya.com"
 HEYE = "https://heye.kr"   # 2026-10-30: idol 게시판의 [사진] 글만(사진은 받아서 누드티비에 업로드). hawk1 등 영상 게시판은 영상이 heye 서버라 못 씀
 PILLSU = "https://pillsu.co.kr"   # 2026-10-30 제프: 필터 최대한 완화해서 쓸 수 있는 건 모두. 사타구니(crotch) 게시판은 제외
 # 앞에서부터 우선 (kkzz = kkzz.kr 움짤 공작소, issuya = 이슈야 연예 갤러리)
-SOURCES = ["issuya", "kkzz", "pillsu-hip", "pillsu-thigh", "pillsu-underhip", "pillsu-armpit", "pillsu-chest", "heye-idol", "heye-uesrup", "mgall", "issue", "kgif", "stars", "ggor"]   # 2026-10-22: kgirls 영상 차단으로 이슈야·kkzz 먼저
+SOURCES = ["kkzz", "pillsu-hip", "pillsu-thigh", "pillsu-underhip", "pillsu-armpit", "pillsu-chest", "heye-uesrup", "heye-idol", "issuya", "mgall", "issue", "kgif", "stars", "ggor"]   # 2026-10-22: kgirls 영상 차단으로 이슈야·kkzz 먼저
 MAX_PAGE = 40   # kkzz는 653쪽까지 있음 (2026-10-30 15→40)
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120 Safari/537.36"
 
