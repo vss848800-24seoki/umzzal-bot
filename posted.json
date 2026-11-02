@@ -5151,6 +5151,25 @@
       ],
       "orig": "파인 크롭 민소매 하이키 서이 움짤",
       "tpl": null
+    },
+    "kkzz/10551": {
+      "id": 2722,
+      "title": "탄력 좋은 키스오브라이프 하늘",
+      "nick": "고등어구이",
+      "media": 8,
+      "at": "2026-11-03 07:09",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/10/17/F10680_99-%ED%82%A4%EC%8A%A4%EC%98%A4%EB%B8%8C%EB%9D%BC%EC%9D%B4%ED%94%84-%ED%95%98%EB%8A%98.jpg?w=764&ssl=1",
+        "https://imgur.com/lOa0PTR.mp4",
+        "https://imgur.com/Kgww249.mp4",
+        "https://imgur.com/CRXeq2H.mp4",
+        "https://imgur.com/EAQoLW9.mp4",
+        "https://imgur.com/u7Mln3h.mp4",
+        "https://imgur.com/OFv2npG.mp4",
+        "https://imgur.com/m4hs1DO.mp4"
+      ],
+      "orig": "탄력 좋은 키스오브라이프 하늘 움짤",
+      "tpl": null
     }
   },
   "skipped": {
@@ -7924,6 +7943,10 @@
     "kkzz/10557": {
       "title": "물 마시는 트리플에스 지연 움짤",
       "why": "그룹만 있고 멤버를 모름 '트리플에스'"
+    },
+    "kkzz/10552": {
+      "title": "허리 라인이 예쁜 앳하트 나현 움짤",
+      "why": "미성년 멤버 가능 '앳하트'"
     }
   }
 }
