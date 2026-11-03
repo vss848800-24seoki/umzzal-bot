@@ -5230,6 +5230,26 @@
       ],
       "orig": "호피에 망사 스타킹 하니 움짤",
       "tpl": 7
+    },
+    "kkzz/10546": {
+      "id": 2731,
+      "title": "파인 데다가 묵직한 무빙까지 트리플에스 김채연 근황",
+      "nick": "동네한바퀴",
+      "media": 8,
+      "at": "2026-11-03 13:16",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/10/15/F10675_102-%ED%8A%B8%EB%A6%AC%ED%94%8C%EC%97%90%EC%8A%A4-%EA%B9%80%EC%B1%84%EC%97%B0.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/10/Honeycam-84617.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/10/Honeycam-84618.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/10/Honeycam-84619.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/10/Honeycam-84620.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/10/Honeycam-84621.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/10/Honeycam-84622.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/10/Honeycam-84623.mp4"
+      ],
+      "orig": "파인 데다가 묵직한 무빙까지 트리플에스 김채연 움짤",
+      "tpl": 2,
+      "new": "spcf09b096ab48"
     }
   },
   "skipped": {
@@ -8010,6 +8030,10 @@
     },
     "kkzz/10615": {
       "title": "하얀 허벅지 오드유스 써머 움짤",
+      "why": "미성년 멤버 가능 '오드유스'"
+    },
+    "kkzz/10547": {
+      "title": "방심하는 오드유스 마이카 움짤",
       "why": "미성년 멤버 가능 '오드유스'"
     }
   }
