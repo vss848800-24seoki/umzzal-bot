@@ -5191,6 +5191,27 @@
       ],
       "orig": "검스에 다리 꼬는 에스파 카리나 움짤",
       "tpl": 5
+    },
+    "kkzz/10549": {
+      "id": 2729,
+      "title": "가까이서 보는 ITZY(있지) 유나",
+      "nick": "ssoyoung",
+      "media": 10,
+      "at": "2026-11-03 11:14",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/10/16/F10678_12-%EC%9E%88%EC%A7%80-%EC%9C%A0%EB%82%98.jpg?w=764&ssl=1",
+        "https://imgur.com/KZTY6Kf.mp4",
+        "https://imgur.com/dkg9BZW.mp4",
+        "https://imgur.com/6XHw7D3.mp4",
+        "https://imgur.com/2cehVud.mp4",
+        "https://imgur.com/kl2GQ7r.mp4",
+        "https://imgur.com/3el0mO8.mp4",
+        "https://imgur.com/R35gPAx.mp4",
+        "https://imgur.com/7j6B4tv.mp4",
+        "https://imgur.com/eyfJgbr.mp4"
+      ],
+      "orig": "가까이서 보는 ITZY(있지) 유나 움짤",
+      "tpl": null
     }
   },
   "skipped": {
@@ -7968,6 +7989,10 @@
     "kkzz/10552": {
       "title": "허리 라인이 예쁜 앳하트 나현 움짤",
       "why": "미성년 멤버 가능 '앳하트'"
+    },
+    "kkzz/10615": {
+      "title": "하얀 허벅지 오드유스 써머 움짤",
+      "why": "미성년 멤버 가능 '오드유스'"
     }
   }
 }
