@@ -5818,6 +5818,25 @@
       "orig": "하얗고 찰진 뒤태 트리플에스 카에데 움짤",
       "tpl": 3,
       "new": "sp30522612c7a4"
+    },
+    "kkzz/10536": {
+      "id": 2762,
+      "title": "바닥에 앉는 비비지 신비",
+      "nick": "오늘도무사히",
+      "media": 7,
+      "at": "2026-11-04 08:31",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/10/13/F10665_10-%EB%B9%84%EB%B9%84%EC%A7%80-%EC%8B%A0%EB%B9%84.jpg?w=764&ssl=1",
+        "https://imgur.com/5WyWqrS.mp4",
+        "https://imgur.com/fC5qFPR.mp4",
+        "https://imgur.com/lA497QF.mp4",
+        "https://imgur.com/HU4lZt2.mp4",
+        "https://imgur.com/ojooUef.mp4",
+        "https://imgur.com/RLaWMzb.mp4"
+      ],
+      "orig": "바닥에 앉는 비비지 신비 움짤",
+      "tpl": null,
+      "new": "spd4dbbe21a1cb"
     }
   },
   "skipped": {
@@ -8610,6 +8629,10 @@
     },
     "kkzz/10541": {
       "title": "골프웨어 핏이 너무 좋은 유현주 프로 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10537": {
+      "title": "자이로토닉 배우는 소유 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
