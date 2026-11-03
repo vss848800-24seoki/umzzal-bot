@@ -33,6 +33,12 @@ BOARD = "humor"
 PER_DAY = (15, 15)   # 2026-10-30 제프: 소재가 금방 떨어질까 봐 20~30 → 하루 15개 고정 (내일부터)
 MAX_PER_RUN = 4
 
+# 새 사이트(리뉴얼, 2026-11-03): 옛 사이트 게시는 그대로 두고 새 사이트에도 덧붙임. 열쇠는 환경변수 NUDE_NEW_KEY 또는 ~/.config/jeff/nude_new_key_umzzal.txt (내용 출력 금지)
+NEW_SITE = os.environ.get("NUDE_NEW_SITE") or "https://nudetv-staging.pages.dev"
+NEW_BOARD = "adult"                                            # 후방주의 +19
+NEW_VISIBLE = os.environ.get("NUDE_NEW_VISIBLE", "") == "1"    # 시험 기간엔 숨김으로 올림. 공개로 바꾸려면 NUDE_NEW_VISIBLE=1
+NEW_PREFIX = os.environ.get("NUDE_NEW_PREFIX") or "umzzal-"    # sourceKey 앞머리(같은 키는 중복 안 생김)
+
 SITE = "https://www.kgirls.net"
 KKZZ = "https://kkzz.kr"
 ISSUYA = "https://www.issuya.com"
@@ -481,6 +487,55 @@ def localize(media, h):
     return out
 
 
+def _new_key():
+    k = os.environ.get("NUDE_NEW_KEY", "").strip()
+    if not k:
+        p = os.path.expanduser("~/.config/jeff/nude_new_key_umzzal.txt")
+        if os.path.exists(p):
+            k = open(p, encoding="utf-8").read().strip()
+    return k
+
+
+def new_site_post(key, title, nick, media):
+    """같은 글을 새 사이트 후방주의 +19에도 올림. 어떤 오류도 밖으로 던지지 않음. 성공하면 새 글 id, 아니면 None"""
+    nk = ""
+    try:
+        nk = _new_key()
+        if not nk:
+            print("  [새 사이트] 열쇠 없음 → 건너뜀")
+            return None
+        h = {"Authorization": "Bearer " + nk, "User-Agent": "Mozilla/5.0"}
+        out = []
+        for kind, u in media:
+            if kind == "img":   # 사진은 받아서 새 사이트 /api/admin/media 에 올린 주소로 (실패하면 원래 주소)
+                try:
+                    img = requests.get(u, headers={"User-Agent": UA}, timeout=60)
+                    ctype = img.headers.get("Content-Type", "image/jpeg").split(";")[0]
+                    if img.status_code == 200 and ctype.startswith("image/"):
+                        r = requests.post(NEW_SITE + "/api/admin/media", data=img.content,
+                                          headers=dict(h, **{"content-type": ctype}), timeout=90)
+                        src = (r.json() or {}).get("주소") if r.status_code in (200, 201) else ""
+                        if src:
+                            u = src
+                except Exception:
+                    pass
+            out.append((kind, u))
+        payload = {"board": NEW_BOARD, "title": title, "author": nick, "body": to_html(out),
+                   "visible": NEW_VISIBLE, "sourceKey": (NEW_PREFIX + key)[:100]}
+        r = requests.post(NEW_SITE + "/api/admin/posts", json=payload, headers=h, timeout=90)
+        t = r.json() if r.headers.get("content-type", "").startswith("application/json") else {}
+        if r.status_code not in (200, 201) or not t.get("됨"):
+            print(f"  [새 사이트 실패] {title} · {r.status_code} {str(t.get('까닭', ''))[:120]}")
+            return None
+        p = t.get("글") if isinstance(t.get("글"), dict) else {}
+        pid = p.get("id") or str(t.get("주소", "")).strip("/").split("/")[-1]
+        print(f"  [새 사이트 {'이미 있음' if r.status_code == 200 else '게시 완료'}] {title} → {pid}")
+        return pid
+    except Exception as e:
+        print("  [새 사이트 오류]", str(e).replace(nk, "***")[:200] if nk else str(e)[:200])
+        return None
+
+
 def post_items(items, h, existing):
     """후보 목록을 올림. (올린 개수, 등록 실패가 있었는지)를 돌려줌"""
     rec = load(POSTED, {"posted": {}, "skipped": {}})   # candidates()가 기록한 건너뜀을 포함해 다시 읽음
@@ -524,6 +579,10 @@ def post_items(items, h, existing):
         rec["posted"][key] = {"id": pid, "title": title, "nick": nick, "media": len(media),
                               "at": now().strftime("%Y-%m-%d %H:%M"), "urls": src_urls, "orig": orig, "tpl": tpl}
         save(POSTED, rec)
+        new_id = new_site_post(key.replace(" ", ""), title, nick, media)   # 새 사이트에도(실패해도 옛 사이트 게시는 그대로)
+        if new_id:
+            rec["posted"][key]["new"] = new_id
+            save(POSTED, rec)
         count += 1
         print(f"  [게시 완료] {pid} · {nick} · {title} (움짤·사진 {len(media)}개)")
         time.sleep(random.randint(20, 90))

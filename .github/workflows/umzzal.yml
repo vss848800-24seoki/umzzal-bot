@@ -37,6 +37,7 @@ jobs:
         env:
           NUDETV_ADMIN_ID: ${{ secrets.NUDETV_ADMIN_ID }}
           NUDETV_ADMIN_PW: ${{ secrets.NUDETV_ADMIN_PW }}
+          NUDE_NEW_KEY: ${{ secrets.NUDE_NEW_KEY }}   # 새 사이트 게시 열쇠(없으면 새 사이트는 건너뜀)
           INPUT_NOW: ${{ github.event.inputs.now }}
         run: |
           if [ "$INPUT_NOW" = "true" ]; then
