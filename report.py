@@ -44,15 +44,18 @@ posted = load("posted.json")
 sch = load("schedule.json")
 cnt = collections.Counter(v.get("at", "")[:10] for v in posted.get("posted", {}).values())
 hist = sch.get("history", {})
+# 새 사이트(후방주의 +19) 기준 개수: posted 항목의 new(새 사이트 글 id)가 있는 것만 날짜별로 셈 (2026-11-03 연결, 제프 지시로 진행판은 새 사이트 기준)
+cnt_new = collections.Counter(v.get("at", "")[:10] for v in posted.get("posted", {}).values() if v.get("new"))
+NEW_SINCE = "2026-11-03"
 
-today = {"date": T, "posted": cnt.get(T, 0)}
+today = {"date": T, "posted": cnt.get(T, 0), "new_posted": cnt_new.get(T, 0)}
 if sch.get("date") == T:
     slots = sch.get("slots", [])
     carry = sch.get("carry", 0)
     today.update(target=len(slots) + carry, carry=carry, done=sch.get("done", 0),
                  due_now=carry + sum(1 for t in slots if t <= hm),
                  left=[t for t in slots if t > hm])
-yest = {"date": Y, "posted": cnt.get(Y, 0)}
+yest = {"date": Y, "posted": cnt.get(Y, 0), "new_posted": cnt_new.get(Y, 0)}
 if Y in hist:
     yest.update(target=(hist[Y].get("target") or 0) + hist[Y].get("carry", 0),
                 carry=hist[Y].get("carry", 0), done=hist[Y].get("done"))
@@ -62,7 +65,7 @@ yest["carried_to_today"] = today.get("carry", 0)
 recent = []
 for i in range(1, 8):
     d = (now - datetime.timedelta(days=i)).strftime("%Y-%m-%d")
-    row = {"date": d, "posted": cnt.get(d, 0)}
+    row = {"date": d, "posted": cnt.get(d, 0), "new_posted": cnt_new.get(d, 0)}
     if d in hist:
         row.update(target=(hist[d].get("target") or 0) + hist[d].get("carry", 0), carry=hist[d].get("carry", 0), done=hist[d].get("done"))
     recent.append(row)
@@ -97,6 +100,7 @@ print(json.dumps({
     "yesterday": yest,
     "recent_days": recent,
     "data_source": SOURCE["from"],
+    "new_site_since": NEW_SINCE,
     "last_run_utc": last.get("createdAt"),
     "last_run_minutes_ago": round((datetime.datetime.now(datetime.timezone.utc) - datetime.datetime.fromisoformat(
         last["createdAt"].replace("Z", "+00:00"))).total_seconds() / 60) if last else None,
