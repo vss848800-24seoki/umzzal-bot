@@ -5876,6 +5876,25 @@
       "orig": "원래는 크롭티가 아닌 게 분명한 에스파 카리나 움짤",
       "tpl": 2,
       "new": "spcb92ef4cb13f"
+    },
+    "kkzz/10525": {
+      "id": 2774,
+      "title": "원피스에 후디 집업 걸친 르세라핌 사쿠라 보셨나요?",
+      "nick": "꿀벌",
+      "media": 7,
+      "at": "2026-11-04 12:22",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/10/10/F10654_103-%EB%A5%B4%EC%84%B8%EB%9D%BC%ED%95%8C-%EC%82%AC%EC%BF%A0%EB%9D%BC.jpg?w=764&ssl=1",
+        "https://imgur.com/7slR4rC.mp4",
+        "https://imgur.com/JaQtWO7.mp4",
+        "https://imgur.com/PYRa0cX.mp4",
+        "https://imgur.com/AILtpiL.mp4",
+        "https://imgur.com/pDYueKO.mp4",
+        "https://imgur.com/FIuN3Z2.mp4"
+      ],
+      "orig": "원피스에 후디 집업 걸친 르세라핌 사쿠라 움짤",
+      "tpl": 5,
+      "new": "sp6e061066b430"
     }
   },
   "skipped": {
@@ -8672,6 +8691,10 @@
     },
     "kkzz/10537": {
       "title": "자이로토닉 배우는 소유 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10526": {
+      "title": "탄탄한 청바지 뒤태 리센느 원이 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
