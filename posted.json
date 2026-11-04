@@ -6150,6 +6150,27 @@
       "orig": "단발에 올블랙 조민지 아나운서 움짤",
       "tpl": 0,
       "new": "sp4cf007eab6b3"
+    },
+    "kkzz/10516": {
+      "id": 2819,
+      "title": "오늘자 바이커쇼츠 입은 빌리 츠키",
+      "nick": "월요병말기",
+      "media": 9,
+      "at": "2026-11-05 03:48",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/10/08/F10645_103-%EB%B9%8C%EB%A6%AC-%EC%B8%A0%ED%82%A4.jpg?w=764&ssl=1",
+        "https://imgur.com/eozb25X.mp4",
+        "https://imgur.com/6p2VJeu.mp4",
+        "https://imgur.com/PLImaVC.mp4",
+        "https://imgur.com/vDWPSCU.mp4",
+        "https://imgur.com/Pwxi0mh.mp4",
+        "https://imgur.com/YAb1DNj.mp4",
+        "https://imgur.com/PiOUO0R.mp4",
+        "https://imgur.com/jfHgC7N.mp4"
+      ],
+      "orig": "바이커쇼츠 입은 빌리 츠키 움짤",
+      "tpl": 1,
+      "new": "sp1f5c3f8875b2"
     }
   },
   "skipped": {
@@ -8971,6 +8992,10 @@
     "kkzz/10532": {
       "title": "예쁘게 파인 레이스 상의 CLC 장예은 움짤",
       "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10517": {
+      "title": "뒤태도 예쁜 하츠투하츠 이안 움짤",
+      "why": "미성년 멤버 가능 '하츠투하츠'"
     }
   }
 }
