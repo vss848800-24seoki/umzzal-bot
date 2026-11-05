@@ -6351,6 +6351,28 @@
       "orig": "상의는 파이고 하의는 짧은 브브걸 은지 움짤",
       "tpl": null,
       "new": "sp17942f6bffc0"
+    },
+    "kkzz/10511": {
+      "id": 2839,
+      "title": "튼실튼실한 하지원 치어리더 근황",
+      "nick": "nightowl",
+      "media": 10,
+      "at": "2026-11-05 20:49",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/10/07/F10640_6-%ED%95%98%EC%A7%80%EC%9B%90-%EC%B9%98%EC%96%B4%EB%A6%AC%EB%8D%94.jpg?w=764&ssl=1",
+        "https://imgur.com/HfO4DWy.mp4",
+        "https://imgur.com/2Jfp1Yp.mp4",
+        "https://imgur.com/lhTSpC9.mp4",
+        "https://imgur.com/O2GWqaW.mp4",
+        "https://imgur.com/qRFt8qf.mp4",
+        "https://imgur.com/eg1JxPo.mp4",
+        "https://imgur.com/4H0nfg8.mp4",
+        "https://imgur.com/hCTEmFH.mp4",
+        "https://imgur.com/vkUEEC9.mp4"
+      ],
+      "orig": "튼실튼실한 하지원 치어리더 움짤",
+      "tpl": 2,
+      "new": "sp3c6754550e68"
     }
   },
   "skipped": {
