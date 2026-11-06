@@ -6551,6 +6551,25 @@
       "orig": "하얀 치마 입은 르세라핌 김채원 움짤",
       "tpl": 2,
       "new": "sp9ae643fc7c6f"
+    },
+    "kkzz/10506": {
+      "id": 2890,
+      "title": "[최예나] 입었던 옷 벗어서 던져주는 포상",
+      "nick": "동네한바퀴",
+      "media": 7,
+      "at": "2026-11-06 13:39",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/10/05/F10635_100-%EC%B5%9C%EC%98%88%EB%82%98.jpg?w=764&ssl=1",
+        "https://imgur.com/B2ffevy.mp4",
+        "https://imgur.com/ei2F4Jv.mp4",
+        "https://imgur.com/ONUhx67.mp4",
+        "https://imgur.com/bEaUrdG.mp4",
+        "https://imgur.com/QGfKmpU.mp4",
+        "https://imgur.com/k3lAJix.mp4"
+      ],
+      "orig": "입었던 옷 벗어서 던져주는 포상 최예나 움짤",
+      "tpl": 9,
+      "new": "sp46b5edec112b"
     }
   },
   "skipped": {
@@ -9376,6 +9395,10 @@
     "kkzz/10517": {
       "title": "뒤태도 예쁜 하츠투하츠 이안 움짤",
       "why": "미성년 멤버 가능 '하츠투하츠'"
+    },
+    "kkzz/10507": {
+      "title": "치마가 속바지보다 짧은 에스투잇(S2IT) 승비 움짤",
+      "why": "누군지 확실하지 않음"
     }
   }
 }
