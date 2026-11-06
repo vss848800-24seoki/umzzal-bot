@@ -6570,6 +6570,24 @@
       "orig": "입었던 옷 벗어서 던져주는 포상 최예나 움짤",
       "tpl": 9,
       "new": "sp46b5edec112b"
+    },
+    "kkzz/10628": {
+      "id": 2891,
+      "title": "앞에서 손 흔들어주는 빌리 츠키 레전드",
+      "nick": "kimchi_lover",
+      "media": 6,
+      "at": "2026-11-06 14:40",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/11/06/F10757_99-%EB%B9%8C%EB%A6%AC-%EC%B8%A0%ED%82%A4.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85144.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85145.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85146.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85147.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85148.mp4"
+      ],
+      "orig": "앞에서 손 흔들어주는 빌리 츠키 움짤",
+      "tpl": 4,
+      "new": "sp00a6492890ea"
     }
   },
   "skipped": {
