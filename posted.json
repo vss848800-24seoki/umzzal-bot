@@ -6864,6 +6864,45 @@
       "orig": "하얀 배 에스파 윈터 움짤",
       "tpl": 11,
       "new": "sp8696fea19524"
+    },
+    "kkzz/10498": {
+      "id": 2941,
+      "title": "사운드 체크 중인 아이브 장원영 보셨나요?",
+      "nick": "월요병말기",
+      "media": 8,
+      "at": "2026-11-07 16:37",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/10/03/F10627_83-%EC%95%84%EC%9D%B4%EB%B8%8C-%EC%9E%A5%EC%9B%90%EC%98%81.jpg?w=764&ssl=1",
+        "https://imgur.com/8R1tkA4.mp4",
+        "https://imgur.com/gGpMffX.mp4",
+        "https://imgur.com/41yw1za.mp4",
+        "https://imgur.com/n93szI7.mp4",
+        "https://imgur.com/bcw1LBB.mp4",
+        "https://imgur.com/wfzVGC7.mp4",
+        "https://imgur.com/njEyJQP.mp4"
+      ],
+      "orig": "사운드 체크 중인 아이브 장원영 움짤",
+      "tpl": 5,
+      "new": "sp45864f68855e"
+    },
+    "kkzz/10497": {
+      "id": 2942,
+      "title": "전소미 시스루",
+      "nick": "바나나킥",
+      "media": 7,
+      "at": "2026-11-07 16:38",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/10/03/F10626_103-%EC%A0%84%EC%86%8C%EB%AF%B8.jpg?w=764&ssl=1",
+        "https://imgur.com/V9FkzGI.mp4",
+        "https://imgur.com/uls8UlK.mp4",
+        "https://imgur.com/0pl2RH8.mp4",
+        "https://imgur.com/LuC6SPL.mp4",
+        "https://imgur.com/hh1tlgd.mp4",
+        "https://imgur.com/ztd7GaY.mp4"
+      ],
+      "orig": "시스루 전소미 움짤",
+      "tpl": 6,
+      "new": "sp061a6626de87"
     }
   },
   "skipped": {
