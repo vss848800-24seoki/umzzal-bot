@@ -6844,6 +6844,26 @@
       "orig": "하체가 찰진 키스오브라이프 벨 움짤",
       "tpl": null,
       "new": "sp8621bb9a5b4b"
+    },
+    "kkzz/10633": {
+      "id": 2939,
+      "title": "오늘자 에스파 윈터 하얀 배",
+      "nick": "곰돌이",
+      "media": 8,
+      "at": "2026-11-07 14:31",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/11/07/F10762_1-%EC%97%90%EC%8A%A4%ED%8C%8C-%EC%9C%88%ED%84%B0.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-66071.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-66072.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-66073.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-66074.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-66075.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-66076.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-66077.mp4"
+      ],
+      "orig": "하얀 배 에스파 윈터 움짤",
+      "tpl": 11,
+      "new": "sp8696fea19524"
     }
   },
   "skipped": {
