@@ -6942,6 +6942,43 @@
       "orig": "추운 날씨에도 핫팬츠 키스오브라이프 하늘 움짤",
       "tpl": null,
       "new": "sp22ceeacb7e51"
+    },
+    "kkzz/10496": {
+      "id": 2957,
+      "title": "오늘자 허리 꺾는 프로미스나인 백지헌",
+      "nick": "운동은내일부터",
+      "media": 6,
+      "at": "2026-11-07 22:24",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/10/03/F10625_104-%ED%94%84%EB%A1%9C%EB%AF%B8%EC%8A%A4%EB%82%98%EC%9D%B8-%EB%B0%B1%EC%A7%80%ED%97%8C.jpg?w=764&ssl=1",
+        "https://imgur.com/2g9Fifd.mp4",
+        "https://imgur.com/tFhCqqE.mp4",
+        "https://imgur.com/dMQ1L5U.mp4",
+        "https://imgur.com/ajZepGE.mp4",
+        "https://imgur.com/c0vA4Ly.mp4"
+      ],
+      "orig": "허리 꺾는 프로미스나인 백지헌 움짤",
+      "tpl": 1,
+      "new": "sp57aaefc6a34a"
+    },
+    "kkzz/10495": {
+      "id": 2958,
+      "title": "빌리 츠키의 살색 홀터넥",
+      "nick": "hyunwoo_k",
+      "media": 7,
+      "at": "2026-11-07 22:25",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/10/03/F10624_105-%EB%B9%8C%EB%A6%AC-%EC%B8%A0%ED%82%A4.jpg?w=764&ssl=1",
+        "https://imgur.com/S99ASoM.mp4",
+        "https://imgur.com/mKpvyEH.mp4",
+        "https://imgur.com/ceeSmbp.mp4",
+        "https://imgur.com/fcV35wm.mp4",
+        "https://imgur.com/NDjq9VB.mp4",
+        "https://imgur.com/8AStphP.mp4"
+      ],
+      "orig": "살색 홀터넥 빌리 츠키 움짤",
+      "tpl": 7,
+      "new": "sp33bf1a53adba"
     }
   },
   "skipped": {
