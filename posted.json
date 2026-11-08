@@ -7280,6 +7280,28 @@
       "orig": "끈 튕기는 키스오브라이프 쥴리 움짤",
       "tpl": 0,
       "new": "sp41afbdfeef2b"
+    },
+    "kkzz/10458": {
+      "id": 3028,
+      "title": "계속 볼 수밖에 없는 트리플에스 김채연 ㄷㄷ",
+      "nick": "삼겹살데이",
+      "media": 10,
+      "at": "2026-11-08 18:20",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/21/F10587_103%20%ED%8A%B8%EB%A6%AC%ED%94%8C%EC%97%90%EC%8A%A4%20%EA%B9%80%EC%B1%84%EC%97%B0.jpg?w=764&ssl=1",
+        "https://imgur.com/G3HhBeO.mp4",
+        "https://imgur.com/29VwR5f.mp4",
+        "https://imgur.com/ImYnhXZ.mp4",
+        "https://imgur.com/6CJYJaR.mp4",
+        "https://imgur.com/ZpT7hIS.mp4",
+        "https://imgur.com/kk60BVD.mp4",
+        "https://imgur.com/33cfUUi.mp4",
+        "https://imgur.com/zLyf6Tk.mp4",
+        "https://imgur.com/GgYGAGr.mp4"
+      ],
+      "orig": "계속 볼 수밖에 없는 트리플에스 김채연 움짤",
+      "tpl": 3,
+      "new": "spe0f2bf797e9a"
     }
   },
   "skipped": {
@@ -10149,6 +10171,10 @@
     "kkzz/10461": {
       "title": "가을의 비키니 락킷걸 움짤",
       "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10459": {
+      "title": "끈 구조가 궁금해지는 오드유스 카니 움짤",
+      "why": "미성년 멤버 가능 '오드유스'"
     }
   }
 }
