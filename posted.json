@@ -7302,6 +7302,26 @@
       "orig": "계속 볼 수밖에 없는 트리플에스 김채연 움짤",
       "tpl": 3,
       "new": "spe0f2bf797e9a"
+    },
+    "kkzz/10474": {
+      "id": 3031,
+      "title": "대자연의 위대함 하이키 옐",
+      "nick": "김치볶음밥",
+      "media": 8,
+      "at": "2026-11-08 20:36",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/26/F10603_104-%ED%95%98%EC%9D%B4%ED%82%A4-%EC%98%90.jpg?w=764&ssl=1",
+        "https://imgur.com/cUAzPPp.mp4",
+        "https://imgur.com/d0uzSaz.mp4",
+        "https://imgur.com/a0SW8RK.mp4",
+        "https://imgur.com/mepFb8Q.mp4",
+        "https://imgur.com/h3qiFqN.mp4",
+        "https://imgur.com/NnlzsRy.mp4",
+        "https://imgur.com/yliDLsM.mp4"
+      ],
+      "orig": "대자연의 위대함 하이키 옐 움짤",
+      "tpl": null,
+      "new": "sp30a11294c107"
     }
   },
   "skipped": {
@@ -10175,6 +10195,10 @@
     "kkzz/10459": {
       "title": "끈 구조가 궁금해지는 오드유스 카니 움짤",
       "why": "미성년 멤버 가능 '오드유스'"
+    },
+    "kkzz/10475": {
+      "title": "찰진 뒤태 에스투잇(S2iT) 승비 움짤",
+      "why": "누군지 확실하지 않음"
     }
   }
 }
