@@ -7178,6 +7178,50 @@
       "orig": "적극적인 자세 조민지 아나운서 움짤",
       "tpl": 2,
       "new": "spde6d25cc009e"
+    },
+    "kkzz/10466": {
+      "id": 3010,
+      "title": "오늘자 초갓벅지 에스파 카리나",
+      "nick": "찹쌀떡",
+      "media": 11,
+      "at": "2026-11-08 15:15",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/23/F10595_99-%EC%97%90%EC%8A%A4%ED%8C%8C-%EC%B9%B4%EB%A6%AC%EB%82%98.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/09/Honeycam-83997.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/09/Honeycam-83998.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/09/Honeycam-83999.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/09/Honeycam-84001.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/09/Honeycam-84002.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/09/Honeycam-84003.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/09/Honeycam-84004.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/09/Honeycam-84005.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/09/Honeycam-84006.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/09/Honeycam-84007.mp4"
+      ],
+      "orig": "초갓벅지 에스파 카리나 움짤",
+      "tpl": 1,
+      "new": "sp519cf99396ce"
+    },
+    "kkzz/10463": {
+      "id": 3011,
+      "title": "참매력 뒤태 천소윤 치어리더 레전드",
+      "nick": "곰돌이",
+      "media": 9,
+      "at": "2026-11-08 15:16",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/23/F10592_103-%EC%B2%9C%EC%86%8C%EC%9C%A4-%EC%B9%98%EC%96%B4%EB%A6%AC%EB%8D%94.jpg?w=764&ssl=1",
+        "https://imgur.com/y2x7q25.mp4",
+        "https://imgur.com/cnvOas6.mp4",
+        "https://imgur.com/dz3RAWt.mp4",
+        "https://imgur.com/V953tUv.mp4",
+        "https://imgur.com/ojWNLuV.mp4",
+        "https://imgur.com/OKNQACq.mp4",
+        "https://imgur.com/HxqxBS0.mp4",
+        "https://imgur.com/iyoq4xs.mp4"
+      ],
+      "orig": "참매력 뒤태 천소윤 치어리더 움짤",
+      "tpl": 4,
+      "new": "sp3e6408b0849d"
     }
   },
   "skipped": {
@@ -10035,6 +10079,14 @@
     "kkzz/10478": {
       "title": "피자 먹는 김사랑 움짤",
       "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10465": {
+      "title": "미쳐버린 뒤태 오드유스 써머 움짤",
+      "why": "미성년 멤버 가능 '오드유스'"
+    },
+    "kkzz/10464": {
+      "title": "숙이는 미야오 안나 움짤",
+      "why": "미성년 멤버 가능 '미야오'"
     }
   }
 }
