@@ -7617,6 +7617,25 @@
       "orig": "챌린지 연습하는 아이브 레이 움짤",
       "tpl": null,
       "new": "sp2e57349602b4"
+    },
+    "kkzz/10450": {
+      "id": 3086,
+      "title": "방심하는 프로미스나인 백지헌 보셨나요?",
+      "nick": "동네한바퀴",
+      "media": 7,
+      "at": "2026-11-10 00:52",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/19/F10579_97%20%ED%94%84%EB%A1%9C%EB%AF%B8%EC%8A%A4%EB%82%98%EC%9D%B8%20%EB%B0%B1%EC%A7%80%ED%97%8C.jpg?w=764&ssl=1",
+        "https://imgur.com/zrx6xlf.mp4",
+        "https://imgur.com/QYd1y0t.mp4",
+        "https://imgur.com/AchB7ce.mp4",
+        "https://imgur.com/Z0sUt0B.mp4",
+        "https://imgur.com/XFmWIJe.mp4",
+        "https://imgur.com/Fbozb2n.mp4"
+      ],
+      "orig": "방심하는 프로미스나인 백지헌 움짤",
+      "tpl": 5,
+      "new": "spef274a953006"
     }
   },
   "skipped": {
