@@ -7906,6 +7906,25 @@
       "orig": "그 안무 보여주는 라잇썸 초원 움짤",
       "tpl": null,
       "new": "sp75086fe37301"
+    },
+    "kkzz/10438": {
+      "id": 3125,
+      "title": "역동적인 비비 보셨나요?",
+      "nick": "무지개떡",
+      "media": 7,
+      "at": "2026-11-10 22:52",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/16/F10567_96%20%EB%B9%84%EB%B9%84.jpg?w=764&ssl=1",
+        "https://imgur.com/owJiiFC.mp4",
+        "https://imgur.com/eeE3ArB.mp4",
+        "https://imgur.com/rMBhaXT.mp4",
+        "https://imgur.com/JCNghkU.mp4",
+        "https://imgur.com/ndKr3jS.mp4",
+        "https://imgur.com/eACgHOA.mp4"
+      ],
+      "orig": "역동적인 비비 움짤",
+      "tpl": 5,
+      "new": "sp230980e26fcb"
     }
   },
   "skipped": {
@@ -10810,6 +10829,14 @@
     },
     "kkzz/10419": {
       "title": "청바지 뒤태 피프티피프티 키나 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10440": {
+      "title": "파인 란제리룩 장예은 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10439": {
+      "title": "텀블러 끼고 있는 이미주 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
