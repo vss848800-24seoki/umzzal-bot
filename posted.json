@@ -7987,6 +7987,26 @@
       "orig": "해외 투어에서 볼 수 있는 르세라핌 홍은채 움짤",
       "tpl": null,
       "new": "spe99497beb697"
+    },
+    "kkzz/10648": {
+      "id": 3131,
+      "title": "툼레이더 같은 아이브 안유진",
+      "nick": "yoonsik",
+      "media": 8,
+      "at": "2026-11-11 04:08",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/11/11/F10777_92-%EC%95%84%EC%9D%B4%EB%B8%8C-%EC%95%88%EC%9C%A0%EC%A7%84.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85137.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85138.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85139.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85140.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85141.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85142.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85143.mp4"
+      ],
+      "orig": "툼레이더 같은 아이브 안유진 움짤",
+      "tpl": 0,
+      "new": "sp0303b6414a4f"
     }
   },
   "skipped": {
@@ -10899,6 +10919,10 @@
     },
     "kkzz/10439": {
       "title": "텀블러 끼고 있는 이미주 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10649": {
+      "title": "하체 집중 은하 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
