@@ -7819,6 +7819,51 @@
       "orig": "흑단발 스테이씨 아이사 움짤",
       "tpl": 2,
       "new": "sp111184e5149c"
+    },
+    "kkzz/10418": {
+      "id": 3115,
+      "title": "프로미스나인 백지헌 파인 땡땡이 민소매 레전드",
+      "nick": "파랑새",
+      "media": 12,
+      "at": "2026-11-10 17:51",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/11/F10547_91%20%ED%94%84%EB%A1%9C%EB%AF%B8%EC%8A%A4%EB%82%98%EC%9D%B8%20%EB%B0%B1%EC%A7%80%ED%97%8C.jpg?w=764&ssl=1",
+        "https://imgur.com/ozrJoVQ.mp4",
+        "https://imgur.com/KO79E72.mp4",
+        "https://imgur.com/RlUOzdj.mp4",
+        "https://imgur.com/rCcwyQb.mp4",
+        "https://imgur.com/ialvgG6.mp4",
+        "https://imgur.com/IKDUFUJ.mp4",
+        "https://imgur.com/QI1bhZ7.mp4",
+        "https://imgur.com/t0vKocy.mp4",
+        "https://imgur.com/wyQvzNH.mp4",
+        "https://imgur.com/TOw4cqW.mp4",
+        "https://imgur.com/BMjZwri.mp4"
+      ],
+      "orig": "파인 땡땡이 민소매 프로미스나인 백지헌 움짤",
+      "tpl": 10,
+      "new": "sp961f806dbfc0"
+    },
+    "kkzz/10417": {
+      "id": 3116,
+      "title": "오늘자 트리플에스 김나경 틈 보이는 민소매",
+      "nick": "노을맛집",
+      "media": 9,
+      "at": "2026-11-10 17:51",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/11/F10546_93%20%ED%8A%B8%EB%A6%AC%ED%94%8C%EC%97%90%EC%8A%A4%20%EA%B9%80%EB%82%98%EA%B2%BD.jpg?w=764&ssl=1",
+        "https://imgur.com/RrJt8Bo.mp4",
+        "https://imgur.com/mcQFEx4.mp4",
+        "https://imgur.com/19wzheq.mp4",
+        "https://imgur.com/fiCMhBo.mp4",
+        "https://imgur.com/BM4VUfz.mp4",
+        "https://imgur.com/2qNZFRQ.mp4",
+        "https://imgur.com/BZl4SCf.mp4",
+        "https://imgur.com/8TJZwu5.mp4"
+      ],
+      "orig": "틈 보이는 민소매 트리플에스 김나경 움짤",
+      "tpl": 11,
+      "new": "sp082ace688bfb"
     }
   },
   "skipped": {
@@ -10716,6 +10761,14 @@
     "kkzz/10444": {
       "title": "임팩트 있는 안무 미야오 수인 움짤",
       "why": "미성년 멤버 가능 '미야오'"
+    },
+    "kkzz/10420": {
+      "title": "캐리비안 베이 가서 신난 유인영 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10419": {
+      "title": "청바지 뒤태 피프티피프티 키나 움짤",
+      "why": "누군지 확실하지 않음"
     }
   }
 }
