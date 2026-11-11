@@ -8046,6 +8046,44 @@
       "orig": "AOA 짧은치마 서여진 치어리더 움짤",
       "tpl": null,
       "new": "sp78943e868c66"
+    },
+    "kkzz/10435": {
+      "id": 3136,
+      "title": "뒤태 라인 트리플에스 이지우 근황",
+      "nick": "탕수육부먹",
+      "media": 7,
+      "at": "2026-11-11 10:16",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/16/F10564_80%20%ED%8A%B8%EB%A6%AC%ED%94%8C%EC%97%90%EC%8A%A4%20%EC%9D%B4%EC%A7%80%EC%9A%B0.jpg?w=764&ssl=1",
+        "https://imgur.com/lcQagZf.mp4",
+        "https://imgur.com/J9rx4WM.mp4",
+        "https://imgur.com/C7pRY6g.mp4",
+        "https://imgur.com/vLMbRuE.mp4",
+        "https://imgur.com/WzgL4y2.mp4",
+        "https://imgur.com/YRPhhMl.mp4"
+      ],
+      "orig": "뒤태 라인 트리플에스 이지우 움짤",
+      "tpl": 2,
+      "new": "sp18fcb6857560"
+    },
+    "kkzz/10434": {
+      "id": 3137,
+      "title": "챌린지 연습하는 권은비 근황",
+      "nick": "체리콕",
+      "media": 7,
+      "at": "2026-11-11 10:16",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/15/F10563_93%20%EA%B6%8C%EC%9D%80%EB%B9%84.jpg?w=764&ssl=1",
+        "https://imgur.com/DCzxfBU.mp4",
+        "https://imgur.com/p27umA9.mp4",
+        "https://imgur.com/fdq27bA.mp4",
+        "https://imgur.com/Obbf4sY.mp4",
+        "https://imgur.com/tZw12HT.mp4",
+        "https://imgur.com/VOybsGM.mp4"
+      ],
+      "orig": "챌린지 연습하는 권은비 움짤",
+      "tpl": 2,
+      "new": "sp73a0d7637870"
     }
   },
   "skipped": {
