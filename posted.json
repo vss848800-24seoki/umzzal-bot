@@ -8184,6 +8184,31 @@
       "orig": "출근길로 기선제압 권은비 움짤",
       "tpl": 9,
       "new": "sp23ce65fa2690"
+    },
+    "kkzz/10428": {
+      "id": 3147,
+      "title": "촉촉한 무빙 케플러 김다연",
+      "nick": "퇴근길지하철",
+      "media": 13,
+      "at": "2026-11-11 16:47",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/14/F10557_79%20%EC%BC%80%ED%94%8C%EB%9F%AC%20%EA%B9%80%EB%8B%A4%EC%97%B0.jpg?w=764&ssl=1",
+        "https://imgur.com/yQTkoKN.mp4",
+        "https://imgur.com/qamvUeb.mp4",
+        "https://imgur.com/eBx6XQK.mp4",
+        "https://imgur.com/FQjFdhl.mp4",
+        "https://imgur.com/xbvSvYP.mp4",
+        "https://imgur.com/uYRdLcN.mp4",
+        "https://imgur.com/tngHDYF.mp4",
+        "https://imgur.com/f3D8bmU.mp4",
+        "https://imgur.com/Pyd6Qjl.mp4",
+        "https://imgur.com/Duu1Pka.mp4",
+        "https://imgur.com/cmkOZIg.mp4",
+        "https://imgur.com/uasG1e8.mp4"
+      ],
+      "orig": "촉촉한 무빙 케플러 김다연 움짤",
+      "tpl": null,
+      "new": "spc8415a529ab0"
     }
   },
   "skipped": {
@@ -11129,6 +11154,10 @@
     "kkzz/10411": {
       "title": "핫팬츠 뒤태 트리플에스 린 움짤",
       "why": "그룹만 있고 멤버를 모름 '트리플에스'"
+    },
+    "kkzz/10429": {
+      "title": "하얀 뒤태 하츠투하츠 이안 움짤",
+      "why": "미성년 멤버 가능 '하츠투하츠'"
     }
   }
 }
