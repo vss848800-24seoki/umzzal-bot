@@ -8105,6 +8105,25 @@
       "orig": "숙이는 빌리 시윤 움짤",
       "tpl": 5,
       "new": "sp3611e4a979a9"
+    },
+    "kkzz/10412": {
+      "id": 3141,
+      "title": "아나운서 하얀 민소매 박선영 레전드",
+      "nick": "초코우유원샷",
+      "media": 7,
+      "at": "2026-11-11 12:20",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/10/F10541_82%20%EB%B0%95%EC%84%A0%EC%98%81%20%EC%95%84%EB%82%98%EC%9A%B4%EC%84%9C.jpg?w=764&ssl=1",
+        "https://imgur.com/c26CHXB.mp4",
+        "https://imgur.com/l8jKuyT.mp4",
+        "https://imgur.com/cS0gXD7.mp4",
+        "https://imgur.com/gKXKu7w.mp4",
+        "https://imgur.com/LENzJgg.mp4",
+        "https://imgur.com/kT1a5LC.mp4"
+      ],
+      "orig": "하얀 민소매 박선영 아나운서 움짤",
+      "tpl": 10,
+      "new": "sp14ed9dede8a5"
     }
   },
   "skipped": {
@@ -11029,6 +11048,14 @@
     },
     "kkzz/10432": {
       "title": "회색티에 청바지 유라 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10414": {
+      "title": "묵직하게 라방 하는 지지원 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10413": {
+      "title": "파인 틈 보이는 유인영 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
