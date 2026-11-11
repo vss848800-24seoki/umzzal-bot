@@ -8124,6 +8124,27 @@
       "orig": "하얀 민소매 박선영 아나운서 움짤",
       "tpl": 10,
       "new": "sp14ed9dede8a5"
+    },
+    "kkzz/10644": {
+      "id": 3143,
+      "title": "옆 틈 살짝 보이는 유아유 지유 ㄷㄷ",
+      "nick": "kangmin88",
+      "media": 9,
+      "at": "2026-11-11 13:27",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/11/10/F10773_101-%EC%9C%A0%EC%95%84%EC%9C%A0-%EC%A7%80%EC%9C%A0.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85307.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85308.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85309.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85310.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85311.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85312.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85313.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85314.mp4"
+      ],
+      "orig": "옆 틈 살짝 보이는 유아유 지유 움짤",
+      "tpl": 3,
+      "new": "sp0714d23cd4f6"
     }
   },
   "skipped": {
@@ -11057,6 +11078,14 @@
     "kkzz/10413": {
       "title": "파인 틈 보이는 유인영 움짤",
       "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10647": {
+      "title": "상의가 너무 짧은 미야오 엘라 움짤",
+      "why": "미성년 멤버 가능 '미야오'"
+    },
+    "kkzz/10645": {
+      "title": "안경에 넥타이에 배꼽 보이는 핫팬츠 하츠투하츠 지우 움짤",
+      "why": "미성년 멤버 가능 '하츠투하츠'"
     }
   }
 }
