@@ -8564,6 +8564,27 @@
       "orig": "탁월한 물리엔진 라잇썸 초원 움짤",
       "tpl": null,
       "new": "sp4cd322fe540b"
+    },
+    "kkzz/10658": {
+      "id": 3202,
+      "title": "가려도 훌륭한 권은비 ㄷㄷ",
+      "nick": "도토리묵",
+      "media": 9,
+      "at": "2026-11-13 01:44",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/11/13/F10787_102-%EA%B6%8C%EC%9D%80%EB%B9%84.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85404-1.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85405.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85406.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85407.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85408.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85409.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85410.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85411.mp4"
+      ],
+      "orig": "가려도 훌륭한 권은비 움짤",
+      "tpl": 3,
+      "new": "sp3c1e6df3561a"
     }
   },
   "skipped": {
