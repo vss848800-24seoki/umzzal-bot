@@ -8363,6 +8363,87 @@
       "orig": "찰지게 떨리는 허벅지 스테이씨 아이사 움짤",
       "tpl": 3,
       "new": "spdd3e8a8b90dc"
+    },
+    "kkzz/10408": {
+      "id": 3180,
+      "title": "키스오브라이프 나띠 민소매 무빙 레전드",
+      "nick": "부산갈매기",
+      "media": 7,
+      "at": "2026-11-12 11:44",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/09/F10537_92%20%ED%82%A4%EC%8A%A4%EC%98%A4%EB%B8%8C%EB%9D%BC%EC%9D%B4%ED%94%84%20%EB%82%98%EB%9D%A0.jpg?w=764&ssl=1",
+        "https://imgur.com/BbDju5e.mp4",
+        "https://imgur.com/YNaZcNG.mp4",
+        "https://imgur.com/31SOQy0.mp4",
+        "https://imgur.com/Jt9m1ug.mp4",
+        "https://imgur.com/Um7k9su.mp4",
+        "https://imgur.com/vewYy1A.mp4"
+      ],
+      "orig": "민소매 무빙 키스오브라이프 나띠 움짤",
+      "tpl": 10,
+      "new": "sp64833e72266d"
+    },
+    "kkzz/10407": {
+      "id": 3181,
+      "title": "속바지 보이는 뒤태 라잇썸 주현",
+      "nick": "주말농장",
+      "media": 8,
+      "at": "2026-11-12 11:45",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/09/F10536_89%20%EB%9D%BC%EC%9E%87%EC%8D%B8%20%EC%A3%BC%ED%98%84.jpg?w=764&ssl=1",
+        "https://imgur.com/W7taxoL.mp4",
+        "https://imgur.com/95kG24n.mp4",
+        "https://imgur.com/kpzH1TY.mp4",
+        "https://imgur.com/43uwSTW.mp4",
+        "https://imgur.com/9cIGwjk.mp4",
+        "https://imgur.com/eu170It.mp4",
+        "https://imgur.com/XSj93Os.mp4"
+      ],
+      "orig": "속바지 보이는 뒤태 라잇썸 주현 움짤",
+      "tpl": null,
+      "new": "sp8e757a34a3ad"
+    },
+    "kkzz/10406": {
+      "id": 3182,
+      "title": "숙이고 뛰고 점프하는 라잇썸 초원",
+      "nick": "모래시계",
+      "media": 9,
+      "at": "2026-11-12 11:46",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/08/F10535_89%20%EB%9D%BC%EC%9E%87%EC%8D%B8%20%EC%B4%88%EC%9B%90.jpg?w=764&ssl=1",
+        "https://imgur.com/Ai0ZzEF.mp4",
+        "https://imgur.com/n1jlPhu.mp4",
+        "https://imgur.com/uNeucYG.mp4",
+        "https://imgur.com/wX6rL7f.mp4",
+        "https://imgur.com/hUQkMz4.mp4",
+        "https://imgur.com/OXj6d1I.mp4",
+        "https://imgur.com/pyT6WOH.mp4",
+        "https://imgur.com/9xnPwiY.mp4"
+      ],
+      "orig": "숙이고 뛰고 점프하는 라잇썸 초원 움짤",
+      "tpl": null,
+      "new": "sp2a9334296621"
+    },
+    "kkzz/10405": {
+      "id": 3183,
+      "title": "마른 몸에 묵직한 트리플에스 박소현 근황",
+      "nick": "무지개떡",
+      "media": 9,
+      "at": "2026-11-12 11:47",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/08/F10534_87%20%ED%8A%B8%EB%A6%AC%ED%94%8C%EC%97%90%EC%8A%A4%20%EB%B0%95%EC%86%8C%ED%98%84.jpg?w=764&ssl=1",
+        "https://imgur.com/nJAhfYO.mp4",
+        "https://imgur.com/eMWFA8I.mp4",
+        "https://imgur.com/xkLBbE1.mp4",
+        "https://imgur.com/jkClIec.mp4",
+        "https://imgur.com/s49UX8B.mp4",
+        "https://imgur.com/XkDyL3n.mp4",
+        "https://imgur.com/INkxlXZ.mp4",
+        "https://imgur.com/tbdLss4.mp4"
+      ],
+      "orig": "마른 몸에 묵직한 트리플에스 박소현 움짤",
+      "tpl": 2,
+      "new": "sp0edb1fc7eb88"
     }
   },
   "skipped": {
@@ -11319,6 +11400,10 @@
     },
     "kkzz/10641": {
       "title": "치마 입은 장예원 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10409": {
+      "title": "프로필 촬영하는 남유정 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
