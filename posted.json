@@ -8465,6 +8465,26 @@
       "orig": "핫팬츠 입은 브브걸 유나 움짤",
       "tpl": null,
       "new": "sp95088cee7efd"
+    },
+    "kkzz/10402": {
+      "id": 3192,
+      "title": "집중을 잘 시키는 비비 레전드",
+      "nick": "아아한잔",
+      "media": 8,
+      "at": "2026-11-12 19:18",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/07/F10531_89%20%EB%B9%84%EB%B9%84.jpg?w=764&ssl=1",
+        "https://imgur.com/pvfhaL6.mp4",
+        "https://imgur.com/W69MSTz.mp4",
+        "https://imgur.com/KOudSou.mp4",
+        "https://imgur.com/JJXfKL9.mp4",
+        "https://imgur.com/64mZW4E.mp4",
+        "https://imgur.com/vBIYJ1n.mp4",
+        "https://imgur.com/WF3FlAq.mp4"
+      ],
+      "orig": "집중을 잘 시키는 비비 움짤",
+      "tpl": 4,
+      "new": "sp2bc6ec0bedb5"
     }
   },
   "skipped": {
@@ -11425,6 +11445,10 @@
     },
     "kkzz/10409": {
       "title": "프로필 촬영하는 남유정 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10403": {
+      "title": "속바지에 뒤태까지 에스투잇(S2iT) 승비 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
