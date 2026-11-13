@@ -8838,6 +8838,26 @@
       "orig": "펀치 날리는 하지원 치어리더 움짤",
       "tpl": 4,
       "new": "spfb32921ee3a8"
+    },
+    "kkzz/10660": {
+      "id": 3242,
+      "title": "다리에 드라이기 바람 쐬는 김세연 아나운서",
+      "nick": "구름한조각",
+      "media": 8,
+      "at": "2026-11-14 03:15",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/11/14/F10789_99-%EA%B9%80%EC%84%B8%EC%97%B0-%EC%95%84%EB%82%98%EC%9A%B4%EC%84%9C.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85389.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85390.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85391.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85392.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85396.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85397.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85398.mp4"
+      ],
+      "orig": "다리에 드라이기 바람 쐬는 김세연 아나운서 움짤",
+      "tpl": 0,
+      "new": "spc62622690e5e"
     }
   },
   "skipped": {
@@ -11810,6 +11830,14 @@
     },
     "kkzz/10391": {
       "title": "목에 땀 나는 리센느 리브 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10662": {
+      "title": "동작이 클수록 비례하는 무빙 지지원 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10661": {
+      "title": "찰진 튕김 은하 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
