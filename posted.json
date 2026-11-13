@@ -8701,6 +8701,26 @@
       "orig": "떨리는 허벅지 스테이씨 아이사 움짤",
       "tpl": 2,
       "new": "sp1bbae8f6bd01"
+    },
+    "kkzz/10392": {
+      "id": 3215,
+      "title": "2인자다운 라잇썸 나영",
+      "nick": "nightowl",
+      "media": 8,
+      "at": "2026-11-13 11:46",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/09/05/F10521_87%20%EB%9D%BC%EC%9E%87%EC%8D%B8%20%EB%82%98%EC%98%81.jpg?w=764&ssl=1",
+        "https://imgur.com/6lGhnNW.mp4",
+        "https://imgur.com/o2mhSmm.mp4",
+        "https://imgur.com/fLrJtUn.mp4",
+        "https://imgur.com/8iAFAUy.mp4",
+        "https://imgur.com/Xjk4l69.mp4",
+        "https://imgur.com/OdEC4of.mp4",
+        "https://imgur.com/eMr7fzI.mp4"
+      ],
+      "orig": "2인자다운 라잇썸 나영 움짤",
+      "tpl": null,
+      "new": "spb8fc88e31be2"
     }
   },
   "skipped": {
@@ -11665,6 +11685,10 @@
     },
     "kkzz/10403": {
       "title": "속바지에 뒤태까지 에스투잇(S2iT) 승비 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10393": {
+      "title": "수영복 입은 이시안 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
