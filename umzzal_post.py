@@ -34,7 +34,7 @@ PER_DAY = (15, 15)   # 2026-10-30 제프: 소재가 금방 떨어질까 봐 20~3
 MAX_PER_RUN = 4
 
 # 새 사이트(리뉴얼, 2026-11-03): 옛 사이트 게시는 그대로 두고 새 사이트에도 덧붙임. 열쇠는 환경변수 NUDE_NEW_KEY 또는 ~/.config/jeff/nude_new_key_umzzal.txt (내용 출력 금지)
-NEW_SITE = os.environ.get("NUDE_NEW_SITE") or "https://nudetv-staging.pages.dev"
+NEW_SITE = os.environ.get("NUDE_NEW_SITE") or "https://bulltv24.com"
 NEW_BOARD = "adult"                                            # 후방주의 +19
 NEW_VISIBLE = os.environ.get("NUDE_NEW_VISIBLE", "1") != "0"   # 2026-11-03 제프 지시로 공개가 기본. 숨김으로 올리려면 NUDE_NEW_VISIBLE=0
 NEW_PREFIX = os.environ.get("NUDE_NEW_PREFIX") or "umzzal-"    # sourceKey 앞머리(같은 키는 중복 안 생김)
