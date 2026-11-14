@@ -9081,6 +9081,28 @@
       "orig": "롯데 자이언츠 유니폼 입은 프로미스나인 박지원 움짤",
       "tpl": 2,
       "new": "sp968cd359b784"
+    },
+    "kkzz/10367": {
+      "id": 3271,
+      "title": "오늘자 찰진 핫팬츠 허벅지 ITZY(있지) 채령",
+      "nick": "주말만기다림",
+      "media": 10,
+      "at": "2026-11-14 19:14",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/30/F10496_13%20%EC%9E%88%EC%A7%80%20%EC%B1%84%EB%A0%B9.jpg?w=764&ssl=1",
+        "https://imgur.com/kxnQzr7.mp4",
+        "https://imgur.com/sLdnWVs.mp4",
+        "https://imgur.com/lW18LUs.mp4",
+        "https://imgur.com/yi2bVna.mp4",
+        "https://imgur.com/NZdttnR.mp4",
+        "https://imgur.com/gbfyhP4.mp4",
+        "https://imgur.com/Nujfhds.mp4",
+        "https://imgur.com/42ARAUV.mp4",
+        "https://imgur.com/qG6eSc5.mp4"
+      ],
+      "orig": "찰진 핫팬츠 허벅지 ITZY(있지) 채령 움짤",
+      "tpl": 1,
+      "new": "spe248fdc77f74"
     }
   },
   "skipped": {
@@ -12085,6 +12107,10 @@
     },
     "kkzz/10371": {
       "title": "파인 홀터넥 정혜성 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10368": {
+      "title": "물 마시는 피프티피프티 키나 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
