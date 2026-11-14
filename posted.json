@@ -9187,6 +9187,23 @@
       "orig": "어깨 보이는 엔믹스 오해원 움짤",
       "tpl": null,
       "new": "sp1cdc18d139c7"
+    },
+    "kkzz/10666": {
+      "id": 3286,
+      "title": "무난한 권은비 보셨나요?",
+      "nick": "한강라면",
+      "media": 5,
+      "at": "2026-11-15 07:10",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/11/15/F10795_105-%EA%B6%8C%EC%9D%80%EB%B9%84.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85483.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85484.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85485.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85486.mp4"
+      ],
+      "orig": "무난한 권은비 움짤",
+      "tpl": 5,
+      "new": "sp6d53c5288b62"
     }
   },
   "skipped": {
