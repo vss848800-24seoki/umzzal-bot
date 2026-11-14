@@ -9038,6 +9038,49 @@
       "orig": "공연 대기 중인 권은비 움짤",
       "tpl": 0,
       "new": "sp6e5340af7952"
+    },
+    "kkzz/10370": {
+      "id": 3269,
+      "title": "비서진 비비 ㄷㄷ",
+      "nick": "강아지발바닥",
+      "media": 10,
+      "at": "2026-11-14 18:20",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/30/F10499_87%20%EB%B9%84%EB%B9%84.jpg?w=764&ssl=1",
+        "https://imgur.com/tEwXZ9t.mp4",
+        "https://imgur.com/HAbkq3o.mp4",
+        "https://imgur.com/TeYVqWj.mp4",
+        "https://imgur.com/mZNL1LR.mp4",
+        "https://imgur.com/1Y2W2Jo.mp4",
+        "https://imgur.com/XzliNK7.mp4",
+        "https://imgur.com/BYguNEc.mp4",
+        "https://imgur.com/5cluQZv.mp4",
+        "https://imgur.com/fxLRuKC.mp4"
+      ],
+      "orig": "비서진 비비 움짤",
+      "tpl": 3,
+      "new": "spda2a3e0dad99"
+    },
+    "kkzz/10369": {
+      "id": 3270,
+      "title": "롯데 자이언츠 유니폼 입은 프로미스나인 박지원 근황",
+      "nick": "도토리묵",
+      "media": 9,
+      "at": "2026-11-14 18:20",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/30/F10498_25%20%ED%94%84%EB%A1%9C%EB%AF%B8%EC%8A%A4%EB%82%98%EC%9D%B8%20%EB%B0%95%EC%A7%80%EC%9B%90.jpg?w=764&ssl=1",
+        "https://imgur.com/WUrRnWO.mp4",
+        "https://imgur.com/cWpkINN.mp4",
+        "https://imgur.com/NdDhlD1.mp4",
+        "https://imgur.com/jEbV68T.mp4",
+        "https://imgur.com/KixZ66d.mp4",
+        "https://imgur.com/8JNh20l.mp4",
+        "https://imgur.com/HF6bPAi.mp4",
+        "https://imgur.com/1OEUfku.mp4"
+      ],
+      "orig": "롯데 자이언츠 유니폼 입은 프로미스나인 박지원 움짤",
+      "tpl": 2,
+      "new": "sp968cd359b784"
     }
   },
   "skipped": {
@@ -12034,6 +12077,14 @@
     },
     "kkzz/10374": {
       "title": "물 만난 워터밤 남유정 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10372": {
+      "title": "CLC 11주년 콘서트 장예은 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10371": {
+      "title": "파인 홀터넥 정혜성 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
