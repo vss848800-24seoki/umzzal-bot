@@ -9147,6 +9147,27 @@
       "orig": "민소매 배꼽 에스파 윈터 움짤",
       "tpl": 8,
       "new": "sp55c178bfb686"
+    },
+    "kkzz/10362": {
+      "id": 3282,
+      "title": "엎드리고 숙이는 아이브 장원영 레전드",
+      "nick": "피자한판",
+      "media": 9,
+      "at": "2026-11-15 04:29",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/28/F10491_87%20%EC%95%84%EC%9D%B4%EB%B8%8C%20%EC%9E%A5%EC%9B%90%EC%98%81.jpg?w=764&ssl=1",
+        "https://imgur.com/EJYjgZ7.mp4",
+        "https://imgur.com/BHUtyVZ.mp4",
+        "https://imgur.com/Yjqkd7V.mp4",
+        "https://imgur.com/JDoJkft.mp4",
+        "https://imgur.com/cuwdidP.mp4",
+        "https://imgur.com/XvflaKv.mp4",
+        "https://imgur.com/5egc8iq.mp4",
+        "https://imgur.com/5X9zCOu.mp4"
+      ],
+      "orig": "엎드리고 숙이는 아이브 장원영 움짤",
+      "tpl": 4,
+      "new": "spf18da0995b32"
     }
   },
   "skipped": {
@@ -12156,6 +12177,14 @@
     "kkzz/10368": {
       "title": "물 마시는 피프티피프티 키나 움짤",
       "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10364": {
+      "title": "플라잉 요가 배우는 이미주 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10363": {
+      "title": "땀으로 빛나는 복부 오드유스 예음 움짤",
+      "why": "미성년 멤버 가능 '오드유스'"
     }
   }
 }
