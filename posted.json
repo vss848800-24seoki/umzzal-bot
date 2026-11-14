@@ -9019,6 +9019,25 @@
       "orig": "방심하는 선미 움짤",
       "tpl": 4,
       "new": "spae6f57678749"
+    },
+    "kkzz/10373": {
+      "id": 3265,
+      "title": "공연 대기 중인 권은비",
+      "nick": "주말농장",
+      "media": 7,
+      "at": "2026-11-14 16:35",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/31/F10502_87%20%EA%B6%8C%EC%9D%80%EB%B9%84.jpg?w=764&ssl=1",
+        "https://imgur.com/WwTDElT.mp4",
+        "https://imgur.com/j1IkqSQ.mp4",
+        "https://imgur.com/ZVQjUf6.mp4",
+        "https://imgur.com/8G9763G.mp4",
+        "https://imgur.com/GzGWNeN.mp4",
+        "https://imgur.com/itQQx0d.mp4"
+      ],
+      "orig": "공연 대기 중인 권은비 움짤",
+      "tpl": 0,
+      "new": "sp6e5340af7952"
     }
   },
   "skipped": {
@@ -12007,6 +12026,14 @@
     },
     "kkzz/10380": {
       "title": "땀이 줄줄 흐르는 피프티피프티 문샤넬 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10375": {
+      "title": "핫팬츠 입은 오드유스 써머 움짤",
+      "why": "미성년 멤버 가능 '오드유스'"
+    },
+    "kkzz/10374": {
+      "title": "물 만난 워터밤 남유정 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
