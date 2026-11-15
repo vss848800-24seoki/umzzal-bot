@@ -9264,6 +9264,48 @@
       "orig": "활기가 도는 응원 김나연 치어리더 움짤",
       "tpl": 2,
       "new": "sp835a8d3da25b"
+    },
+    "kkzz/10358": {
+      "id": 3297,
+      "title": "오늘자 2026 TIMA 레드카펫 에스파 카리나",
+      "nick": "꿀벌",
+      "media": 11,
+      "at": "2026-11-15 12:16",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/27/F10487_87%20%EC%97%90%EC%8A%A4%ED%8C%8C%20%EC%B9%B4%EB%A6%AC%EB%82%98.jpg?w=764&ssl=1",
+        "https://imgur.com/pRzwY7V.mp4",
+        "https://imgur.com/xbrdAf2.mp4",
+        "https://imgur.com/qje7i72.mp4",
+        "https://imgur.com/NdYUHnb.mp4",
+        "https://imgur.com/LNIxAum.mp4",
+        "https://imgur.com/uQNr4QB.mp4",
+        "https://imgur.com/h3NEal4.mp4",
+        "https://imgur.com/ec0pKWE.mp4",
+        "https://imgur.com/txZylLc.mp4",
+        "https://imgur.com/DwXmFYb.mp4"
+      ],
+      "orig": "2026 TIMA 레드카펫 에스파 카리나 움짤",
+      "tpl": 1,
+      "new": "spcb2909c95be3"
+    },
+    "kkzz/10357": {
+      "id": 3298,
+      "title": "각도가 좋은 김세연 아나운서 레전드",
+      "nick": "솜사탕",
+      "media": 7,
+      "at": "2026-11-15 12:17",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/27/F10486_89%20%EA%B9%80%EC%84%B8%EC%97%B0%20%EC%95%84%EB%82%98%EC%9A%B4%EC%84%9C.jpg?w=764&ssl=1",
+        "https://imgur.com/eHBvzev.mp4",
+        "https://imgur.com/rkkJeAx.mp4",
+        "https://imgur.com/7A6A4ED.mp4",
+        "https://imgur.com/OeGykP9.mp4",
+        "https://imgur.com/123eEC9.mp4",
+        "https://imgur.com/rr9cSjH.mp4"
+      ],
+      "orig": "각도가 좋은 김세연 아나운서 움짤",
+      "tpl": 4,
+      "new": "sp06b66a7898d3"
     }
   },
   "skipped": {
