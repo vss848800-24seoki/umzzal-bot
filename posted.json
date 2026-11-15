@@ -9446,6 +9446,83 @@
       "orig": "그냥 티셔츠 입은 트리플에스 김채연 움짤",
       "tpl": 5,
       "new": "sp92ed501c9b07"
+    },
+    "kkzz/10347": {
+      "id": 3334,
+      "title": "황홀한 응원 정설아 치어리더",
+      "nick": "찹쌀떡",
+      "media": 8,
+      "at": "2026-11-16 06:53",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/25/F10476_73%20%EC%A0%95%EC%84%A4%EC%95%84%20%EC%B9%98%EC%96%B4%EB%A6%AC%EB%8D%94.jpg?w=764&ssl=1",
+        "https://imgur.com/VSrbeRO.mp4",
+        "https://imgur.com/wYWZ6EV.mp4",
+        "https://imgur.com/kqVA3FJ.mp4",
+        "https://imgur.com/BM2COUR.mp4",
+        "https://imgur.com/4YLkdRQ.mp4",
+        "https://imgur.com/6O6gh2M.mp4",
+        "https://imgur.com/tKEdqqT.mp4"
+      ],
+      "orig": "황홀한 응원 정설아 치어리더 움짤",
+      "tpl": 0,
+      "new": "sp72bc4464d265"
+    },
+    "kkzz/10346": {
+      "id": 3335,
+      "title": "토트넘 핫걸 권은비 ㄷㄷ",
+      "nick": "jjm0412",
+      "media": 7,
+      "at": "2026-11-16 06:54",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/24/F10475_79%20%EA%B6%8C%EC%9D%80%EB%B9%84.jpg?w=764&ssl=1",
+        "https://imgur.com/9GBaEcC.mp4",
+        "https://imgur.com/ySncTuW.mp4",
+        "https://imgur.com/ecaTxER.mp4",
+        "https://imgur.com/zTXMUSa.mp4",
+        "https://imgur.com/DgXi5hN.mp4",
+        "https://imgur.com/27YkZ9z.mp4"
+      ],
+      "orig": "토트넘 핫걸 권은비 움짤",
+      "tpl": 3,
+      "new": "sp5f5391f8942b"
+    },
+    "kkzz/10345": {
+      "id": 3336,
+      "title": "오마이걸 유빈 바빠 보이는 뒤태",
+      "nick": "레몬사탕",
+      "media": 7,
+      "at": "2026-11-16 06:55",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/24/F10474_74%20%EC%98%A4%EB%A7%88%EC%9D%B4%EA%B1%B8%20%EC%9C%A0%EB%B9%88.jpg?w=764&ssl=1",
+        "https://imgur.com/WkN5MDo.mp4",
+        "https://imgur.com/KKxc0JT.mp4",
+        "https://imgur.com/flzInQw.mp4",
+        "https://imgur.com/rgnt48m.mp4",
+        "https://imgur.com/DfPPV9t.mp4",
+        "https://imgur.com/fLnqVDo.mp4"
+      ],
+      "orig": "바빠 보이는 뒤태 오마이걸 유빈 움짤",
+      "tpl": 6,
+      "new": "sp728e8b725f44"
+    },
+    "kkzz/10344": {
+      "id": 3337,
+      "title": "라인이 살짝 보이는 유아유 유현",
+      "nick": "회색후드티",
+      "media": 7,
+      "at": "2026-11-16 06:56",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/24/F10473_21%20%EC%9C%A0%EC%95%84%EC%9C%A0%20%EC%9C%A0%ED%98%84.jpg?w=764&ssl=1",
+        "https://imgur.com/a3SW8cx.mp4",
+        "https://imgur.com/GxuMHtA.mp4",
+        "https://imgur.com/0oKQ0z6.mp4",
+        "https://imgur.com/eVJW6Lb.mp4",
+        "https://imgur.com/qqDQkzl.mp4",
+        "https://imgur.com/fwDuKcl.mp4"
+      ],
+      "orig": "라인이 살짝 보이는 유아유 유현 움짤",
+      "tpl": null,
+      "new": "sp857846b3813e"
     }
   },
   "skipped": {
@@ -12471,6 +12548,14 @@
     "kkzz/10664": {
       "title": "가을이라 갈색 핫팬츠 오드유스 써머 움짤",
       "why": "미성년 멤버 가능 '오드유스'"
+    },
+    "kkzz/10349": {
+      "title": "레깅스 입은 오드유스 써머 움짤",
+      "why": "미성년 멤버 가능 '오드유스'"
+    },
+    "kkzz/10348": {
+      "title": "한쪽으로 쏠린 홀터넥 정혜성 움짤",
+      "why": "누군지 확실하지 않음"
     }
   }
 }
