@@ -496,6 +496,12 @@ def _new_key():
     return k
 
 
+def badge_for(nick):
+    """닉네임마다 배지를 하나로 고정 (athlete-01~99, 2026-11-17 새 사이트가 authorBadgeId 지원)"""
+    import zlib
+    return "athlete-%02d" % (zlib.crc32(nick.encode("utf-8")) % 99 + 1)
+
+
 def new_site_post(key, title, nick, media):
     """같은 글을 새 사이트 후방주의 +19에도 올림. 어떤 오류도 밖으로 던지지 않음. 성공하면 새 글 id, 아니면 None"""
     nk = ""
@@ -520,7 +526,7 @@ def new_site_post(key, title, nick, media):
                 except Exception:
                     pass
             out.append((kind, u))
-        payload = {"board": NEW_BOARD, "title": title, "author": nick, "body": to_html(out),
+        payload = {"board": NEW_BOARD, "title": title, "author": nick, "authorBadgeId": badge_for(nick), "body": to_html(out),
                    "visible": NEW_VISIBLE, "sourceKey": (NEW_PREFIX + key)[:100]}
         r = requests.post(NEW_SITE + "/api/admin/posts", json=payload, headers=h, timeout=90)
         t = r.json() if r.headers.get("content-type", "").startswith("application/json") else {}
