@@ -10074,6 +10074,25 @@
       "orig": "시스루 키스오브라이프 나띠 움짤",
       "tpl": 10,
       "new": "spe199b207121b"
+    },
+    "kkzz/10667": {
+      "id": 3428,
+      "title": "과일만 보이는 하이키 옐",
+      "nick": "오늘도무사히",
+      "media": 7,
+      "at": "2026-11-18 02:06",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/11/16/F10796_17-%ED%95%98%EC%9D%B4%ED%82%A4-%EC%98%90.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-73633.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-73634.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-73635.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-73637.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-73638.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-73639.mp4"
+      ],
+      "orig": "과일만 보이는 하이키 옐 움짤",
+      "tpl": null,
+      "new": "sp8ac79e016cc8"
     }
   },
   "skipped": {
