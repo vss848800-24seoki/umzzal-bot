@@ -10013,6 +10013,27 @@
       "orig": "무빙이 자유로운 빌리 츠키 움짤",
       "tpl": 3,
       "new": "sp7d403c110632"
+    },
+    "kkzz/10318": {
+      "id": 3425,
+      "title": "오늘자 웅장한 트리플에스 김채연",
+      "nick": "토요일오후",
+      "media": 9,
+      "at": "2026-11-17 23:06",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/17/F10447_101%20%ED%8A%B8%EB%A6%AC%ED%94%8C%EC%97%90%EC%8A%A4%20%EA%B9%80%EC%B1%84%EC%97%B0.jpg?w=764&ssl=1",
+        "https://imgur.com/PZTCAk6.mp4",
+        "https://imgur.com/jFLfWZp.mp4",
+        "https://imgur.com/MHLgZLb.mp4",
+        "https://imgur.com/uu23hsY.mp4",
+        "https://imgur.com/TosOmNv.mp4",
+        "https://imgur.com/CKJ1k4t.mp4",
+        "https://imgur.com/irp5Maq.mp4",
+        "https://imgur.com/wSbOYbp.mp4"
+      ],
+      "orig": "웅장한 트리플에스 김채연 움짤",
+      "tpl": 1,
+      "new": "sp0e1c640ba3a5"
     }
   },
   "skipped": {
@@ -13069,6 +13090,10 @@
     },
     "kkzz/10328": {
       "title": "컴백 라방 오드유스 써머 움짤",
+      "why": "미성년 멤버 가능 '오드유스'"
+    },
+    "kkzz/10319": {
+      "title": "본인의 장점을 잘 아는 오드유스 써머 움짤",
       "why": "미성년 멤버 가능 '오드유스'"
     }
   }
