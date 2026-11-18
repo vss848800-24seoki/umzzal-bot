@@ -10387,6 +10387,25 @@
       "orig": "속바지가 살짝 보이는 조민지 아나운서 움짤",
       "tpl": 1,
       "new": "sp74bcb05ba00c"
+    },
+    "kkzz/10302": {
+      "id": 3471,
+      "title": "[권은비] 시구 비하인드",
+      "nick": "sunny_day",
+      "media": 7,
+      "at": "2026-11-19 03:48",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/13/F10431_105%20%EA%B6%8C%EC%9D%80%EB%B9%84.jpg?w=764&ssl=1",
+        "https://imgur.com/718cxtN.mp4",
+        "https://imgur.com/ysevhIg.mp4",
+        "https://imgur.com/tNZwlPe.mp4",
+        "https://imgur.com/PzbrGbp.mp4",
+        "https://imgur.com/7nI39vY.mp4",
+        "https://imgur.com/zUJPjBT.mp4"
+      ],
+      "orig": "시구 비하인드 권은비 움짤",
+      "tpl": 9,
+      "new": "sp6e8f9fd5615c"
     }
   },
   "skipped": {
@@ -13455,6 +13474,10 @@
     },
     "kkzz/10310": {
       "title": "다음 워터밤 기대가 큰 클라씨 원지민 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10303": {
+      "title": "소소한 무빙 피프티피프티 키나 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
