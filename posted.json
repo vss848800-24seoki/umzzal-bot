@@ -10406,6 +10406,46 @@
       "orig": "시구 비하인드 권은비 움짤",
       "tpl": 9,
       "new": "sp6e8f9fd5615c"
+    },
+    "kkzz/10681": {
+      "id": 3472,
+      "title": "오늘자 신차 보다 검스 김세연 아나운서",
+      "nick": "kangmin88",
+      "media": 6,
+      "at": "2026-11-19 05:18",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/11/19/F10810_96-%EA%B9%80%EC%84%B8%EC%97%B0-%EC%95%84%EB%82%98%EC%9A%B4%EC%84%9C.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85412.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85413.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85414.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85415.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85416.mp4"
+      ],
+      "orig": "신차 보다 검스 김세연 아나운서 움짤",
+      "tpl": 1,
+      "new": "sp05adac7a0fcd"
+    },
+    "kkzz/10680": {
+      "id": 3473,
+      "title": "쪼그려 앉아주는 아이칠린 예주",
+      "nick": "kimchi_lover",
+      "media": 10,
+      "at": "2026-11-19 05:20",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/11/19/F10809_97-%EC%95%84%EC%9D%B4%EC%B9%A0%EB%A6%B0-%EC%98%88%EC%A3%BC.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85438.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85439.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85440.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85441.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85442.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85443.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85444.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85445.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85446.mp4"
+      ],
+      "orig": "쪼그려 앉아주는 아이칠린 예주 움짤",
+      "tpl": null,
+      "new": "sp8ff2c354bc7e"
     }
   },
   "skipped": {
