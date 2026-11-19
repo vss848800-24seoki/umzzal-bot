@@ -10446,6 +10446,26 @@
       "orig": "쪼그려 앉아주는 아이칠린 예주 움짤",
       "tpl": null,
       "new": "sp8ff2c354bc7e"
+    },
+    "kkzz/10301": {
+      "id": 3474,
+      "title": "치어리더 야구 배팅하는 아야카 레전드",
+      "nick": "냉면사리",
+      "media": 8,
+      "at": "2026-11-19 09:19",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/13/F10430_102%20%EC%95%84%EC%95%BC%EC%B9%B4%20%EC%B9%98%EC%96%B4%EB%A6%AC%EB%8D%94.jpg?w=764&ssl=1",
+        "https://imgur.com/R5pamZ6.mp4",
+        "https://imgur.com/CL5IFHR.mp4",
+        "https://imgur.com/FUgiSqJ.mp4",
+        "https://imgur.com/tIKjRY8.mp4",
+        "https://imgur.com/0rNLf1C.mp4",
+        "https://imgur.com/lRrxSKb.mp4",
+        "https://imgur.com/JjgN1Fe.mp4"
+      ],
+      "orig": "야구 배팅하는 아야카 치어리더 움짤",
+      "tpl": 10,
+      "new": "sp9df6607c01b1"
     }
   },
   "skipped": {
