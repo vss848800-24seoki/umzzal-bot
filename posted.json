@@ -11111,6 +11111,26 @@
       "orig": "묵직하고 찰진 키스오브라이프 나띠 움짤",
       "tpl": 4,
       "new": "spe987689536c6"
+    },
+    "kkzz/10272": {
+      "id": 3555,
+      "title": "땀 식히는 빌리 츠키",
+      "nick": "모래시계",
+      "media": 8,
+      "at": "2026-11-21 11:09",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/08/06/F10401_100%20%EB%B9%8C%EB%A6%AC%20%EC%B8%A0%ED%82%A4.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/08/Honeycam-82599.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/08/Honeycam-82600.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/08/Honeycam-82601.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/08/Honeycam-82602.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/08/Honeycam-82603.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/08/Honeycam-82604.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/08/Honeycam-82605.mp4"
+      ],
+      "orig": "땀 식히는 빌리 츠키 움짤",
+      "tpl": 0,
+      "new": "spabe1cd18fe38"
     }
   },
   "skipped": {
@@ -14199,6 +14219,10 @@
     },
     "kkzz/10683": {
       "title": "목걸이만 보이는 유인영 움짤",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10687": {
+      "title": "가터벨트 베스티 혜연 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
