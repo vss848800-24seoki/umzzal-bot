@@ -11474,6 +11474,25 @@
       "orig": "드림캐쳐 유현 아슬아슬 공항패션 가슴골",
       "tpl": 104,
       "new": "spf6ebec1ca15a"
+    },
+    "zzalbox/fc89284c-b02b-4805-bab3-9b107de858d6": {
+      "id": 3656,
+      "title": "허윤진 망사핫팬츠 뒷캠",
+      "nick": "ssoyoung",
+      "media": 7,
+      "at": "2026-11-22 22:36",
+      "urls": [
+        "https://cdn.zzalbox.com/038ce25b-a208-4117-a4f6-aeffd2eee24d.mp4",
+        "https://cdn.zzalbox.com/cf6e065b-d43c-420f-86c7-5ecbaf5da5b1.mp4",
+        "https://cdn.zzalbox.com/a53f1ec6-f755-4926-b793-643e0951aeeb.mp4",
+        "https://cdn.zzalbox.com/f1eda3c9-cb7b-400a-9db1-8f3f5f772002.mp4",
+        "https://cdn.zzalbox.com/e3cd3cc4-d7bc-4f5b-9479-813a442075d9.mp4",
+        "https://cdn.zzalbox.com/df77146a-9b3f-4eb9-9986-2bf9c48f026f.mp4",
+        "https://cdn.zzalbox.com/055169f0-defc-47b3-bfef-3b4df872b314.mp4"
+      ],
+      "orig": "허윤진 망사핫팬츠 뒷캠",
+      "tpl": null,
+      "new": "spc279cc7e78b2"
     }
   },
   "skipped": {
