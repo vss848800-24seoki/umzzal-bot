@@ -11442,6 +11442,23 @@
       "orig": "안전한 안전벨트 트리플에스 김채연",
       "tpl": null,
       "new": "spd44cb71a4162"
+    },
+    "zzalbox/cd7f936a-e8e4-4c46-a555-f7d6d836afc4": {
+      "id": 3644,
+      "title": "검은색 시스루 프로미스나인 이나경",
+      "nick": "오징어땅콩",
+      "media": 5,
+      "at": "2026-11-22 21:35",
+      "urls": [
+        "https://cdn.zzalbox.com/a15ea4ee-c550-43b5-bd09-11014ffce331.mp4",
+        "https://cdn.zzalbox.com/163f663b-0439-47bf-8a21-24e35dcf12b1.mp4",
+        "https://cdn.zzalbox.com/51a1c198-4561-47f1-a1de-f37d038ea50d.mp4",
+        "https://cdn.zzalbox.com/d51ded74-0478-4809-8977-129a15006583.mp4",
+        "https://cdn.zzalbox.com/35c59652-7cdc-426a-8696-8e7a0a5638c3.mp4"
+      ],
+      "orig": "검은색 시스루 프로미스나인 이나경",
+      "tpl": null,
+      "new": "sp0f4e49d58fed"
     }
   },
   "skipped": {
@@ -14543,6 +14560,10 @@
     },
     "zzalbox/dc4a1554-131f-41f1-9abd-81b7b2c0d4b9": {
       "title": "베스티 다혜 바지 핏",
+      "why": "누군지 확실하지 않음"
+    },
+    "zzalbox/e8d56536-008d-411b-a3dd-b305cfc0ee9d": {
+      "title": "목걸이만 보이는 유인영",
       "why": "누군지 확실하지 않음"
     }
   }
