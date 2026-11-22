@@ -51,8 +51,11 @@ POPI = "https://popi.io"                        # idol 게시판만(streamer·su
 MKREV = "https://mkrevolution.net"              # 9-14 이후 새 글 없음 → 옛 글 예비용. 워드프레스 공개 글 목록(한국어 797)
 GGARZZAK = "https://www.ggarzzak.com"           # 연예인 움짤(gif) 게시판, 10-20 이후 새 글 없음 → 옛 글 예비용. 자체 사진은 외부 링크 막힘
 YGOSU = "https://ygosu.com"                    # 연예인(stars) 게시판, 하루 약 25개. 영상만 씀(사진은 avif라 옛 사이트 업로드가 안 될 수 있음). 분류 없는 글(그라비아·해외 모델)은 뺌
+INVEN = "https://www.inven.co.kr/board/webzine/2097"   # 오픈이슈갤러리 '연예' 분류. 사진만 씀(영상은 다른 사이트에서 링크하면 403, 사진은 받아서 다시 올리므로 괜찮음)
+ETOLAND = "https://etoland.co.kr"               # 연예인 게시판(star02). 사진만 씀(이유는 인벤과 같음), 하루 약 300개
+NOREF_HOSTS = ("inven.co.kr", "etoland.co.kr")  # 다른 사이트에서 링크하면 막히는 곳 → 다시 올리기에 실패하면 원래 주소를 쓰지 않고 뺌
 # 앞에서부터 우선 (kkzz = kkzz.kr 움짤 공작소, issuya = 이슈야 연예 갤러리)
-SOURCES = ["kkzz", "zzalbox", "jjalarc", "ygosu", "popi-idol", "mkrev", "ggarzzak", "pillsu-hip", "pillsu-thigh", "pillsu-underhip", "pillsu-armpit", "pillsu-chest", "heye-uesrup", "heye-idol", "issuya", "mgall", "issue", "kgif", "stars", "ggor"]   # 2026-10-22: kgirls 영상 차단으로 이슈야·kkzz 먼저
+SOURCES = ["kkzz", "zzalbox", "jjalarc", "ygosu", "popi-idol", "etoland", "inven", "mkrev", "ggarzzak", "pillsu-hip", "pillsu-thigh", "pillsu-underhip", "pillsu-armpit", "pillsu-chest", "heye-uesrup", "heye-idol", "issuya", "mgall", "issue", "kgif", "stars", "ggor"]   # 2026-10-22: kgirls 영상 차단으로 이슈야·kkzz 먼저
 MAX_PAGE = 40   # kkzz는 653쪽까지 있음 (2026-10-30 15→40)
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120 Safari/537.36"
 
@@ -268,6 +271,25 @@ def list_page(board, page):
         for no, t in re.findall(r'<a href="(?:https://popi\.io)?/jjal/(\d+)(?:\?[^"]*)?" title="([^"]*)" class="upper_link"', s):
             out.setdefault(int(no), html.unescape(t).strip() or None)
         return sorted(out.items(), reverse=True)
+    if board == "inven":   # 연예 분류, 2쪽 이후도 같은 모양. 공지 줄은 뺌. 약 27쪽 뒤는 빈 쪽
+        s = requests.get(INVEN, params={"category": "연예", "p": page}, headers={"User-Agent": UA}, timeout=60).text
+        out = {}
+        for cls, row in re.findall(r'<tr class="([^"]*)">(.*?)</tr>', s, re.S):
+            if "notice" in cls:
+                continue
+            m = re.search(r'class="subject-link" href="https://www\.inven\.co\.kr/board/webzine/2097/(\d+)[^"]*">(.*?)</a>', row, re.S)
+            if m:
+                t = re.sub(r'<span class="category">.*?</span>', "", m.group(2), flags=re.S)
+                out.setdefault(int(m.group(1)), " ".join(html.unescape(re.sub(r"<[^>]+>", "", t)).split()) or None)
+        return sorted(out.items(), reverse=True)
+    if board == "etoland":   # 2쪽부터 링크에 ?page=N 이 붙음. 공지 글은 뺌
+        s = get(f"{ETOLAND}/b/star02/list?page={page}")
+        notice = {int(x) for x in re.findall(r'\\"wrId\\":(\d+),\\"category\\":\\"공지\\"', s)}
+        out = {}
+        for no, t in re.findall(r'<a class="body-m[^"]*"[^>]*href="/b/star02/view/[^"?#]*?-(\d+)(?:\?page=\d+)?">(.*?)</a>', s, re.S):
+            if int(no) not in notice:
+                out.setdefault(int(no), html.unescape(re.sub(r"<[^>]+>|<!-- -->", "", t)).strip() or None)
+        return sorted(out.items(), reverse=True)
     if board == "ygosu":   # 2쪽부터 링크에 /?page=N 이 붙음. 분류 칸이 빈 글은 그라비아·해외 모델이 많아 뺌
         s = get(f"{YGOSU}/board/stars/?page={page}")
         out = []
@@ -401,6 +423,37 @@ def read_post_new(board, no, title=None):
         t = html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).strip() if m else (title or "")
         m = re.search(r'<div id="post-content">(.*?)<!-- 본문 내용 끝 -->', s, re.S)
         return t, _media_from(m.group(1) if m else "", POPI)
+    if board == "inven":   # 사진만
+        s = requests.get(f"{INVEN}/{no}", headers={"User-Agent": UA}, timeout=60).text
+        m = re.search(r'<div class="articleTitle">\s*<h1>(.*?)</h1>', s, re.S) or re.search(r'<meta property="og:title" content="([^"]*)"', s)
+        t = " ".join(html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).split()) if m else (title or "")
+        b = re.search(r'<div id="powerbbsContent">(.*?)<!-- =+ End CONTENT', s, re.S)
+        imgs = []
+        for tag in re.finditer(r"<img\b([^>]*)>", b.group(1) if b else "", re.I):
+            u = re.search(r'\bdata-src="([^"]+)"', tag.group(1)) or re.search(r'\bsrc="([^"]+)"', tag.group(1))
+            if not u:
+                continue
+            u = html.unescape(u.group(1)).split("?")[0]
+            u = "https:" + u if u.startswith("//") else u
+            if "inven.co.kr/upload" in u and "/icon/" not in u and "/thumb/" not in u and re.search(r"\.(jpe?g|png|webp|gif)$", u, re.I):
+                if ("img", u) not in imgs:
+                    imgs.append(("img", u))
+        return t, imgs
+    if board == "etoland":   # 사진만. 원본 파일은 data-src, 확장자가 깨진 파일(.jpgtypew…)은 뺌
+        s = get(f"{ETOLAND}/b/star02/view/x-{no}")
+        m = re.search(r'<meta property="og:title" content="([^"]*)"', s)
+        t = re.sub(r"\s*-\s*연예인 게시판$", "", html.unescape(m.group(1))).strip() if m else (title or "")
+        imgs = []
+        for tag in re.finditer(r"<img\b[^>]*>", div_block(s, 'class="view-content"')):
+            u = re.search(r'data-src="([^"]+)"', tag.group(0)) or re.search(r'\ssrc="([^"]+)"', tag.group(0))
+            if not u:
+                continue
+            u = re.sub(r"^https://btcdn\.etoland\.co\.kr/optimize/[^/]+/", "", html.unescape(u.group(1)))
+            u = "https:" + u if u.startswith("//") else u
+            if "/static/media/" in u and "/media/rank/" not in u and "/media/etc/" not in u and re.search(r"\.(jpe?g|png|webp|gif)$", u.split("?")[0], re.I):
+                if ("img", u) not in imgs:
+                    imgs.append(("img", u))
+        return t, imgs
     if board == "ygosu":
         s = get(f"{YGOSU}/board/stars/{no}")
         m = re.search(r"<h3>(.*?)</h3>", s[max(0, s.find("yg-board-article-heading")):], re.S)
@@ -445,7 +498,7 @@ def read_post_new(board, no, title=None):
 
 def read_post(board, no, title=None):
     HEYE_ONLY[0] = False
-    if board in ("zzalbox", "jjalarc", "ygosu", "popi-idol", "mkrev", "ggarzzak"):
+    if board in ("zzalbox", "jjalarc", "ygosu", "popi-idol", "mkrev", "ggarzzak", "inven", "etoland"):
         return read_post_new(board, no, title)
     if board.startswith("heye-"):
         s = get(f"{HEYE}/board/index.html?id={board[5:]}&no={no}")
@@ -517,7 +570,7 @@ def to_html(media):
     return "\n".join(out)
 
 
-FRESH_ORDER = ["kkzz", "zzalbox", "jjalarc", "ygosu", "popi-idol", "issuya", "mgall", "issue", "heye-uesrup", "heye-idol",
+FRESH_ORDER = ["kkzz", "zzalbox", "jjalarc", "ygosu", "popi-idol", "etoland", "inven", "issuya", "mgall", "issue", "heye-uesrup", "heye-idol",
                "pillsu-hip", "pillsu-thigh", "pillsu-underhip", "pillsu-armpit", "pillsu-chest"]   # 최신 쪽을 볼 때의 순서. kgif·stars·ggor는 지난 글 재고(날짜 2025년)라 뺌 — 깊은 쪽 단계에서만
 FRESH_PAGES = 2   # 2026-11-22 제프: 최신 글 위주 → 모든 원본의 앞 2쪽(최신)을 먼저 보고, 모자라면 깊은 쪽(옛 글)으로 채움
 
@@ -719,6 +772,8 @@ def new_site_post(key, title, nick, media):
                             u = src
                 except Exception:
                     pass
+                if any(hh in u for hh in NOREF_HOSTS):   # 다시 올리기 실패 → 원래 주소는 외부에서 안 보이므로 뺌
+                    continue
             out.append((kind, u))
         payload = {"board": NEW_BOARD, "title": title, "author": nick, "authorBadgeId": badge_for(nick), "body": to_html(out),
                    "visible": NEW_VISIBLE, "sourceKey": (NEW_PREFIX + key)[:100]}
