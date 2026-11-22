@@ -11529,6 +11529,25 @@
       "orig": "크롭탑 복근 르세라핌 카즈하",
       "tpl": null,
       "new": "sp6ec727f3362a"
+    },
+    "zzalbox/9b0bd47f-30ab-48a8-a632-c01f172abdf5": {
+      "id": 3668,
+      "title": "르세라핌 사쿠라 비주얼",
+      "nick": "후라이드",
+      "media": 7,
+      "at": "2026-11-23 03:38",
+      "urls": [
+        "https://cdn.zzalbox.com/13d6d1f7-140f-4a5d-b787-914a422414a4.mp4",
+        "https://cdn.zzalbox.com/8f2157aa-ff97-4f4f-8557-45ae43fff5ff.mp4",
+        "https://cdn.zzalbox.com/8e4437eb-8db2-49d3-9f85-6932ce4ee412.mp4",
+        "https://cdn.zzalbox.com/334e7337-55c8-4220-bccd-e4ab2b7086be.mp4",
+        "https://cdn.zzalbox.com/d2fd9bce-0759-44aa-a7f5-811b39a3b798.mp4",
+        "https://cdn.zzalbox.com/c664b166-b75a-4485-b2bd-5ed6466ab2e3.mp4",
+        "https://cdn.zzalbox.com/d65b136b-6913-4c0f-b027-e7eb67cad265.mp4"
+      ],
+      "orig": "르세라핌 사쿠라 검정 브라",
+      "tpl": 103,
+      "new": "sp1bb192f33e9c"
     }
   },
   "skipped": {
