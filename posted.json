@@ -11571,6 +11571,26 @@
       "orig": "아린 빈자리 채우는 오마이걸 유빈 움짤",
       "tpl": null,
       "new": "sp30df2f15d0f1"
+    },
+    "kkzz/10697": {
+      "id": 3673,
+      "title": "오늘자 최예나 빛나는 스타킹",
+      "nick": "빨간우산",
+      "media": 8,
+      "at": "2026-11-23 07:24",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/11/23/F10826_102-%EC%B5%9C%EC%98%88%EB%82%98.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85602.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85603.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85604.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85605.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85606.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85607.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-85608.mp4"
+      ],
+      "orig": "빛나는 스타킹 최예나 움짤",
+      "tpl": 11,
+      "new": "sp58a43106fb69"
     }
   },
   "skipped": {
