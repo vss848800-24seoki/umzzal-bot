@@ -44,8 +44,15 @@ KKZZ = "https://kkzz.kr"
 ISSUYA = "https://www.issuya.com"
 HEYE = "https://heye.kr"   # 2026-10-30: idol 게시판의 [사진] 글만(사진은 받아서 누드티비에 업로드). hawk1 등 영상 게시판은 영상이 heye 서버라 못 씀
 PILLSU = "https://pillsu.co.kr"   # 2026-10-30 제프: 필터 최대한 완화해서 쓸 수 있는 건 모두. 사타구니(crotch) 게시판은 제외
+# 2026-11-22 제프가 찾아 준 새 원본 (점검: 2쪽 이후 링크 모양·외부 재생·본문 칸·후보 개수 확인함)
+ZZALBOX = "https://zzalbox.com"                 # 아이돌만, 하루 약 20개, 영상 cdn.zzalbox.com (글 번호는 문자열 uuid)
+JJALARC = "https://xn--ov3b15kt6avuq8gjuj.com"  # 움짤아카이브 celebrity 분류만(bj 분류 사용 금지), 하루 약 8개, 글 번호 uuid
+POPI = "https://popi.io"                        # idol 게시판만(streamer·subtlesexy는 BJ·이름 없는 글이라 금지), 하루 약 3개
+MKREV = "https://mkrevolution.net"              # 9-14 이후 새 글 없음 → 옛 글 예비용. 워드프레스 공개 글 목록(한국어 797)
+GGARZZAK = "https://www.ggarzzak.com"           # 연예인 움짤(gif) 게시판, 10-20 이후 새 글 없음 → 옛 글 예비용. 자체 사진은 외부 링크 막힘
+YGOSU = "https://ygosu.com"                    # 연예인(stars) 게시판, 하루 약 25개. 영상만 씀(사진은 avif라 옛 사이트 업로드가 안 될 수 있음). 분류 없는 글(그라비아·해외 모델)은 뺌
 # 앞에서부터 우선 (kkzz = kkzz.kr 움짤 공작소, issuya = 이슈야 연예 갤러리)
-SOURCES = ["kkzz", "pillsu-hip", "pillsu-thigh", "pillsu-underhip", "pillsu-armpit", "pillsu-chest", "heye-uesrup", "heye-idol", "issuya", "mgall", "issue", "kgif", "stars", "ggor"]   # 2026-10-22: kgirls 영상 차단으로 이슈야·kkzz 먼저
+SOURCES = ["kkzz", "zzalbox", "jjalarc", "ygosu", "popi-idol", "mkrev", "ggarzzak", "pillsu-hip", "pillsu-thigh", "pillsu-underhip", "pillsu-armpit", "pillsu-chest", "heye-uesrup", "heye-idol", "issuya", "mgall", "issue", "kgif", "stars", "ggor"]   # 2026-10-22: kgirls 영상 차단으로 이슈야·kkzz 먼저
 MAX_PAGE = 40   # kkzz는 653쪽까지 있음 (2026-10-30 15→40)
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120 Safari/537.36"
 
@@ -233,6 +240,60 @@ def varied_title(title, recent_tpl=()):
 
 def list_page(board, page):
     """목록 한 쪽의 [(글 번호, 목록 제목 또는 None)] (최신순)"""
+    if board == "zzalbox":   # 2쪽부터 링크에 ?page=N 이 붙음
+        s = get(ZZALBOX + "/" if page == 1 else f"{ZZALBOX}/?page={page}")
+        out = {}
+        for no, t in re.findall(r'<a [^>]*href="/post/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(?:\?[^"]*)?"[^>]*>.*?<h3[^>]*>(.*?)</h3>', s, re.S):
+            out.setdefault(no, html.unescape(re.sub(r"<[^>]+>", "", t)).strip() or None)
+        return list(out.items())   # 사이트가 최신순으로 줌
+    if board == "jjalarc":   # 목록 속 JSON-LD(주소·제목)를 읽음. 2쪽부터 링크에 ?from=…&page=N 이 붙음
+        s = get(f"{JJALARC}/?view=gallery&category=celebrity" + (f"&page={page}" if page > 1 else ""))
+        out = {}
+        for j in re.findall(r'<script type="application/ld\+json">(.*?)</script>', s, re.S):
+            try:
+                d = json.loads(j)
+            except Exception:
+                continue
+            for it in ((d.get("mainEntity") or {}).get("itemListElement") or []) if isinstance(d, dict) else []:
+                m = re.search(r"/posts/([0-9a-f-]{36})", it.get("url", ""))
+                if m:
+                    out.setdefault(m.group(1), html.unescape(it.get("name") or "").strip() or None)
+        if not out:
+            for no in re.findall(r'href="/posts/([0-9a-f-]{36})(?:\?[^"]*)?"', s):
+                out.setdefault(no, None)
+        return list(out.items())
+    if board == "popi-idol":   # 목록 줄은 class="upper_link" 만(글 화면 아래 붙는 목록과 헷갈리지 않게)
+        s = get(f"{POPI}/idol" if page == 1 else f"{POPI}/idol?page={page}")
+        out = {}
+        for no, t in re.findall(r'<a href="(?:https://popi\.io)?/jjal/(\d+)(?:\?[^"]*)?" title="([^"]*)" class="upper_link"', s):
+            out.setdefault(int(no), html.unescape(t).strip() or None)
+        return sorted(out.items(), reverse=True)
+    if board == "ygosu":   # 2쪽부터 링크에 /?page=N 이 붙음. 분류 칸이 빈 글은 그라비아·해외 모델이 많아 뺌
+        s = get(f"{YGOSU}/board/stars/?page={page}")
+        out = []
+        for no, inner in re.findall(r"<td class='tit'[^>]*><a href='/board/stars/(\d+)(?:/\?page=\d+)?'\s*>(.*?)</a>", s, re.S):
+            cat = re.search(r"<span class='cat'>(.*?)</span>", inner, re.S)
+            if not cat or not re.sub(r"<[^>]+>|[\[\]\s]", "", cat.group(1)):
+                continue
+            t = re.sub(r"<span class='cat'>.*?</span>", "", inner, flags=re.S)
+            t = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", t)).replace("\xa0", " ")).strip()
+            out.append((int(no), t or None))
+        return out
+    if board == "mkrev":   # 한국어 글만(언어 797), 20개씩. 마지막 쪽 다음은 400
+        r = requests.get(f"{MKREV}/wp-json/wp/v2/posts", params={"aktheme_lang_tax": 797, "per_page": 20, "page": page, "_fields": "id,title"},
+                         headers={"User-Agent": UA}, timeout=60)
+        if r.status_code == 400:
+            return []
+        r.raise_for_status()
+        return [(int(p["id"]), html.unescape(p["title"]["rendered"]).strip() or None) for p in r.json()]
+    if board == "ggarzzak":   # 2쪽부터 링크에 &page=N 이 붙음
+        s = get(f"{GGARZZAK}/bbs/board.php?bo_table=gif" + (f"&page={page}" if page > 1 else ""))
+        k = s.find('class="list-container"')
+        s = s[k:] if k >= 0 else s
+        out = {}
+        for no, t in re.findall(r'href="[^"]*bo_table=gif&amp;wr_id=(\d+)[^"]*"\s+class="ellipsis">\s*(.*?)\s*</a>', s, re.S):
+            out.setdefault(int(no), html.unescape(re.sub(r"<[^>]+>", "", t)).strip() or None)
+        return sorted(out.items(), reverse=True)
     if board == "kkzz":
         s = get(f"{KKZZ}/?mode=list&board_page={page}")
         out = {}
@@ -282,8 +343,110 @@ def div_block(s, marker):
 HEYE_ONLY = [False]   # 방금 읽은 글에 heye 서버 영상이 있어서 뺐는지 (2026-10-31: 점검 '움짤·사진 없음' 숫자에서 따로 셈)
 
 
+def _media_from(body, base, skip=()):
+    """본문 칸 안의 video·source·img 주소만 (상대 주소는 base를 붙임)"""
+    media = []
+    for tag, src in re.findall(r'<(video|source|img)\b[^>]*?\bsrc="([^"]+)"', body):
+        u = html.unescape(src).strip()
+        if u.startswith("//"):
+            u = "https:" + u
+        elif u.startswith("/"):
+            u = base + u
+        if any(k in u for k in skip):
+            continue
+        low = u.split("?")[0].lower()
+        if tag in ("video", "source") or low.endswith((".mp4", ".webm")):
+            kind = "video"
+        elif low.endswith((".jpg", ".jpeg", ".png", ".webp", ".gif")):
+            kind = "img"
+        else:
+            continue
+        if (kind, u) not in media:
+            media.append((kind, u))
+    return media
+
+
+def read_post_new(board, no, title=None):
+    """2026-11-22 추가 원본 5곳"""
+    if board == "zzalbox":
+        s = get(f"{ZZALBOX}/post/{no}")
+        m = re.search(r"<h1[^>]*>(.*?)</h1>", s, re.S)
+        t = html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).strip() if m else (title or "")
+        a = s.find('data-primary-video="true"')
+        if a < 0:
+            a = s.find('data-additional-media="true"')
+        if a < 0:
+            return t, []
+        b = s.find('data-additional-media="true"', a)
+        e = s.find("</section>", b if b >= 0 else a)
+        return t, [x for x in _media_from(s[a:e], ZZALBOX) if not x[1].split("?")[0].endswith("/thumb.jpg")]
+    if board == "jjalarc":
+        s = get(f"{JJALARC}/posts/{no}")
+        m = re.search(r'<meta property="og:title" content="([^"]+)"', s) or re.search(r"<title>(.*?)</title>", s, re.S)
+        t = html.unescape(m.group(1)).split(" | ")[0].strip() if m else (title or "")
+        # 제목에 이름이 없으면(예: '원영') 글 태그(#장원영)의 이름을 붙여 이름 확인이 되게
+        tags = [html.unescape(x).strip() for x in re.findall(r"<span>#(?:<!-- -->)?([^<]+)</span>", s)]
+        if judge(t) == "누군지 확실하지 않음":
+            for g in tags:
+                if g not in t and judge(f"{g} {t}") is None:
+                    t = f"{g} {t}"
+                    break
+        a = s.find('class="post-blocks"')
+        e = s.find('<nav class="post-sequence-nav', a)
+        body = s[a:e if e > 0 else a + 20000] if a >= 0 else ""
+        return t, _media_from(body, JJALARC)
+    if board == "popi-idol":
+        s = get(f"{POPI}/jjal/{no}")
+        m = re.search(r'<div class="board">\s*<h1>(.*?)</h1>', s, re.S)
+        t = html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).strip() if m else (title or "")
+        m = re.search(r'<div id="post-content">(.*?)<!-- 본문 내용 끝 -->', s, re.S)
+        return t, _media_from(m.group(1) if m else "", POPI)
+    if board == "ygosu":
+        s = get(f"{YGOSU}/board/stars/{no}")
+        m = re.search(r"<h3>(.*?)</h3>", s[max(0, s.find("yg-board-article-heading")):], re.S)
+        t = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", "", re.sub(r"<em>.*?</em>", "", m.group(1), flags=re.S)))).strip() if m else (title or "")
+        t = re.sub(r"\.mp4$", "", t, flags=re.I).strip()
+        body = div_block(s, 'id="body_contain"')
+        body = re.sub(r'<div class="ygosu_banner".*?</div>', "", body, flags=re.S)
+        vids = []
+        for tag in re.finditer(r"<(source|video)\b[^>]*>", body):
+            u = re.search(r'\ssrc=["\']([^"\']+)', tag.group(0))
+            if u:
+                u = html.unescape(u.group(1)).split("#")[0]
+                u = "https:" + u if u.startswith("//") else u
+                if "variant=poster" not in u and ("video", u) not in vids:
+                    vids.append(("video", u))
+        return t, vids
+    if board == "mkrev":
+        r = requests.get(f"{MKREV}/wp-json/wp/v2/posts/{int(no)}", params={"_fields": "id,title,content"},
+                         headers={"User-Agent": UA}, timeout=60)
+        r.raise_for_status()
+        j = r.json()
+        return html.unescape(j["title"]["rendered"]).strip(), _media_from(j["content"]["rendered"], MKREV)
+    if board == "ggarzzak":
+        s = get(f"{GGARZZAK}/bbs/board.php?bo_table=gif&wr_id={no}")
+        m = re.search(r'<div class="view-wrap">\s*<h2[^>]*>(.*?)</h2>', s, re.S)
+        t = html.unescape(re.sub(r"<[^>]+>", "", m.group(1))).strip() if m else (title or "")
+        a = s.find('<div class="view-content">')
+        if a < 0:
+            return t, []
+        ends = [k for k in (s.find(x, a) for x in ('class="view-tag', 'class="print-hide view-icon', 'id="viewcomment"',
+                                                     'class="view-good-box', 'class="view-sns', 'class="view-btn')) if k > 0]
+        media = _media_from(s[a:min(ends)] if ends else s[a:a + 200000], GGARZZAK, skip=("googlesyndication",))
+        out = []
+        for kind, u in media:
+            if kind == "img" and "ggarzzak.com" in u:   # 이 사이트 자체 사진은 외부 링크 막힘
+                continue
+            u = re.sub(r"^https://imgur\.com/", "https://i.imgur.com/", u)   # imgur.com/X.mp4 는 i.imgur.com 으로 넘어감
+            out.append((kind, u))
+        return t, out
+    return title or "", []
+
+
 def read_post(board, no, title=None):
     HEYE_ONLY[0] = False
+    if board in ("zzalbox", "jjalarc", "ygosu", "popi-idol", "mkrev", "ggarzzak"):
+        return read_post_new(board, no, title)
     if board.startswith("heye-"):
         s = get(f"{HEYE}/board/index.html?id={board[5:]}&no={no}")
         m = re.search(r"<title>([^<]*)</title>", s)
@@ -354,7 +517,7 @@ def to_html(media):
     return "\n".join(out)
 
 
-FRESH_ORDER = ["kkzz", "issuya", "mgall", "issue", "heye-uesrup", "heye-idol",
+FRESH_ORDER = ["kkzz", "zzalbox", "jjalarc", "ygosu", "popi-idol", "issuya", "mgall", "issue", "heye-uesrup", "heye-idol",
                "pillsu-hip", "pillsu-thigh", "pillsu-underhip", "pillsu-armpit", "pillsu-chest"]   # 최신 쪽을 볼 때의 순서. kgif·stars·ggor는 지난 글 재고(날짜 2025년)라 뺌 — 깊은 쪽 단계에서만
 FRESH_PAGES = 2   # 2026-11-22 제프: 최신 글 위주 → 모든 원본의 앞 2쪽(최신)을 먼저 보고, 모자라면 깊은 쪽(옛 글)으로 채움
 
@@ -365,8 +528,9 @@ def candidates(need):
     done_titles = {v["title"] for v in rec["posted"].values()} | {v["orig"] for v in rec["posted"].values() if v.get("orig")}
     found = []
 
-    def scan(board, page):
-        """한 원본의 한 쪽을 훑어 found에 더함. 목록이 끝났으면 'end', need를 채웠으면 'full', 아니면 'ok'"""
+    def scan(board, page, cap=None):
+        """한 원본의 한 쪽을 훑어 found에 더함. 목록이 끝났으면 'end', need를 채웠으면 'full', 아니면 'ok'.
+        cap: 이 원본에서 이번에 가져올 최대 개수(한 원본이 다 차지하지 않게)"""
         try:
             rows = list_page(board, page)
         except Exception as e:
@@ -394,6 +558,8 @@ def candidates(need):
                 continue
             if any(f[0] == key for f in found):
                 continue
+            if cap is not None and sum(1 for f in found if f[0].startswith(board + "/")) >= cap:
+                return "ok"
             try:
                 title, media = read_post(board, no, list_title)
             except Exception as e:
@@ -414,10 +580,12 @@ def candidates(need):
         return "ok"
 
     # ① 최신 글 먼저: 1쪽(모든 원본) → 2쪽(모든 원본). 움짤(영상)이 많은 원본을 먼저, 사진뿐인 pillsu는 뒤로
-    for page in range(1, FRESH_PAGES + 1):
-        for board in FRESH_ORDER:
-            if scan(board, page) == "full":
-                return found
+    #    한 원본이 다 차지하지 않게 원본마다 절반까지만 먼저 가져오고(2026-11-22), 그래도 모자라면 제한 없이 한 번 더
+    for cap in (max(1, (need + 1) // 2), None):
+        for page in range(1, FRESH_PAGES + 1):
+            for board in FRESH_ORDER:
+                if scan(board, page, cap) == "full":
+                    return found
     # ② 모자라면 옛 글: 원본 순서대로 깊은 쪽
     for board in SOURCES:
         for page in range(FRESH_PAGES + 1, MAX_PAGE + 1):
