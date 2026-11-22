@@ -354,52 +354,78 @@ def to_html(media):
     return "\n".join(out)
 
 
+FRESH_ORDER = ["kkzz", "issuya", "mgall", "issue", "heye-uesrup", "heye-idol",
+               "pillsu-hip", "pillsu-thigh", "pillsu-underhip", "pillsu-armpit", "pillsu-chest"]   # 최신 쪽을 볼 때의 순서. kgif·stars·ggor는 지난 글 재고(날짜 2025년)라 뺌 — 깊은 쪽 단계에서만
+FRESH_PAGES = 2   # 2026-11-22 제프: 최신 글 위주 → 모든 원본의 앞 2쪽(최신)을 먼저 보고, 모자라면 깊은 쪽(옛 글)으로 채움
+
+
 def candidates(need):
-    """아직 안 올린 글을 우선순위대로 need개까지 찾음"""
+    """아직 안 올린 글을 찾음 — ① 모든 원본의 최신 쪽(1~FRESH_PAGES쪽)을 쪽 번호 순으로 돌아가며 먼저, ② 그래도 모자라면 원본별 깊은 쪽(옛 글). need개까지"""
     rec = load(POSTED, {"posted": {}, "skipped": {}})
     done_titles = {v["title"] for v in rec["posted"].values()} | {v["orig"] for v in rec["posted"].values() if v.get("orig")}
     found = []
-    for board in SOURCES:
-        for page in range(1, MAX_PAGE + 1):
+
+    def scan(board, page):
+        """한 원본의 한 쪽을 훑어 found에 더함. 목록이 끝났으면 'end', need를 채웠으면 'full', 아니면 'ok'"""
+        try:
+            rows = list_page(board, page)
+        except Exception as e:
+            print(f"  [목록 실패] {board} {page}쪽: {e}")
+            return "end"
+        if not rows:
+            return "end"
+        for no, list_title in rows:
+            key = f"{board}/{no}"
+            if key in rec["posted"]:
+                continue
+            if key in rec["skipped"]:
+                sk = rec["skipped"][key]
+                # 기준이 풀린 단어(엉밑·가슴골 등)로 건너뛰었던 글은 다시 후보로 (2026-10-28)
+                if sk.get("why", "").startswith(("신체 부위 단어", "누군지", "미성년", "그룹만")) and sk.get("title") and judge(sk["title"]) is None:
+                    del rec["skipped"][key]
+                # webm 못 읽어서 건너뛴 이슈야 글도 다시 후보로 (2026-10-31)
+                elif board == "issuya" and sk.get("why") == "움짤·사진 없음" and not sk.get("webm"):
+                    del rec["skipped"][key]
+                else:
+                    continue
+            if list_title and judge(list_title):   # 목록 제목으로 먼저 거르면 글을 안 열어도 됨
+                rec["skipped"][key] = {"title": list_title, "why": judge(list_title)}
+                save(POSTED, rec)
+                continue
+            if any(f[0] == key for f in found):
+                continue
             try:
-                rows = list_page(board, page)
+                title, media = read_post(board, no, list_title)
             except Exception as e:
-                print(f"  [목록 실패] {board} {page}쪽: {e}")
+                print(f"  [글 읽기 실패] {key}: {e}")
+                continue
+            # www.kgirls.net 영상은 게시 때 어차피 빠짐(localize) → 후보 단계에서 미리 빼서 '영상만 있는 kgirls 글'이 후보 자리를 차지하지 않게 (2026-11-22)
+            media = [m for m in media if not (m[0] == "video" and "://www.kgirls.net/" in m[1])]
+            why = judge(title) or (None if media else "heye 영상만(못 씀)" if HEYE_ONLY[0] else "움짤·사진 없음") or ("이미 올린 제목" if title in done_titles else None)
+            if why:
+                rec["skipped"][key] = {"title": title, "why": why, "webm": True}
+                save(POSTED, rec)
+                continue
+            found.append((key, title, media))
+            done_titles.add(title)
+            if len(found) >= need:
+                return "full"
+            time.sleep(1)
+        return "ok"
+
+    # ① 최신 글 먼저: 1쪽(모든 원본) → 2쪽(모든 원본). 움짤(영상)이 많은 원본을 먼저, 사진뿐인 pillsu는 뒤로
+    for page in range(1, FRESH_PAGES + 1):
+        for board in FRESH_ORDER:
+            if scan(board, page) == "full":
+                return found
+    # ② 모자라면 옛 글: 원본 순서대로 깊은 쪽
+    for board in SOURCES:
+        for page in range(FRESH_PAGES + 1, MAX_PAGE + 1):
+            r = scan(board, page)
+            if r == "full":
+                return found
+            if r == "end":
                 break
-            if not rows:
-                break
-            for no, list_title in rows:
-                key = f"{board}/{no}"
-                if key in rec["posted"]:
-                    continue
-                if key in rec["skipped"]:
-                    sk = rec["skipped"][key]
-                    # 기준이 풀린 단어(엉밑·가슴골 등)로 건너뛰었던 글은 다시 후보로 (2026-10-28)
-                    if sk.get("why", "").startswith(("신체 부위 단어", "누군지", "미성년", "그룹만")) and sk.get("title") and judge(sk["title"]) is None:
-                        del rec["skipped"][key]
-                    # webm 못 읽어서 건너뛴 이슈야 글도 다시 후보로 (2026-10-31)
-                    elif board == "issuya" and sk.get("why") == "움짤·사진 없음" and not sk.get("webm"):
-                        del rec["skipped"][key]
-                    else:
-                        continue
-                if list_title and judge(list_title):   # 목록 제목으로 먼저 거르면 글을 안 열어도 됨
-                    rec["skipped"][key] = {"title": list_title, "why": judge(list_title)}
-                    save(POSTED, rec)
-                    continue
-                try:
-                    title, media = read_post(board, no, list_title)
-                except Exception as e:
-                    print(f"  [글 읽기 실패] {key}: {e}")
-                    continue
-                why = judge(title) or (None if media else "heye 영상만(못 씀)" if HEYE_ONLY[0] else "움짤·사진 없음") or ("이미 올린 제목" if title in done_titles else None)
-                if why:
-                    rec["skipped"][key] = {"title": title, "why": why, "webm": True}
-                    save(POSTED, rec)
-                    continue
-                found.append((key, title, media))
-                if len(found) >= need:
-                    return found
-                time.sleep(1)
     return found
 
 
