@@ -11626,6 +11626,20 @@
       "orig": "부채 들고 응원하는 천소윤 치어리더 움짤",
       "tpl": 5,
       "new": "sp8939739fd80c"
+    },
+    "zzalbox/f31adeb8-517e-4433-80ed-1db94f9c4e1c": {
+      "id": 3676,
+      "title": "오마이걸 유빈 크롭 셔츠 개미허리",
+      "nick": "퇴근길지하철",
+      "media": 2,
+      "at": "2026-11-23 09:54",
+      "urls": [
+        "https://cdn.zzalbox.com/24435b1e-ecab-4ea1-a926-c01f31263ef0.mp4",
+        "https://cdn.zzalbox.com/de80a46d-42eb-454e-afee-ef48cf766487.mp4"
+      ],
+      "orig": "오마이걸 유빈 크롭 셔츠 개미허리",
+      "tpl": null,
+      "new": "sp355e305545d1"
     }
   },
   "skipped": {
