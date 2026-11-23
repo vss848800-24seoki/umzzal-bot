@@ -11799,6 +11799,25 @@
       "orig": "슬림 원피스 트와이스 모모 실물 느낌",
       "tpl": null,
       "new": "sp28462cf10348"
+    },
+    "zzalbox/c4a14c71-0c2d-4caa-ac95-334197def471": {
+      "id": 3714,
+      "title": "프로미스나인 이채영 레전드",
+      "nick": "멍때리기장인",
+      "media": 7,
+      "at": "2026-11-24 06:13",
+      "urls": [
+        "https://cdn.zzalbox.com/1cd8e06c-b5b9-4c84-85ba-df1d600c3d7f.mp4",
+        "https://cdn.zzalbox.com/08afdf78-46bd-41c2-a62f-937dd22810b2.mp4",
+        "https://cdn.zzalbox.com/9cc65683-39c2-4b8c-8f55-f5af07f42af3.mp4",
+        "https://cdn.zzalbox.com/2d4e78a1-99dc-4b77-97f9-999fc8d09f66.mp4",
+        "https://cdn.zzalbox.com/7ce4b141-2761-4f16-a6d8-6acff7cca709.mp4",
+        "https://cdn.zzalbox.com/c1c207e6-30bb-44a2-aefe-d722e1e4c238.mp4",
+        "https://cdn.zzalbox.com/5dab78c9-216e-411c-9c69-6c9472213948.mp4"
+      ],
+      "orig": "프로미스나인 이채영 시스루속 블랙 브라",
+      "tpl": 102,
+      "new": "sp118b42e2f334"
     }
   },
   "skipped": {
