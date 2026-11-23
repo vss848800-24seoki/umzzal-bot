@@ -11640,6 +11640,26 @@
       "orig": "오마이걸 유빈 크롭 셔츠 개미허리",
       "tpl": null,
       "new": "sp355e305545d1"
+    },
+    "zzalbox/a796ff00-9e5f-4608-a842-71156981f391": {
+      "id": 3679,
+      "title": "있지 유나 잠옷 뒤태",
+      "nick": "까치발",
+      "media": 8,
+      "at": "2026-11-23 11:24",
+      "urls": [
+        "https://cdn.zzalbox.com/ee52788d-976b-4804-8b62-a6b32b732fe2.mp4",
+        "https://cdn.zzalbox.com/1b3a2d3f-9b91-4b82-9d5f-ace03a5dd2c2.mp4",
+        "https://cdn.zzalbox.com/87655bee-5700-4f5b-bbb6-eebceea78a3d.mp4",
+        "https://cdn.zzalbox.com/e1c5d8b5-7c18-4b12-a496-c161569d30fa.mp4",
+        "https://cdn.zzalbox.com/1ea1200e-1c1c-4475-8045-9a4e75484dca.mp4",
+        "https://cdn.zzalbox.com/f3da5290-43fe-41f9-bcca-1f032fd39b2e.mp4",
+        "https://cdn.zzalbox.com/ac0b468c-6d83-4da9-b650-36df7776d897.mp4",
+        "https://cdn.zzalbox.com/f354df4f-1252-4912-8e99-a93c57ff5bd6.mp4"
+      ],
+      "orig": "있지 유나 잠옷 뒤태",
+      "tpl": null,
+      "new": "spd6b819b4da81"
     }
   },
   "skipped": {
