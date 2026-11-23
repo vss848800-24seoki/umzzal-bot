@@ -11676,6 +11676,23 @@
       "orig": "아이칠린 초원 바닥안무 허벅지",
       "tpl": null,
       "new": "sp270a263c95aa"
+    },
+    "zzalbox/831fb275-e537-4a62-9ff2-3927cae7d23c": {
+      "id": 3681,
+      "title": "프로미스나인 이채영 분위기",
+      "nick": "주말만기다림",
+      "media": 5,
+      "at": "2026-11-23 13:55",
+      "urls": [
+        "https://cdn.zzalbox.com/3483d7de-0da9-4ec6-9400-2bba1bf0319c.mp4",
+        "https://cdn.zzalbox.com/f478c27b-5fd6-444a-8942-3dcb246045e5.mp4",
+        "https://cdn.zzalbox.com/161cdeaf-006c-4bc6-84e3-365e043333f7.mp4",
+        "https://cdn.zzalbox.com/a2bea78e-f78b-4687-9bcd-4928d852745e.mp4",
+        "https://cdn.zzalbox.com/f2cf827f-22b5-4241-b316-31ef23aa2fd5.mp4"
+      ],
+      "orig": "프로미스나인 이채영 시스루 블랙티 블랙 브라",
+      "tpl": 104,
+      "new": "sp8349e32fe121"
     }
   },
   "skipped": {
