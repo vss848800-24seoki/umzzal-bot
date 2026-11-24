@@ -11831,6 +11831,19 @@
       "orig": "카메라에 끼부리는 검정 원피스 트와이스 사나",
       "tpl": null,
       "new": "spc4ff7c18d33c"
+    },
+    "zzalbox/9448ee73-7323-43e7-a7cc-31526aab7731": {
+      "id": 3719,
+      "title": "김채원 근황",
+      "nick": "빨간우산",
+      "media": 1,
+      "at": "2026-11-24 10:54",
+      "urls": [
+        "https://cdn.zzalbox.com/d14d66e6-010d-4a63-ada4-122ae4b8c971.mp4"
+      ],
+      "orig": "김채원 블랙 오프솔더 드레스 가슴골",
+      "tpl": 101,
+      "new": "spf75fa5aea9db"
     }
   },
   "skipped": {
