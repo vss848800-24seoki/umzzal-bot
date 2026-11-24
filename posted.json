@@ -11902,6 +11902,19 @@
       "orig": "MAMA 르세라핌 사쿠라 블랙 브라 가슴골",
       "tpl": 100,
       "new": "sp923e0aac6387"
+    },
+    "jjalarc/5521b377-3c50-479f-8425-5f656c687608": {
+      "id": 3724,
+      "title": "카리나 VS 권은비",
+      "nick": "부산갈매기",
+      "media": 1,
+      "at": "2026-11-24 12:33",
+      "urls": [
+        "https://xn--ov3b15kt6avuq8gjuj.com/media/bf9254fc-2e28-4406-9355-42aa07c7c232"
+      ],
+      "orig": "카리나 VS 권은비",
+      "tpl": null,
+      "new": "sp7d49993c3428"
     }
   },
   "skipped": {
@@ -15023,6 +15036,10 @@
     },
     "zzalbox/d4df5f52-0d8c-47b7-b392-c0e2ab985fb6": {
       "title": "아이오아이 유연정 잘모은 윗가슴골",
+      "why": "누군지 확실하지 않음"
+    },
+    "jjalarc/9eea6c35-9a4c-4e10-b8b2-5e129e3791b9": {
+      "title": "은하 레전드짤",
       "why": "누군지 확실하지 않음"
     }
   }
