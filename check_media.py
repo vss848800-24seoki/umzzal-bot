@@ -38,6 +38,9 @@ def video_ok(src, pid):
 
 
 def main(apply):
+    if not u.OLD_SITE:   # 2026-11-24: 옛 사이트 서버 정지 → 점검할 옛 사이트 글이 없고 로그인도 안 됨 (황소티비 글 점검은 아직 없음)
+        print("[점검 건너뜀] 옛 사이트를 쓰지 않는 중")
+        return
     rec = u.load(u.POSTED, {"posted": {}, "skipped": {}})
     nicks = set(u.load(u.NICKS, [])) | {"밤산책하는고양이"}
     h = u.login() if apply else None
@@ -45,7 +48,9 @@ def main(apply):
     for key, v in list(rec["posted"].items()):
         if v.get("removed"):
             continue
-        pid = v["id"]
+        pid = v.get("id")
+        if not pid:   # 황소티비에만 올린 글(옛 사이트 번호 없음)
+            continue
         try:
             p = requests.get(f"{PUBLIC}/{pid}", timeout=60).json()
             p = p.get("post") or p.get("data") or p

@@ -35,6 +35,9 @@ MAX_PER_RUN = 4
 
 # 새 사이트(리뉴얼, 2026-11-03): 옛 사이트 게시는 그대로 두고 새 사이트에도 덧붙임. 열쇠는 환경변수 NUDE_NEW_KEY 또는 ~/.config/jeff/nude_new_key_umzzal.txt (내용 출력 금지)
 NEW_SITE = os.environ.get("NUDE_NEW_SITE") or "https://bulltv24.com"
+# 2026-11-24 제프: 옛 누드티비 서버(nudetv-v2-*.onrender.com)가 Service Suspended(정지) → 옛 사이트는 건너뛰고 황소티비에만 올림.
+# 옛 사이트가 살아나서 다시 같이 올리려면 아래를 True 로 (또는 환경변수 UMZZAL_OLD_SITE=1)
+OLD_SITE = os.environ.get("UMZZAL_OLD_SITE", "0") == "1"
 NEW_BOARD = "adult"                                            # 후방주의 +19
 NEW_VISIBLE = os.environ.get("NUDE_NEW_VISIBLE", "1") != "0"   # 2026-11-03 제프 지시로 공개가 기본. 숨김으로 올리려면 NUDE_NEW_VISIBLE=0
 NEW_PREFIX = os.environ.get("NUDE_NEW_PREFIX") or "umzzal-"    # sourceKey 앞머리(같은 키는 중복 안 생김)
@@ -791,6 +794,37 @@ def new_site_post(key, title, nick, media):
         return None
 
 
+def prepare_new_only(media):
+    """옛 사이트 없이 황소티비에만 올릴 때: localize()의 '쓸 수 있는지 확인'만 하고(업로드는 new_site_post가 함)
+    kgirls 영상·열리지 않는 영상·받을 수 없는 사진은 뺌"""
+    out = []
+    for kind, u in media:
+        path = u.split("?")[0].lower()
+        if kind == "video":
+            if "://www.kgirls.net/" in u:
+                print(f"    [영상 뺌] kgirls 링크 차단: {u[-40:]}")
+                continue
+            try:
+                r = requests.get(u, headers={"User-Agent": UA, "Range": "bytes=0-1023"}, timeout=30, stream=True)
+                alive = r.status_code in (200, 206) and r.headers.get("Content-Type", "").startswith("video/")
+                r.close()
+            except Exception:
+                alive = False
+            if not alive:
+                print(f"    [영상 뺌] 열리지 않음: {u[-50:]}")
+                continue
+        elif not path.endswith(".gif"):
+            try:
+                img = requests.get(u, headers={"User-Agent": UA}, timeout=60)
+                if img.status_code != 200 or not img.headers.get("Content-Type", "").startswith("image/"):
+                    raise RuntimeError(img.status_code)
+            except Exception as e:
+                print(f"    [사진 뺌] 받기 실패: {u[-50:]} ({e})")
+                continue
+        out.append((kind, u))
+    return out
+
+
 def post_items(items, h, existing):
     """후보 목록을 올림. (올린 개수, 등록 실패가 있었는지)를 돌려줌"""
     rec = load(POSTED, {"posted": {}, "skipped": {}})   # candidates()가 기록한 건너뜀을 포함해 다시 읽음
@@ -815,31 +849,42 @@ def post_items(items, h, existing):
         used = {x for p in rec["posted"].values() for x in p.get("urls", [])}
         media = [(k, x) for k, x in media if x not in used]
         src_urls = [x for _, x in media]
-        media = localize(media, h)
+        media = localize(media, h) if OLD_SITE else prepare_new_only(media)
         if not media:
             rec["skipped"][key] = {"title": title, "why": "움짤·사진 없음"}
             save(POSTED, rec)
             print(f"  [건너뜀] {title}: 쓸 수 있는 움짤·사진 없음")
             continue
         nick = pick_nick(rec)
-        body = {"board_type": BOARD, "title": title, "content": to_html(media), "author_nickname": nick,
-                "author_level": 99, "is_notice": False, "is_pinned": False, "is_published": True}
-        r = requests.post(f"{API}/posts", json=body, headers=h, timeout=90)
-        if r.status_code not in (200, 201):
-            print(f"  [등록 실패] {title}: {r.status_code} {r.text[:200]}")
-            failed = True
-            continue
-        d = r.json()
-        pid = (d.get("post") or d.get("data") or d).get("id")
-        rec["posted"][key] = {"id": pid, "title": title, "nick": nick, "media": len(media),
-                              "at": now().strftime("%Y-%m-%d %H:%M"), "urls": src_urls, "orig": orig, "tpl": tpl}
-        save(POSTED, rec)
-        new_id = new_site_post(key.replace(" ", ""), title, nick, media)   # 새 사이트에도(실패해도 옛 사이트 게시는 그대로)
-        if new_id:
-            rec["posted"][key]["new"] = new_id
+        if OLD_SITE:
+            body = {"board_type": BOARD, "title": title, "content": to_html(media), "author_nickname": nick,
+                    "author_level": 99, "is_notice": False, "is_pinned": False, "is_published": True}
+            r = requests.post(f"{API}/posts", json=body, headers=h, timeout=90)
+            if r.status_code not in (200, 201):
+                print(f"  [등록 실패] {title}: {r.status_code} {r.text[:200]}")
+                failed = True
+                continue
+            d = r.json()
+            pid = (d.get("post") or d.get("data") or d).get("id")
+            rec["posted"][key] = {"id": pid, "title": title, "nick": nick, "media": len(media),
+                                  "at": now().strftime("%Y-%m-%d %H:%M"), "urls": src_urls, "orig": orig, "tpl": tpl}
+            save(POSTED, rec)
+            new_id = new_site_post(key.replace(" ", ""), title, nick, media)   # 새 사이트에도(실패해도 옛 사이트 게시는 그대로)
+            if new_id:
+                rec["posted"][key]["new"] = new_id
+                save(POSTED, rec)
+        else:   # 황소티비에만 (옛 사이트 글 번호 id는 None)
+            new_id = new_site_post(key.replace(" ", ""), title, nick, media)
+            if not new_id:
+                print(f"  [등록 실패] {title}: 황소티비 등록 안 됨")
+                failed = True
+                continue
+            pid = None
+            rec["posted"][key] = {"id": None, "title": title, "nick": nick, "media": len(media),
+                                  "at": now().strftime("%Y-%m-%d %H:%M"), "urls": src_urls, "orig": orig, "tpl": tpl, "new": new_id}
             save(POSTED, rec)
         count += 1
-        print(f"  [게시 완료] {pid} · {nick} · {title} (움짤·사진 {len(media)}개)")
+        print(f"  [게시 완료] {pid or '황소티비'} · {nick} · {title} (움짤·사진 {len(media)}개)")
         time.sleep(random.randint(20, 90))
     return count, failed
 
@@ -853,8 +898,8 @@ def submit(n):
         if not items:
             break
         if h is None:
-            h = login()
-            existing = public_titles()
+            h = login() if OLD_SITE else {}
+            existing = public_titles() if OLD_SITE else set()
         got, failed = post_items(items, h, existing)
         count += got
         if count >= n or failed:   # 등록이 실패한 실행은 같은 일을 반복하지 않고 다음 실행에 맡김
