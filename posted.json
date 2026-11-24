@@ -12046,6 +12046,19 @@
       "orig": "프로미스나인 이채영 시스루",
       "tpl": null,
       "new": "sp766094607506"
+    },
+    "zzalbox/de38b0c4-4f41-4148-bcd6-eae9d2d8f038": {
+      "id": null,
+      "title": "오마이걸 유빈 오늘자 모습",
+      "nick": "hyunwoo_k",
+      "media": 1,
+      "at": "2026-11-25 06:08",
+      "urls": [
+        "https://cdn.zzalbox.com/1d8f4500-14a9-4b00-9c09-cfa3be974164.mp4"
+      ],
+      "orig": "오마이걸 유빈 깊은 기립근 치맛속 엉밑살",
+      "tpl": 105,
+      "new": "sp385f83c892de"
     }
   },
   "skipped": {
@@ -15184,6 +15197,10 @@
     "kkzz/10699": {
       "title": "다시 입은 백바지 베스티 유지 움짤",
       "why": "누군지 확실하지 않음"
+    },
+    "zzalbox/fbbecd30-3af7-4d5b-a409-dc31e213b0a1": {
+      "title": "QWER 마젠타 레깅스 엉태 팬티라인",
+      "why": "신체 부위 단어 '팬티'"
     }
   }
 }
