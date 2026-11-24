@@ -11970,6 +11970,36 @@
       "orig": "오피스룩 하체 핏 하지원 치어리더 움짤",
       "tpl": 6,
       "new": "spebaac1e840d5"
+    },
+    "zzalbox/5dc5b7e7-12d3-416a-b679-a0b7de665d08": {
+      "id": null,
+      "title": "장원영 mama 안대 퍼포먼스",
+      "nick": "잠실불주먹",
+      "media": 5,
+      "at": "2026-11-24 23:37",
+      "urls": [
+        "https://cdn.zzalbox.com/315d0f00-6441-41a0-9799-cffbc294aa14.mp4",
+        "https://cdn.zzalbox.com/958142c3-bb78-4910-89cc-bf804ea106ec.mp4",
+        "https://cdn.zzalbox.com/adf7eca4-efaf-4a75-80ea-9a92d4b523f2.mp4",
+        "https://cdn.zzalbox.com/3952a302-bbef-48fe-bdf2-992ebe8dd45a.mp4",
+        "https://cdn.zzalbox.com/f9090778-0c6c-4aba-b1f3-ce121e2cc4d7.mp4"
+      ],
+      "orig": "장원영 mama 안대 퍼포먼스",
+      "tpl": null,
+      "new": "sp0c6a17f9f5e8"
+    },
+    "jjalarc/98646f79-91ec-41f8-a9f1-9d2701cde9f0": {
+      "id": null,
+      "title": "아이브, 수상 무대에서 번지는 미소",
+      "nick": "미역줄기",
+      "media": 1,
+      "at": "2026-11-24 23:38",
+      "urls": [
+        "https://xn--ov3b15kt6avuq8gjuj.com/media/dc73a71f-16bc-436d-9988-982880970bcd"
+      ],
+      "orig": "아이브, 수상 무대에서 번지는 미소",
+      "tpl": null,
+      "new": "spf5d3692a0097"
     }
   },
   "skipped": {
@@ -15099,6 +15129,10 @@
     },
     "jjalarc/e9470242-ec89-4ee2-ad65-3f16e85e91da": {
       "title": "보라 조명 아래 발맞추는 베스티 다혜",
+      "why": "누군지 확실하지 않음"
+    },
+    "zzalbox/a90a7970-1ff1-472e-b3b3-cba06240457e": {
+      "title": "하투하 이안 빨간나시",
       "why": "누군지 확실하지 않음"
     }
   }
