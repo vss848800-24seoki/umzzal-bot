@@ -12020,6 +12020,19 @@
       "orig": "홍콩 콘서트 프로미스나인 이나경 움짤",
       "tpl": 7,
       "new": "sp616ab50810cb"
+    },
+    "zzalbox/93db9a81-0f08-4cb5-8aba-9f17ee72e7b9": {
+      "id": null,
+      "title": "김채원 goal",
+      "nick": "아아한잔",
+      "media": 1,
+      "at": "2026-11-25 03:23",
+      "urls": [
+        "https://cdn.zzalbox.com/f11b9164-11f2-4e10-8796-ef1ee0686754.mp4"
+      ],
+      "orig": "김채원 goal",
+      "tpl": null,
+      "new": "sp00f06b1f7845"
     }
   },
   "skipped": {
@@ -15153,6 +15166,10 @@
     },
     "zzalbox/a90a7970-1ff1-472e-b3b3-cba06240457e": {
       "title": "하투하 이안 빨간나시",
+      "why": "누군지 확실하지 않음"
+    },
+    "kkzz/10699": {
+      "title": "다시 입은 백바지 베스티 유지 움짤",
       "why": "누군지 확실하지 않음"
     }
   }
