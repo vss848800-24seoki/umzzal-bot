@@ -12073,6 +12073,22 @@
       "orig": "레드벨벳 웬디 망사 드레스 숙인 가슴골",
       "tpl": 100,
       "new": "spf5ebc0515803"
+    },
+    "zzalbox/869bf455-1d91-4d49-84b3-281be5418fbf": {
+      "id": null,
+      "title": "아이브 리즈 분위기",
+      "nick": "망원동주민",
+      "media": 4,
+      "at": "2026-11-25 12:47",
+      "urls": [
+        "https://cdn.zzalbox.com/56dadfb0-4955-4cb4-a357-b06d714c0881.mp4",
+        "https://cdn.zzalbox.com/0064649a-afcf-4578-ace8-b553811888ae.mp4",
+        "https://cdn.zzalbox.com/78b14e0a-af5b-4d7f-928e-a4ca68dcf7fc.mp4",
+        "https://cdn.zzalbox.com/9a711a81-84dc-4063-8959-41d46a6f8adb.mp4"
+      ],
+      "orig": "아이브 리즈 지스타 배틀그라운드 부스 엉밑살",
+      "tpl": 104,
+      "new": "spaf918483dc09"
     }
   },
   "skipped": {
@@ -15219,6 +15235,11 @@
     "zzalbox/c4bfc1c1-9c57-4124-87ac-68c16ba8c4d0": {
       "title": "노출 1도 없이 묵직한 라잇썸 초원 움짤",
       "why": "신체 부위 단어 '노출'"
+    },
+    "zzalbox/9e3fcdfd-00f8-4173-95d4-fd5ae0f5c13c": {
+      "title": "에스파 (aespa) 카리나 흰나시 크로슴벨트",
+      "why": "움짤·사진 없음",
+      "webm": true
     }
   }
 }
