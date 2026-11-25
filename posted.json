@@ -12109,6 +12109,19 @@
       "orig": "있지 채령 솔로 안무 연습 사이드붑",
       "tpl": null,
       "new": "spd6d3323a8752"
+    },
+    "zzalbox/50c955ec-1457-48f9-bea0-61cd451ff2a3": {
+      "id": null,
+      "title": "권은비 근황",
+      "nick": "운동은내일부터",
+      "media": 1,
+      "at": "2026-11-25 15:17",
+      "urls": [
+        "https://cdn.zzalbox.com/42305139-c239-4315-81a6-d161759bab23.mp4"
+      ],
+      "orig": "바닥이 너무 미끄럽다는 권은비 시스루속 흰브라 가슴 출렁",
+      "tpl": 101,
+      "new": "sp4de0718c25b5"
     }
   },
   "skipped": {
@@ -15258,6 +15271,11 @@
     },
     "zzalbox/9e3fcdfd-00f8-4173-95d4-fd5ae0f5c13c": {
       "title": "에스파 (aespa) 카리나 흰나시 크로슴벨트",
+      "why": "움짤·사진 없음",
+      "webm": true
+    },
+    "zzalbox/6f2f32b3-ce9d-4706-a21e-cd0829a7b102": {
+      "title": "에스파 (aespa) 윈터 오프솔더",
       "why": "움짤·사진 없음",
       "webm": true
     }
