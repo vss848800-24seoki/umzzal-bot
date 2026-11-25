@@ -12307,6 +12307,19 @@
       "orig": "무대에서 내려오는 아이브 장원영 화이트 오프솔더 가슴골",
       "tpl": 104,
       "new": "sp5efb2efd475b"
+    },
+    "jjalarc/993ec032-3440-4a62-ab02-af13be91bbc5": {
+      "id": null,
+      "title": "와...김채현...이쁘긴이쁘네",
+      "nick": "dongho77",
+      "media": 1,
+      "at": "2026-11-26 07:52",
+      "urls": [
+        "https://xn--ov3b15kt6avuq8gjuj.com/media/dec91c6a-01f5-40ab-9d3c-d24254c5b267"
+      ],
+      "orig": "와...김채현...이쁘긴이쁘네",
+      "tpl": null,
+      "new": "sp86f2c6228837"
     }
   },
   "skipped": {
@@ -15516,6 +15529,18 @@
     "zzalbox/2fbcb2df-4ddd-4496-9c01-e9726c4d5e78": {
       "title": "키키 키야 크롭티 복근 백바지",
       "why": "미성년 멤버 '키야'"
+    },
+    "jjalarc/c8bcbcdb-9216-4ed2-a252-79468a4c265a": {
+      "title": "빙빙 도는 예주 상큼하네",
+      "why": "누군지 확실하지 않음"
+    },
+    "jjalarc/dbc21624-9d2d-4e9e-b0e5-7225fd4899b4": {
+      "title": "예나 레전드짤 진짜",
+      "why": "누군지 확실하지 않음"
+    },
+    "jjalarc/81cf4986-8015-4e9b-9726-8ef92cdd6ac7": {
+      "title": "뭔가 보이는거 같기도하고...아무튼 이쁘다",
+      "why": "누군지 확실하지 않음"
     }
   }
 }
