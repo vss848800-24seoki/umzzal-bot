@@ -12089,6 +12089,26 @@
       "orig": "아이브 리즈 지스타 배틀그라운드 부스 엉밑살",
       "tpl": 104,
       "new": "spaf918483dc09"
+    },
+    "zzalbox/7332868f-831f-4c9f-845f-6b4ccdcfd191": {
+      "id": null,
+      "title": "있지 채령 솔로 안무 연습 사이드붑",
+      "nick": "주말농장",
+      "media": 8,
+      "at": "2026-11-25 14:17",
+      "urls": [
+        "https://cdn.zzalbox.com/044932eb-7bbd-41e8-913d-a7b3b6cd5834.mp4",
+        "https://cdn.zzalbox.com/4be0dfc2-8c73-4260-9f9d-3243fbd6b61f.mp4",
+        "https://cdn.zzalbox.com/7c3df101-e601-42c9-9632-cdec380d39b2.mp4",
+        "https://cdn.zzalbox.com/df154f6b-9e88-449f-9c65-e27d9d909dda.mp4",
+        "https://cdn.zzalbox.com/057892c8-3603-4a55-936f-59d53b887289.mp4",
+        "https://cdn.zzalbox.com/52ea3402-99b4-41c8-8a94-ab79f327f26c.mp4",
+        "https://cdn.zzalbox.com/a6471bd4-0da7-470b-8c29-2031a0e7acb1.mp4",
+        "https://cdn.zzalbox.com/412374a5-c559-4725-90fc-0d25e4d7c071.mp4"
+      ],
+      "orig": "있지 채령 솔로 안무 연습 사이드붑",
+      "tpl": null,
+      "new": "spd6d3323a8752"
     }
   },
   "skipped": {
