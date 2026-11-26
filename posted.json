@@ -12491,6 +12491,19 @@
       "orig": "아없유왕 오마이걸 유빈 움짤",
       "tpl": 11,
       "new": "sp5d859ec83b32"
+    },
+    "jjalarc/535faca8-5d02-427b-a385-81a022c8018e": {
+      "id": null,
+      "title": "올라프 당근 코 앞에서 깜짝 놀란 원영",
+      "nick": "호두과자",
+      "media": 1,
+      "at": "2026-11-27 02:40",
+      "urls": [
+        "https://xn--ov3b15kt6avuq8gjuj.com/media/a4b78eed-7cdb-4ac8-9c77-4a737e04d7cc"
+      ],
+      "orig": "올라프 당근 코 앞에서 깜짝 놀란 원영",
+      "tpl": null,
+      "new": "spd25e0c87bd38"
     }
   },
   "skipped": {
@@ -15732,6 +15745,10 @@
     "zzalbox/b35c829e-b265-4c3e-8a40-7ced28196636": {
       "title": "아이브 이서 묵직한 목걸이 끈나시 가슴골",
       "why": "미성년 멤버 가능 '이서'"
+    },
+    "jjalarc/1c95a37e-8f5d-41b6-8b2c-4e5ccc23e93f": {
+      "title": "블랙 드레스 입고 이야기하는 예나",
+      "why": "누군지 확실하지 않음"
     }
   }
 }
