@@ -12346,6 +12346,19 @@
       "orig": "신나게 흔드는 라잇썸 나영이",
       "tpl": null,
       "new": "sp02947200eb3e"
+    },
+    "jjalarc/b8c50468-7def-4ebb-aa1e-2c80e6dce5d9": {
+      "id": null,
+      "title": "지헌 돌아보는 순간, 미소가 딱",
+      "nick": "찹쌀떡",
+      "media": 1,
+      "at": "2026-11-26 09:53",
+      "urls": [
+        "https://xn--ov3b15kt6avuq8gjuj.com/media/ff90bf7f-80e0-4943-b0e5-a00e1df841f5"
+      ],
+      "orig": "지헌 돌아보는 순간, 미소가 딱",
+      "tpl": null,
+      "new": "spd31a326ff90b"
     }
   },
   "skipped": {
@@ -15566,6 +15579,10 @@
     },
     "jjalarc/81cf4986-8015-4e9b-9726-8ef92cdd6ac7": {
       "title": "뭔가 보이는거 같기도하고...아무튼 이쁘다",
+      "why": "누군지 확실하지 않음"
+    },
+    "jjalarc/f08a7e6d-6ca2-4dcc-b3f5-fca214e98e30": {
+      "title": "연기 속에서도 무대 이어가는 아현",
       "why": "누군지 확실하지 않음"
     }
   }
