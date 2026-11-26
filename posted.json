@@ -12373,6 +12373,20 @@
       "orig": "숙이는 라잇썸 초원 묵직한 가슴골 ㅗㅜㅑ",
       "tpl": 100,
       "new": "sp16dad8160dce"
+    },
+    "zzalbox/f1e8dd72-1e67-43c7-a633-ab8ab97a4d8a": {
+      "id": null,
+      "title": "케플러 레전드",
+      "nick": "편의점알바생",
+      "media": 2,
+      "at": "2026-11-26 17:07",
+      "urls": [
+        "https://cdn.zzalbox.com/c4abb845-e64d-4d73-802c-24c7686bc1e9.mp4",
+        "https://cdn.zzalbox.com/e14a4689-1e44-4bd8-a7e8-508a0f655788.mp4"
+      ],
+      "orig": "케플러 김다연 묵직하게 흔들리는 가슴골",
+      "tpl": 102,
+      "new": "sp7781ece6125b"
     }
   },
   "skipped": {
