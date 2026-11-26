@@ -12359,6 +12359,20 @@
       "orig": "지헌 돌아보는 순간, 미소가 딱",
       "tpl": null,
       "new": "spd31a326ff90b"
+    },
+    "zzalbox/fb11247e-3d25-45b8-a14f-f49e90f24bb9": {
+      "id": null,
+      "title": "오늘자 라잇썸",
+      "nick": "dlwlsgh",
+      "media": 2,
+      "at": "2026-11-26 14:22",
+      "urls": [
+        "https://cdn.zzalbox.com/6a85e813-63d2-4521-b24a-7f42aa3f85a6.mp4",
+        "https://cdn.zzalbox.com/c6fdd486-47c5-4e61-a9b3-f36034e641f3.mp4"
+      ],
+      "orig": "숙이는 라잇썸 초원 묵직한 가슴골 ㅗㅜㅑ",
+      "tpl": 100,
+      "new": "sp16dad8160dce"
     }
   },
   "skipped": {
@@ -15583,6 +15597,10 @@
     },
     "jjalarc/f08a7e6d-6ca2-4dcc-b3f5-fca214e98e30": {
       "title": "연기 속에서도 무대 이어가는 아현",
+      "why": "누군지 확실하지 않음"
+    },
+    "zzalbox/fe758f05-cc7a-48b0-b796-64bf5d941768": {
+      "title": "한지민 청룡영화상 드레스 가슴골",
       "why": "누군지 확실하지 않음"
     }
   }
