@@ -12458,6 +12458,19 @@
       "orig": "무대에서 호흡 맞추는 카리나·닝닝",
       "tpl": null,
       "new": "sp6b9fad0a1a0f"
+    },
+    "jjalarc/144406b6-0cd0-4c12-8b1a-dbdab34a55cb": {
+      "id": null,
+      "title": "사나 분위기",
+      "nick": "jjm0412",
+      "media": 1,
+      "at": "2026-11-27 00:10",
+      "urls": [
+        "https://xn--ov3b15kt6avuq8gjuj.com/media/d16f236f-4a3b-428f-8533-aebfbe8a958d"
+      ],
+      "orig": "우와...스포츠브라가 섹시한 사나",
+      "tpl": 104,
+      "new": "sp8d9ffde24977"
     }
   },
   "skipped": {
