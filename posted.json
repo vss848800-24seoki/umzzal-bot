@@ -12387,6 +12387,25 @@
       "orig": "케플러 김다연 묵직하게 흔들리는 가슴골",
       "tpl": 102,
       "new": "sp7781ece6125b"
+    },
+    "zzalbox/38b4a7d7-b924-4856-b69f-330dbf345d9a": {
+      "id": null,
+      "title": "트리플에스 김채연 오늘자 모습",
+      "nick": "후라이드",
+      "media": 7,
+      "at": "2026-11-26 18:37",
+      "urls": [
+        "https://cdn.zzalbox.com/f0c36086-8510-4294-8d0c-4f3bffa2cf8e.mp4",
+        "https://cdn.zzalbox.com/efa784f8-5516-4368-81bf-f5337e08ee92.mp4",
+        "https://cdn.zzalbox.com/2991b992-af06-4be7-84f9-ef8046ca8c64.mp4",
+        "https://cdn.zzalbox.com/792f5324-4a01-4430-a1a3-0587c6ef5ce9.mp4",
+        "https://cdn.zzalbox.com/7a591388-3875-449c-a448-8c83f9c9df17.mp4",
+        "https://cdn.zzalbox.com/228b85c7-0b18-4622-9402-55aa319e8965.mp4",
+        "https://cdn.zzalbox.com/1c5c1107-0db2-4590-8973-79c0edc7ce24.mp4"
+      ],
+      "orig": "트리플에스 김채연 잠옷 라방 가슴골 살짝",
+      "tpl": 105,
+      "new": "sp1534c6d5d067"
     }
   },
   "skipped": {
@@ -15615,6 +15634,10 @@
     },
     "zzalbox/fe758f05-cc7a-48b0-b796-64bf5d941768": {
       "title": "한지민 청룡영화상 드레스 가슴골",
+      "why": "누군지 확실하지 않음"
+    },
+    "zzalbox/56b79af0-7bcc-4121-b7a3-5b70cdaac92c": {
+      "title": "시그니처 지원 라방 표범무늬 털잠옷 묵직 가슴",
       "why": "누군지 확실하지 않음"
     }
   }
