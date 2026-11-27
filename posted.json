@@ -12586,6 +12586,24 @@
       "orig": "하이키 옐 근황",
       "tpl": null,
       "new": "spa56c2d06e724"
+    },
+    "zzalbox/6ff3fc16-0d3a-4185-85ec-1bd81b575503": {
+      "id": null,
+      "title": "시스루에 트레이닝 바지 ITZY 유나",
+      "nick": "파랑새",
+      "media": 6,
+      "at": "2026-11-27 15:50",
+      "urls": [
+        "https://cdn.zzalbox.com/5fca9405-cc5e-4d4b-b53a-ebdac9b887a4.mp4",
+        "https://cdn.zzalbox.com/865e9f39-18fc-4e2e-b5c3-0457d7116941.mp4",
+        "https://cdn.zzalbox.com/7d399842-a593-4679-8f1f-32f16db48942.mp4",
+        "https://cdn.zzalbox.com/baacd935-69ba-46a3-9513-41c3f07b755f.mp4",
+        "https://cdn.zzalbox.com/40eab9c0-b9d2-44bb-bc37-6f02c61919c7.mp4",
+        "https://cdn.zzalbox.com/424f7cb1-6fb7-47f8-b7ee-750430d4c22d.mp4"
+      ],
+      "orig": "시스루에 트레이닝 바지 ITZY 유나",
+      "tpl": null,
+      "new": "spdaf4a173af41"
     }
   },
   "skipped": {
