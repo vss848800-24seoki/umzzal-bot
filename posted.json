@@ -12712,6 +12712,28 @@
       "orig": "청룡 조이현 레드카펫",
       "tpl": null,
       "new": "spd56d05504dfb"
+    },
+    "kkzz/10709": {
+      "id": null,
+      "title": "요망스런 무빙 트와이스 사나 ㄷㄷ",
+      "nick": "곰돌이",
+      "media": 10,
+      "at": "2026-11-28 04:53",
+      "urls": [
+        "https://i0.wp.com/kkzz.kr/wp-content/uploads/mangboard/2026/11/27/F10838_45-%ED%8A%B8%EC%99%80%EC%9D%B4%EC%8A%A4-%EC%82%AC%EB%82%98.jpg?w=764&ssl=1",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-82205.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-82206.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-82207.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-82208.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-82209.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-82210.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-82211.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-82212.mp4",
+        "https://kkzz.kr/wp-content/uploads/2026/11/Honeycam-82213.mp4"
+      ],
+      "orig": "요망스런 무빙 트와이스 사나 움짤",
+      "tpl": 3,
+      "new": "spebfaad9d6c93"
     }
   },
   "skipped": {
