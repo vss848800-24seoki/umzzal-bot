@@ -12604,6 +12604,19 @@
       "orig": "시스루에 트레이닝 바지 ITZY 유나",
       "tpl": null,
       "new": "spdaf4a173af41"
+    },
+    "zzalbox/499bd026-cc38-4f58-952e-c085bd8e0796": {
+      "id": null,
+      "title": "풍만한 사나",
+      "nick": "kimchi_lover",
+      "media": 1,
+      "at": "2026-11-27 18:05",
+      "urls": [
+        "https://cdn.zzalbox.com/28acef26-6ee6-466d-aaca-ac934fd82954.mp4"
+      ],
+      "orig": "풍만한 사나",
+      "tpl": null,
+      "new": "spad5eca673a15"
     }
   },
   "skipped": {
