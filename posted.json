@@ -12530,6 +12530,19 @@
       "orig": "아이브, 포토월에서 나란히 뒤돌아 한 컷",
       "tpl": null,
       "new": "spaa641cef809e"
+    },
+    "jjalarc/4303d466-e86f-45ad-8acd-c8d1f63508bf": {
+      "id": null,
+      "title": "크림색 재킷 차림으로 웃는 르세라핌 비하인드",
+      "nick": "tmdgus",
+      "media": 1,
+      "at": "2026-11-27 10:12",
+      "urls": [
+        "https://xn--ov3b15kt6avuq8gjuj.com/media/349d3a9b-3f8e-4012-bf8f-2db15a672703"
+      ],
+      "orig": "크림색 재킷 차림으로 웃는 르세라핌 비하인드",
+      "tpl": null,
+      "new": "spc6e4ee96f020"
     }
   },
   "skipped": {
@@ -15774,6 +15787,10 @@
     },
     "jjalarc/1c95a37e-8f5d-41b6-8b2c-4e5ccc23e93f": {
       "title": "블랙 드레스 입고 이야기하는 예나",
+      "why": "누군지 확실하지 않음"
+    },
+    "jjalarc/e36d8924-15b2-46fe-8c65-639d84239e58": {
+      "title": "차 앞에서 장난스레 브이 하는 마젠타",
       "why": "누군지 확실하지 않음"
     }
   }
