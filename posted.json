@@ -12685,6 +12685,20 @@
       "orig": "레드벨벳 슬기 운동하는 레깅스 엉태",
       "tpl": null,
       "new": "sp2d5fa4699aed"
+    },
+    "zzalbox/0bdc4f7a-4a91-4bc0-afeb-1371461d1eab": {
+      "id": null,
+      "title": "블랙 오프솔더 드레스 입고 DJ 하는 소녀시대 효연",
+      "nick": "단무지추가",
+      "media": 2,
+      "at": "2026-11-28 03:38",
+      "urls": [
+        "https://cdn.zzalbox.com/50df5fc8-045d-473f-a839-0d3fd3dc83f5.mp4",
+        "https://cdn.zzalbox.com/97c14c3d-055f-40aa-850f-2be340cab039.mp4"
+      ],
+      "orig": "블랙 오프솔더 드레스 입고 DJ 하는 소녀시대 효연",
+      "tpl": null,
+      "new": "sp3539966c34ba"
     }
   },
   "skipped": {
@@ -15956,6 +15970,14 @@
     "zzalbox/85256074-bd50-4df5-a6f5-f711bdd2f9ce": {
       "title": "아이브 이서 옆에서 보는 사이드붑",
       "why": "미성년 멤버 가능 '이서'"
+    },
+    "zzalbox/684478d0-a2e0-49f8-8af5-daa0dbc5c569": {
+      "title": "MEOVV (미야오) 안나 볼 말랑이",
+      "why": "미성년 멤버 가능 '미야오'"
+    },
+    "zzalbox/3a841e9a-a52d-4c79-bc29-f93eebb45b84": {
+      "title": "시그니처 지원 뉴 챌린지 브라탑 묵직 가슴",
+      "why": "누군지 확실하지 않음"
     }
   }
 }
