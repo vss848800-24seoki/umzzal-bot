@@ -12569,6 +12569,23 @@
       "orig": "초록빛 무대에서 손 흔들어 준 카리나",
       "tpl": null,
       "new": "spe124f22e4af1"
+    },
+    "zzalbox/e8386184-a40e-45b8-9ef1-8026ae746531": {
+      "id": null,
+      "title": "하이키 옐 근황",
+      "nick": "늦잠전문가",
+      "media": 5,
+      "at": "2026-11-27 15:35",
+      "urls": [
+        "https://cdn.zzalbox.com/2ecf5ed6-ada1-4b31-834c-6d221f3b7935.mp4",
+        "https://cdn.zzalbox.com/3288da01-c367-4361-a084-870c2e9a1f4c.mp4",
+        "https://cdn.zzalbox.com/61e15cae-8955-410f-a711-56d022bf2351.mp4",
+        "https://cdn.zzalbox.com/1505404b-1469-49c9-bf08-ca550a48ba31.mp4",
+        "https://cdn.zzalbox.com/9eb4e6bb-41bd-4fb2-bcc1-ac9e75e5b8b6.mp4"
+      ],
+      "orig": "하이키 옐 근황",
+      "tpl": null,
+      "new": "spa56c2d06e724"
     }
   },
   "skipped": {
