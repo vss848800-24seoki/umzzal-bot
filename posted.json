@@ -12630,6 +12630,19 @@
       "orig": "스테이씨 시은 털달린 골지티 손동작",
       "tpl": null,
       "new": "sp243834e38702"
+    },
+    "zzalbox/92d5ebf5-726b-4471-b1de-1a4400a5467b": {
+      "id": null,
+      "title": "오마이걸 근황",
+      "nick": "소금빵",
+      "media": 1,
+      "at": "2026-11-27 20:51",
+      "urls": [
+        "https://cdn.zzalbox.com/dc606d44-c181-4dc2-bf67-f68db353c64a.mp4"
+      ],
+      "orig": "바닥에 앉는 오마이걸 아린이 집중하게 하는 엉밑살",
+      "tpl": 101,
+      "new": "spfde319a438d4"
     }
   },
   "skipped": {
